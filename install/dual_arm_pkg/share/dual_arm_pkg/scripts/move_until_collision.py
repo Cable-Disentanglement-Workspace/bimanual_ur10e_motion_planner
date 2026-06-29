@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/src/dual_arm_pkg/scripts/move_until_collision.py

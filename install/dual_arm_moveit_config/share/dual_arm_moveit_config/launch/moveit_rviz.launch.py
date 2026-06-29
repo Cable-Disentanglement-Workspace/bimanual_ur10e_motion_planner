@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/src/dual_arm_moveit_config/launch/moveit_rviz.launch.py

@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_description/launch/view_gripper.launch.py

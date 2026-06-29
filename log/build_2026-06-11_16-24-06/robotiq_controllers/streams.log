@@ -1,0 +1,35 @@
+[0.051s] Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_controllers': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/robotiq_controllers -- -j20 -l20
+[0.153s] [35m[1mConsolidate compiler generated dependencies of target robotiq_controllers[0m
+[0.226s] [100%] Built target robotiq_controllers
+[0.309s] Invoked command in '/home/rosi/ws_dual_arm/build/robotiq_controllers' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/robotiq_controllers -- -j20 -l20
+[0.310s] Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_controllers': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/robotiq_controllers
+[0.319s] -- Install configuration: "Release"
+[0.320s] -- Execute custom install script
+[0.320s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers//controller_plugins.xml
+[0.335s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/include/robotiq_controllers/robotiq_activation_controller.hpp
+[0.346s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/library_path.sh
+[0.357s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/library_path.dsv
+[0.370s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/package_run_dependencies/robotiq_controllers
+[0.384s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/parent_prefix_path/robotiq_controllers
+[0.400s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/ament_prefix_path.sh
+[0.413s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/ament_prefix_path.dsv
+[0.426s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/path.sh
+[0.439s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/path.dsv
+[0.452s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.bash
+[0.462s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.sh
+[0.472s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.zsh
+[0.485s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.dsv
+[0.498s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/package.dsv
+[0.509s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/packages/robotiq_controllers
+[0.523s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/controller_interface__pluginlib__plugin/robotiq_controllers
+[0.533s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.547s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_libraries-extras.cmake
+[0.561s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_targets-extras.cmake
+[0.572s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.584s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/robotiq_controllersConfig.cmake
+[0.597s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/robotiq_controllersConfig-version.cmake
+[0.606s] -- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/package.xml
+[0.619s] -- Up-to-date: /home/rosi/ws_dual_arm/install/robotiq_controllers/lib/librobotiq_controllers.so
+[0.620s] -- Up-to-date: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/export_robotiq_controllersExport.cmake
+[0.620s] -- Up-to-date: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/export_robotiq_controllersExport-release.cmake
+[0.623s] Invoked command in '/home/rosi/ws_dual_arm/build/robotiq_controllers' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/robotiq_controllers

@@ -1,0 +1,23 @@
+{
+  "package_name": "easy_handeye2_msgs",
+  "non_idl_tuples": [
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:msg/HandeyeCalibration.msg",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:msg/HandeyeCalibrationParameters.msg",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:msg/Sample.msg",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:msg/SampleList.msg",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:msg/TargetPoseList.msg",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/ListAlgorithms.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/SetAlgorithm.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/ComputeCalibration.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/SaveCalibration.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/RemoveSample.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/TakeSample.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/SaveSamples.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/calibration/LoadSamples.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/robot_movements/CheckStartingPose.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/robot_movements/EnumerateTargetPoses.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/robot_movements/SelectTargetPose.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/robot_movements/PlanToSelectedTargetPose.srv",
+    "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs:srv/robot_movements/ExecutePlan.srv"
+  ]
+}

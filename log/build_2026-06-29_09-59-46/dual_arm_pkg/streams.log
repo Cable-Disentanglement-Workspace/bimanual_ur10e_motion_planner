@@ -1,0 +1,54 @@
+[0.010s] Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_pkg -- -j20 -l20
+[0.081s] Invoked command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_pkg -- -j20 -l20
+[0.095s] Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/dual_arm_pkg
+[0.108s] -- Install configuration: "Release"
+[0.110s] -- Execute custom install script
+[0.112s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/urdf/dual_arm.urdf.xacro
+[0.112s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/urdf/robotiq_2f140.xacro
+[0.113s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/launch/display.launch.py
+[0.113s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/launch/handeye_calibrate.launch.py
+[0.114s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/config/initial_positions.yaml
+[0.115s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_base_link.stl
+[0.116s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_coupling.stl
+[0.116s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_inner_finger.stl
+[0.116s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_inner_knuckle.stl
+[0.117s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_outer_finger.stl
+[0.117s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_outer_knuckle.stl
+[0.117s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/ur10e/base.stl
+[0.117s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/ur10e/forearm.stl
+[0.118s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/ur10e/shoulder.stl
+[0.118s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/ur10e/upperarm.stl
+[0.119s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/ur10e/wrist1.stl
+[0.119s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/ur10e/wrist2.stl
+[0.120s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/collision/ur10e/wrist3.stl
+[0.120s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_base_link.stl
+[0.120s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_coupling.stl
+[0.121s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_inner_finger.stl
+[0.121s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_inner_knuckle.stl
+[0.121s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_outer_finger.stl
+[0.121s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_outer_knuckle.stl
+[0.122s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/cobot_frame.stl
+[0.122s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/cobot_frame_simple.stl
+[0.123s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/ur10e/base.dae
+[0.123s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/ur10e/forearm.dae
+[0.124s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/ur10e/shoulder.dae
+[0.124s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/ur10e/upperarm.dae
+[0.125s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/ur10e/wrist1.dae
+[0.125s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/ur10e/wrist2.dae
+[0.125s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/meshes/visual/ur10e/wrist3.dae
+[0.126s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/ament_index/resource_index/package_run_dependencies/dual_arm_pkg
+[0.126s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/ament_index/resource_index/parent_prefix_path/dual_arm_pkg
+[0.127s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/environment/ament_prefix_path.sh
+[0.127s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/environment/ament_prefix_path.dsv
+[0.127s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/environment/path.sh
+[0.128s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/environment/path.dsv
+[0.128s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/local_setup.bash
+[0.129s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/local_setup.sh
+[0.130s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/local_setup.zsh
+[0.130s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/local_setup.dsv
+[0.130s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/package.dsv
+[0.143s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/ament_index/resource_index/packages/dual_arm_pkg
+[0.144s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/cmake/dual_arm_pkgConfig.cmake
+[0.144s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/cmake/dual_arm_pkgConfig-version.cmake
+[0.144s] -- Up-to-date symlink: /home/rosi/ws_dual_arm/install/dual_arm_pkg/share/dual_arm_pkg/package.xml
+[0.147s] Invoked command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/dual_arm_pkg

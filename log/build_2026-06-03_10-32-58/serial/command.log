@@ -1,0 +1,2 @@
+Invoking command in '/home/rosi/ws_dual_arm/build/serial': /usr/bin/cmake /home/rosi/ws_dual_arm/src/serial -DCMAKE_BUILD_TYPE=Release -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/serial
+Invoked command in '/home/rosi/ws_dual_arm/build/serial' returned '1': /usr/bin/cmake /home/rosi/ws_dual_arm/src/serial -DCMAKE_BUILD_TYPE=Release -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/serial

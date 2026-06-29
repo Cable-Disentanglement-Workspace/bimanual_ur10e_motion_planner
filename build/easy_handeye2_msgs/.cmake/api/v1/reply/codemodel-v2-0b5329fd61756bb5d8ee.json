@@ -1,0 +1,258 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-33ff00f49b4ab664c820.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "easy_handeye2_msgs__py",
+					"jsonFile" : "directory-easy_handeye2_msgs__py-9b6a67115cda9aefdc9a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/rosi/ws_dual_arm/build/easy_handeye2_msgs/easy_handeye2_msgs__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "easy_handeye2_msgs__rs",
+					"jsonFile" : "directory-easy_handeye2_msgs__rs-f99cf2468bbaec1eaeab.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/rosi/ws_dual_arm/build/easy_handeye2_msgs/easy_handeye2_msgs__rs",
+					"targetIndexes" : 
+					[
+						16
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "easy_handeye2_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_easy_handeye2_msgs_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_easy_handeye2_msgs_egg-aceba18ea0f61727dba2.json",
+					"name" : "ament_cmake_python_build_easy_handeye2_msgs_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_symlink_easy_handeye2_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_symlink_easy_handeye2_msgs-f218ebfe3e53f7876cdb.json",
+					"name" : "ament_cmake_python_symlink_easy_handeye2_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs-cb52aeaf1bb267849ced.json",
+					"name" : "easy_handeye2_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__cpp-74f2d656228a5c7eaefa.json",
+					"name" : "easy_handeye2_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "easy_handeye2_msgs__py::@47031c209cdf3b3113bc",
+					"jsonFile" : "target-easy_handeye2_msgs__py-d8a75645f1de3736ca54.json",
+					"name" : "easy_handeye2_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_generator_c-658a1a559ac202f3dcee.json",
+					"name" : "easy_handeye2_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_generator_py-13c568ce4cfcc69de602.json",
+					"name" : "easy_handeye2_msgs__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_c-b7af4b9b7454565f0ec8.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_c__pyext-0ecbff249bfb0da4db11.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_cpp-e75f6117db40275554c4.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_fastrtps_c-3435feab775f4066d58a.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_fastrtps_c__pyext-37a90427784fd1414666.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_fastrtps_cpp-b525950c1998f6b92f7f.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_introspection_c-f71cae88f11d7233d90f.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_introspection_c__pyext-63647bb2119bdeeb4185.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs__rosidl_typesupport_introspection_cpp-15c02ede14c8b805c3c0.json",
+					"name" : "easy_handeye2_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "easy_handeye2_msgs__rs::@f191fcfbb6c871a201a3",
+					"jsonFile" : "target-easy_handeye2_msgs__rs-1d2ae23ded0471c77afc.json",
+					"name" : "easy_handeye2_msgs__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "easy_handeye2_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-easy_handeye2_msgs_uninstall-bef9af5094672790a00f.json",
+					"name" : "easy_handeye2_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-b3fbb7ccdbe01d72c0a9.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rosi/ws_dual_arm/build/easy_handeye2_msgs",
+		"source" : "/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

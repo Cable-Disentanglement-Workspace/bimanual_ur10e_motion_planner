@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/src/dual_arm_moveit_config/launch/dual_arm_real_v2.launch.py

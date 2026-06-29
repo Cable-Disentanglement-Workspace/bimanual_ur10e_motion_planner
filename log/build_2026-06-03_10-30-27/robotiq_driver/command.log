@@ -1,0 +1,2 @@
+Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_driver': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_driver -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_driver
+Invoked command in '/home/rosi/ws_dual_arm/build/robotiq_driver' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_driver -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_driver

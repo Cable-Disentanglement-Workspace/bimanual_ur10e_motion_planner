@@ -1,0 +1,9 @@
+build/
+install/
+log/
+__pycache__/
+*.pyc
+src/easy_handeye2/
+src/ros2_robotiq_gripper/
+src/zed-ros2-description/
+src/zed-ros2-wrapper/

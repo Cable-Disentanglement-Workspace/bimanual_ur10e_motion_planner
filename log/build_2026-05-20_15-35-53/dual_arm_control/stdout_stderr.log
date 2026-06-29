@@ -1,0 +1,3 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/dual_arm_move_group.dir/src/dual_arm_move_group.cpp.o[0m
+[100%] [32m[1mLinking CXX executable dual_arm_move_group[0m
+[100%] Built target dual_arm_move_group

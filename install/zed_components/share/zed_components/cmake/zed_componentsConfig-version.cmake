@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/build/zed_components/ament_cmake_core/zed_componentsConfig-version.cmake

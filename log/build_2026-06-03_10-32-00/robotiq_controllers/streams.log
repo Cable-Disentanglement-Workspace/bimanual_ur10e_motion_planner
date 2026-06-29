@@ -1,0 +1,5 @@
+[0.028s] Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_controllers': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/robotiq_controllers -- -j20 -l20
+[0.110s] [35m[1mConsolidate compiler generated dependencies of target robotiq_controllers[0m
+[0.160s] [ 50%] [32mBuilding CXX object CMakeFiles/robotiq_controllers.dir/src/robotiq_activation_controller.cpp.o[0m
+[4.462s] [100%] [32m[1mLinking CXX shared library librobotiq_controllers.so[0m
+[4.649s] [100%] Built target robotiq_controllers

@@ -1,0 +1,18 @@
+[100%] Built target dual_arm_move_group
+-- Install configuration: "Release"
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/lib/dual_arm_control/dual_arm_move_group
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/package_run_dependencies/dual_arm_control
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/parent_prefix_path/dual_arm_control
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/ament_prefix_path.sh
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/path.sh
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/path.dsv
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.bash
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.sh
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.zsh
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.dsv
+-- Installing: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/package.dsv
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/packages/dual_arm_control
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/cmake/dual_arm_controlConfig.cmake
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/cmake/dual_arm_controlConfig-version.cmake
+-- Up-to-date: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/package.xml

@@ -1,0 +1,51 @@
+[0.032s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_description
+[0.062s] -- Found ament_cmake_auto: 1.3.14 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.292s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.424s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.439s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.443s] -- Added test 'lint_cmake' to check CMake code style
+[0.443s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.447s] -- Added test 'xmllint' to check XML markup files
+[0.448s] -- Configuring done
+[0.454s] -- Generating done
+[0.455s] -- Build files have been written to: /home/rosi/ws_dual_arm/build/zed_description
+[0.458s] Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_description
+[0.461s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
+[0.506s] Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
+[0.508s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_description
+[0.517s] -- Install configuration: "Release"
+[0.518s] -- Execute custom install script
+[0.518s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/urdf/zed_descr.urdf.xacro
+[0.528s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/urdf/zed_macro.urdf.xacro
+[0.539s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/virtual.stl
+[0.551s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed.stl
+[0.560s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed2.stl
+[0.572s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed2i.stl
+[0.583s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedm.stl
+[0.595s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedx.stl
+[0.608s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdr.stl
+[0.619s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdrmax.stl
+[0.629s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdrmini.stl
+[0.638s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxm.stl
+[0.651s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxnano.stl
+[0.663s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxone4k.stl
+[0.676s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxonegs.stl
+[0.689s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxonehdr.stl
+[0.700s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxones.stl
+[0.709s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/rviz2/zed_description.rviz
+[0.720s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/launch/zed_viz.launch.py
+[0.733s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/package_run_dependencies/zed_description
+[0.744s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/parent_prefix_path/zed_description
+[0.756s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/ament_prefix_path.sh
+[0.766s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/ament_prefix_path.dsv
+[0.775s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/path.sh
+[0.788s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/path.dsv
+[0.799s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.bash
+[0.807s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.sh
+[0.817s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.zsh
+[0.825s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.dsv
+[0.837s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/package.dsv
+[0.845s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/packages/zed_description
+[0.856s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/cmake/zed_descriptionConfig.cmake
+[0.863s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/cmake/zed_descriptionConfig-version.cmake
+[0.872s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/package.xml

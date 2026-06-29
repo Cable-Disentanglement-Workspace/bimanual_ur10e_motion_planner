@@ -1,0 +1,4 @@
+[console_scripts]
+arm_joint_state_publisher = aruco_moveit_planner.arm_joint_state_publisher:main
+plan_to_aruco = aruco_moveit_planner.main:main
+

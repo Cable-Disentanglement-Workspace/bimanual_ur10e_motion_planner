@@ -1,0 +1,41 @@
+[0.041s] Invoking command in '/home/rosi/ws_dual_arm/build/serial': /usr/bin/cmake /home/rosi/ws_dual_arm/src/serial -DCMAKE_BUILD_TYPE=Release -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/serial
+[0.069s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.070s]   Compatibility with CMake < 2.8.12 will be removed from a future version of
+[0.070s]   CMake.
+[0.070s] 
+[0.070s]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+[0.070s]   CMake that the project does not need compatibility with older versions.
+[0.070s] 
+[0.070s] [0m
+[0.251s] -- The C compiler identification is GNU 11.4.0
+[0.339s] -- The CXX compiler identification is GNU 11.4.0
+[0.356s] -- Detecting C compiler ABI info
+[0.484s] -- Detecting C compiler ABI info - done
+[0.497s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.498s] -- Detecting C compile features
+[0.499s] -- Detecting C compile features - done
+[0.505s] -- Detecting CXX compiler ABI info
+[0.622s] -- Detecting CXX compiler ABI info - done
+[0.637s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.637s] -- Detecting CXX compile features
+[0.638s] -- Detecting CXX compile features - done
+[0.655s] [31mCMake Error at CMakeLists.txt:5 (find_package):
+[0.655s]   By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+[0.655s]   asked CMake to find a package configuration file provided by "catkin", but
+[0.655s]   CMake did not find one.
+[0.655s] 
+[0.655s]   Could not find a package configuration file provided by "catkin" with any
+[0.656s]   of the following names:
+[0.656s] 
+[0.656s]     catkinConfig.cmake
+[0.656s]     catkin-config.cmake
+[0.656s] 
+[0.656s]   Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set
+[0.656s]   "catkin_DIR" to a directory containing one of the above files.  If "catkin"
+[0.656s]   provides a separate development package or SDK, be sure it has been
+[0.656s]   installed.
+[0.656s] 
+[0.656s] [0m
+[0.657s] -- Configuring incomplete, errors occurred!
+[0.657s] See also "/home/rosi/ws_dual_arm/build/serial/CMakeFiles/CMakeOutput.log".
+[0.660s] Invoked command in '/home/rosi/ws_dual_arm/build/serial' returned '1': /usr/bin/cmake /home/rosi/ws_dual_arm/src/serial -DCMAKE_BUILD_TYPE=Release -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/serial

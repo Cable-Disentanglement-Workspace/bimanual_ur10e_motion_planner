@@ -1,0 +1,4 @@
+[35m[1mConsolidate compiler generated dependencies of target robotiq_controllers[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/robotiq_controllers.dir/src/robotiq_activation_controller.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library librobotiq_controllers.so[0m
+[100%] Built target robotiq_controllers

@@ -1,0 +1,16 @@
+/home/rosi/ws_dual_arm/install/dual_arm_control/lib/dual_arm_control/dual_arm_move_group
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/package_run_dependencies/dual_arm_control
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/parent_prefix_path/dual_arm_control
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/ament_prefix_path.sh
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/ament_prefix_path.dsv
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/path.sh
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/path.dsv
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.bash
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.sh
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.zsh
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.dsv
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/package.dsv
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/packages/dual_arm_control
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/cmake/dual_arm_controlConfig.cmake
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/cmake/dual_arm_controlConfig-version.cmake
+/home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/package.xml

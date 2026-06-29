@@ -1,0 +1,31 @@
+[35m[1mConsolidate compiler generated dependencies of target robotiq_controllers[0m
+[100%] Built target robotiq_controllers
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers//controller_plugins.xml
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/include/robotiq_controllers/robotiq_activation_controller.hpp
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/library_path.sh
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/library_path.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/package_run_dependencies/robotiq_controllers
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/parent_prefix_path/robotiq_controllers
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/ament_prefix_path.sh
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/ament_prefix_path.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/path.sh
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/environment/path.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.bash
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.sh
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.zsh
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/local_setup.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/package.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/packages/robotiq_controllers
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/ament_index/resource_index/controller_interface__pluginlib__plugin/robotiq_controllers
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/robotiq_controllersConfig.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/robotiq_controllersConfig-version.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/package.xml
+-- Up-to-date: /home/rosi/ws_dual_arm/install/robotiq_controllers/lib/librobotiq_controllers.so
+-- Up-to-date: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/export_robotiq_controllersExport.cmake
+-- Up-to-date: /home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/export_robotiq_controllersExport-release.cmake

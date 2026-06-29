@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/build/dual_arm_moveit_config/ament_cmake_environment_hooks/local_setup.sh

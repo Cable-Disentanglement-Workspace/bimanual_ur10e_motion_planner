@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/build/easy_handeye2_msgs/rosidl_cmake/srv/robot_movements/CheckStartingPose_Request.msg

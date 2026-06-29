@@ -1,0 +1,393 @@
+[0.256s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.256s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7137f38d46a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7137f38d5120>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7137f38d5120>>, mixin_verb=('build',))
+[0.468s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.469s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.469s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.469s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.469s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.469s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.469s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/rosi/ws_dual_arm'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.520s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extensions ['ignore', 'ignore_ament_install']
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extension 'ignore'
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extension 'ignore_ament_install'
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extensions ['colcon_pkg']
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extension 'colcon_pkg'
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extensions ['colcon_meta']
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extension 'colcon_meta'
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extensions ['ros']
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_control) by extension 'ros'
+[0.526s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dual_arm_control' with type 'ros.ament_cmake' and name 'dual_arm_control'
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extensions ['ignore', 'ignore_ament_install']
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extension 'ignore'
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extension 'ignore_ament_install'
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extensions ['colcon_pkg']
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extension 'colcon_pkg'
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extensions ['colcon_meta']
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extension 'colcon_meta'
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extensions ['ros']
+[0.526s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_moveit_config) by extension 'ros'
+[0.527s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dual_arm_moveit_config' with type 'ros.ament_cmake' and name 'dual_arm_moveit_config'
+[0.527s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.527s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extension 'ignore'
+[0.528s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extension 'ignore_ament_install'
+[0.528s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extensions ['colcon_pkg']
+[0.528s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extension 'colcon_pkg'
+[0.528s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extensions ['colcon_meta']
+[0.528s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extension 'colcon_meta'
+[0.528s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extensions ['ros']
+[0.528s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_arm_pkg) by extension 'ros'
+[0.529s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dual_arm_pkg' with type 'ros.ament_cmake' and name 'dual_arm_pkg'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extensions ['ignore', 'ignore_ament_install']
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'ignore'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'ignore_ament_install'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extensions ['colcon_pkg']
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'colcon_pkg'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extensions ['colcon_meta']
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'colcon_meta'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extensions ['ros']
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'ros'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extensions ['cmake', 'python']
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'cmake'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'python'
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extensions ['python_setup_py']
+[0.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2) by extension 'python_setup_py'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'ignore'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'ignore_ament_install'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extensions ['colcon_pkg']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'colcon_pkg'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extensions ['colcon_meta']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'colcon_meta'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extensions ['ros']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'ros'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extensions ['cmake', 'python']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'cmake'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'python'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extensions ['python_setup_py']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs) by extension 'python_setup_py'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extensions ['ignore', 'ignore_ament_install']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'ignore'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'ignore_ament_install'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extensions ['colcon_pkg']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'colcon_pkg'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extensions ['colcon_meta']
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'colcon_meta'
+[0.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extensions ['ros']
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'ros'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extensions ['cmake', 'python']
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'cmake'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'python'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extensions ['python_setup_py']
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/docs/img) by extension 'python_setup_py'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extensions ['ignore', 'ignore_ament_install']
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extension 'ignore'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extension 'ignore_ament_install'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extensions ['colcon_pkg']
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extension 'colcon_pkg'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extensions ['colcon_meta']
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extension 'colcon_meta'
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extensions ['ros']
+[0.531s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2) by extension 'ros'
+[0.532s] DEBUG:colcon.colcon_core.package_identification:Package 'src/easy_handeye2/easy_handeye2' with type 'ros.ament_python' and name 'easy_handeye2'
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extension 'ignore'
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extension 'ignore_ament_install'
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extensions ['colcon_pkg']
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extension 'colcon_pkg'
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extensions ['colcon_meta']
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extension 'colcon_meta'
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extensions ['ros']
+[0.532s] Level 1:colcon.colcon_core.package_identification:_identify(src/easy_handeye2/easy_handeye2_msgs) by extension 'ros'
+[0.533s] DEBUG:colcon.colcon_core.package_identification:Package 'src/easy_handeye2/easy_handeye2_msgs' with type 'ros.ament_cmake' and name 'easy_handeye2_msgs'
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extensions ['ignore', 'ignore_ament_install']
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'ignore'
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'ignore_ament_install'
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extensions ['colcon_pkg']
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'colcon_pkg'
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extensions ['colcon_meta']
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'colcon_meta'
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extensions ['ros']
+[0.533s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'ros'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extensions ['cmake', 'python']
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'cmake'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'python'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extensions ['python_setup_py']
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper) by extension 'python_setup_py'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extensions ['ignore', 'ignore_ament_install']
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extension 'ignore'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extension 'ignore_ament_install'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extensions ['colcon_pkg']
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extension 'colcon_pkg'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extensions ['colcon_meta']
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extension 'colcon_meta'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extensions ['ros']
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_controllers) by extension 'ros'
+[0.535s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros2_robotiq_gripper/robotiq_controllers' with type 'ros.ament_cmake' and name 'robotiq_controllers'
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extensions ['ignore', 'ignore_ament_install']
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extension 'ignore'
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extension 'ignore_ament_install'
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extensions ['colcon_pkg']
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extension 'colcon_pkg'
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extensions ['colcon_meta']
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extension 'colcon_meta'
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extensions ['ros']
+[0.535s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_description) by extension 'ros'
+[0.537s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros2_robotiq_gripper/robotiq_description' with type 'ros.ament_cmake' and name 'robotiq_description'
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extensions ['ignore', 'ignore_ament_install']
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extension 'ignore'
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extension 'ignore_ament_install'
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extensions ['colcon_pkg']
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extension 'colcon_pkg'
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extensions ['colcon_meta']
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extension 'colcon_meta'
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extensions ['ros']
+[0.537s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_driver) by extension 'ros'
+[0.538s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros2_robotiq_gripper/robotiq_driver' with type 'ros.ament_cmake' and name 'robotiq_driver'
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extensions ['ignore', 'ignore_ament_install']
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extension 'ignore'
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extension 'ignore_ament_install'
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extensions ['colcon_pkg']
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extension 'colcon_pkg'
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extensions ['colcon_meta']
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extension 'colcon_meta'
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extensions ['ros']
+[0.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_robotiq_gripper/robotiq_hardware_tests) by extension 'ros'
+[0.540s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros2_robotiq_gripper/robotiq_hardware_tests' with type 'ros.ament_cmake' and name 'robotiq_hardware_tests'
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extensions ['ignore', 'ignore_ament_install']
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extension 'ignore'
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extension 'ignore_ament_install'
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extensions ['colcon_pkg']
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extension 'colcon_pkg'
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extensions ['colcon_meta']
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extension 'colcon_meta'
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extensions ['ros']
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/zed-ros2-description) by extension 'ros'
+[0.541s] DEBUG:colcon.colcon_core.package_identification:Package 'src/zed-ros2-description' with type 'ros.ament_cmake' and name 'zed_description'
+[0.541s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.541s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.541s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.541s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.541s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.574s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.574s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.580s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 417 installed packages in /opt/ros/humble
+[0.583s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'cmake_args' from command line to 'None'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'cmake_target' from command line to 'None'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.637s] DEBUG:colcon.colcon_core.verb:Building package 'dual_arm_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/dual_arm_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/dual_arm_control', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/dual_arm_control', 'symlink_install': True, 'test_result_base': None}
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'cmake_target' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.637s] DEBUG:colcon.colcon_core.verb:Building package 'dual_arm_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/dual_arm_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/dual_arm_pkg', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/dual_arm_pkg', 'symlink_install': True, 'test_result_base': None}
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'cmake_target' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.638s] DEBUG:colcon.colcon_core.verb:Building package 'easy_handeye2_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/easy_handeye2_msgs', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs', 'symlink_install': True, 'test_result_base': None}
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'cmake_target' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'cmake_clean_cache' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'cmake_clean_first' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'cmake_force_configure' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'ament_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'catkin_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_controllers' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.638s] DEBUG:colcon.colcon_core.verb:Building package 'robotiq_controllers' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/robotiq_controllers', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/robotiq_controllers', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_controllers', 'symlink_install': True, 'test_result_base': None}
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_target' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.639s] DEBUG:colcon.colcon_core.verb:Building package 'robotiq_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/robotiq_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/robotiq_description', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_description', 'symlink_install': True, 'test_result_base': None}
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'cmake_target' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'cmake_clean_cache' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'cmake_clean_first' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'cmake_force_configure' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'ament_cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'catkin_cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'robotiq_driver' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.639s] DEBUG:colcon.colcon_core.verb:Building package 'robotiq_driver' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/robotiq_driver', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/robotiq_driver', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_driver', 'symlink_install': True, 'test_result_base': None}
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'cmake_target' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'zed_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.639s] DEBUG:colcon.colcon_core.verb:Building package 'zed_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/zed_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/zed_description', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/zed-ros2-description', 'symlink_install': True, 'test_result_base': None}
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'cmake_args' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'cmake_target' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'cmake_clean_cache' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'cmake_clean_first' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'cmake_force_configure' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'ament_cmake_args' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'catkin_cmake_args' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'dual_arm_moveit_config' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.640s] DEBUG:colcon.colcon_core.verb:Building package 'dual_arm_moveit_config' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/dual_arm_moveit_config', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/dual_arm_moveit_config', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/dual_arm_moveit_config', 'symlink_install': True, 'test_result_base': None}
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'cmake_args' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'cmake_target' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'cmake_clean_first' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'cmake_force_configure' from command line to 'False'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'ament_cmake_args' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.640s] Level 5:colcon.colcon_core.verb:set package 'easy_handeye2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.640s] DEBUG:colcon.colcon_core.verb:Building package 'easy_handeye2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/easy_handeye2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/easy_handeye2', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2', 'symlink_install': True, 'test_result_base': None}
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'cmake_args' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'cmake_target' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'cmake_clean_cache' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'cmake_clean_first' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'cmake_force_configure' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'ament_cmake_args' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'catkin_cmake_args' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'robotiq_hardware_tests' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.641s] DEBUG:colcon.colcon_core.verb:Building package 'robotiq_hardware_tests' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rosi/ws_dual_arm/build/robotiq_hardware_tests', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rosi/ws_dual_arm/install/robotiq_hardware_tests', 'merge_install': False, 'path': '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_hardware_tests', 'symlink_install': True, 'test_result_base': None}
+[0.641s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.642s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.643s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rosi/ws_dual_arm/src/dual_arm_pkg' with build type 'ament_cmake'
+[0.643s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rosi/ws_dual_arm/src/dual_arm_pkg'
+[0.652s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.652s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.652s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.656s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs' with build type 'ament_cmake'
+[0.656s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs'
+[0.656s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.656s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.660s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_driver' with build type 'ament_cmake'
+[0.660s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_driver'
+[0.660s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.660s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.664s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rosi/ws_dual_arm/src/dual_arm_control' with build type 'ament_cmake'
+[0.664s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rosi/ws_dual_arm/src/dual_arm_control'
+[0.664s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.664s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.667s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_controllers' with build type 'ament_cmake'
+[0.667s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_controllers'
+[0.668s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.668s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.671s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_description' with build type 'ament_cmake'
+[0.671s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_description'
+[0.671s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.671s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.674s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rosi/ws_dual_arm/src/zed-ros2-description' with build type 'ament_cmake'
+[0.674s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rosi/ws_dual_arm/src/zed-ros2-description'
+[0.674s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.674s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.684s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/dual_arm_pkg -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/dual_arm_pkg
+[0.686s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/easy_handeye2_msgs
+[0.689s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_driver': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_driver -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_driver
+[0.692s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/dual_arm_control -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/dual_arm_control
+[0.695s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_controllers': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_controllers -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_controllers
+[0.699s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_description
+[0.707s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_description
+[1.102s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/dual_arm_pkg -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/dual_arm_pkg
+[1.105s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_pkg -- -j20 -l20
+[1.134s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_description
+[1.136s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
+[1.151s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_pkg -- -j20 -l20
+[1.164s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/dual_arm_pkg
+[1.167s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rosi/ws_dual_arm/build/robotiq_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_description
+[1.169s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/robotiq_description -- -j20 -l20
+[1.181s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
+[1.184s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_description
+[1.214s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rosi/ws_dual_arm/build/robotiq_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/robotiq_description -- -j20 -l20
+[1.216s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/robotiq_description
+[1.506s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rosi/ws_dual_arm/build/robotiq_driver' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_driver -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_driver
+[1.519s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robotiq_driver)
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/rosi/ws_dual_arm/install/robotiq_driver' for CMake module files
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/rosi/ws_dual_arm/install/robotiq_driver' for CMake config files
+[1.531s] Level 1:colcon.colcon_core.environment:checking '/home/rosi/ws_dual_arm/install/robotiq_driver/bin'
+[1.532s] Level 1:colcon.colcon_core.environment:checking '/home/rosi/ws_dual_arm/install/robotiq_driver/lib/pkgconfig/robotiq_driver.pc'
+[1.532s] Level 1:colcon.colcon_core.environment:checking '/home/rosi/ws_dual_arm/install/robotiq_driver/lib/python3.10/site-packages'
+[1.533s] Level 1:colcon.colcon_core.environment:checking '/home/rosi/ws_dual_arm/install/robotiq_driver/bin'
+[1.533s] INFO:colcon.colcon_core.shell:Creating package script '/home/rosi/ws_dual_arm/install/robotiq_driver/share/robotiq_driver/package.ps1'
+[1.535s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rosi/ws_dual_arm/install/robotiq_driver/share/robotiq_driver/package.dsv'
+[1.536s] INFO:colcon.colcon_core.shell:Creating package script '/home/rosi/ws_dual_arm/install/robotiq_driver/share/robotiq_driver/package.sh'
+[1.538s] INFO:colcon.colcon_core.shell:Creating package script '/home/rosi/ws_dual_arm/install/robotiq_driver/share/robotiq_driver/package.bash'
+[1.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/rosi/ws_dual_arm/install/robotiq_driver/share/robotiq_driver/package.zsh'
+[1.541s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rosi/ws_dual_arm/install/robotiq_driver/share/colcon-core/packages/robotiq_driver)
+[3.850s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.850s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.850s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[3.850s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.868s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.868s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.868s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.894s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.895s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rosi/ws_dual_arm/install/local_setup.ps1'
+[3.897s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/rosi/ws_dual_arm/install/_local_setup_util_ps1.py'
+[3.899s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rosi/ws_dual_arm/install/setup.ps1'
+[3.901s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rosi/ws_dual_arm/install/local_setup.sh'
+[3.903s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/rosi/ws_dual_arm/install/_local_setup_util_sh.py'
+[3.904s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rosi/ws_dual_arm/install/setup.sh'
+[3.906s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rosi/ws_dual_arm/install/local_setup.bash'
+[3.908s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rosi/ws_dual_arm/install/setup.bash'
+[3.910s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rosi/ws_dual_arm/install/local_setup.zsh'
+[3.911s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rosi/ws_dual_arm/install/setup.zsh'

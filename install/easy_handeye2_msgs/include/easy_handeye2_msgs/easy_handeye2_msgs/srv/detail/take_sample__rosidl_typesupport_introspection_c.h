@@ -1,0 +1,1 @@
+/home/rosi/ws_dual_arm/build/easy_handeye2_msgs/rosidl_typesupport_introspection_c/easy_handeye2_msgs/srv/detail/take_sample__rosidl_typesupport_introspection_c.h

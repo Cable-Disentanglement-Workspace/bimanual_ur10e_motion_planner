@@ -1,0 +1,116 @@
+[0.014s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_components': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-wrapper/zed_components -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_components
+[0.158s] -- The C compiler identification is GNU 11.4.0
+[0.295s] -- The CXX compiler identification is GNU 11.4.0
+[0.308s] -- Detecting C compiler ABI info
+[0.427s] -- Detecting C compiler ABI info - done
+[0.439s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.441s] -- Detecting C compile features
+[0.442s] -- Detecting C compile features - done
+[0.448s] -- Detecting CXX compiler ABI info
+[0.579s] -- Detecting CXX compiler ABI info - done
+[0.591s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.591s] -- Detecting CXX compile features
+[0.592s] -- Detecting CXX compile features - done
+[0.599s] -- Found nlohmann_json: /usr/lib/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.10.5") 
+[0.608s] -- Looking for sgemm_
+[0.713s] -- Looking for sgemm_ - not found
+[0.717s] -- Looking for pthread.h
+[0.833s] -- Looking for pthread.h - found
+[0.833s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.939s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.940s] -- Found Threads: TRUE  
+[0.989s] -- Looking for sgemm_
+[1.151s] -- Looking for sgemm_ - found
+[1.151s] -- Found BLAS: /usr/lib/x86_64-linux-gnu/libopenblas.so  
+[1.212s] -- Found CUDA: /usr/local/cuda-12.2 (found suitable version "12.2", minimum required is "12") 
+[1.455s] -- Unable to find cublas_v2.h in either "/usr/local/cuda-12.2/include" or "/usr/math_libs/include"
+[1.460s] -- Found CUDAToolkit: /usr/local/cuda-12.2/include (found version "12.2.140") 
+[1.614s] -- Found ament_cmake_auto: 1.3.14 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[1.828s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.916s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.140s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.148s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.161s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.176s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.194s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.340s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.344s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.487s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.533s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.590s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.964s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.967s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.967s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[3.141s] --  * Type Adaptation for sl::Mat is enabled
+[3.144s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.193s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.195s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.196s] -- Configured cppcheck include dirs: /home/rosi/ws_dual_arm/src/zed-ros2-wrapper/zed_components/src/include;/home/rosi/ws_dual_arm/src/zed-ros2-wrapper/zed_components/src/zed_camera/include;/home/rosi/ws_dual_arm/src/zed-ros2-wrapper/zed_components/src/tools/include;/home/rosi/ws_dual_arm/src/zed-ros2-wrapper/zed_components/src/zed_camera_one/include
+[3.196s] -- Configured cppcheck exclude dirs and/or files: 
+[3.197s] -- Added test 'lint_cmake' to check CMake code style
+[3.199s] -- Added test 'uncrustify' to check C / C++ code style
+[3.199s] -- Configured uncrustify additional arguments: 
+[3.199s] -- Added test 'xmllint' to check XML markup files
+[3.202s] -- Configuring done
+[3.239s] -- Generating done
+[3.250s] -- Build files have been written to: /home/rosi/ws_dual_arm/build/zed_components
+[3.265s] Invoked command in '/home/rosi/ws_dual_arm/build/zed_components' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-wrapper/zed_components -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_components
+[3.268s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_components': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_components -- -j20 -l20
+[3.359s] [  5%] [32mBuilding CXX object CMakeFiles/zed_camera_one_component.dir/src/tools/src/sl_win_avg.cpp.o[0m
+[3.362s] [ 11%] [32mBuilding CXX object CMakeFiles/zed_camera_one_component.dir/src/zed_camera_one/src/zed_camera_one_component_video.cpp.o[0m
+[3.363s] [ 23%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/tools/src/sl_tools.cpp.o[0m
+[3.363s] [ 29%] [32mBuilding CXX object CMakeFiles/zed_camera_one_component.dir/src/tools/src/sl_tools.cpp.o[0m
+[3.363s] [ 35%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/zed_camera/src/zed_camera_component_objdet.cpp.o[0m
+[3.363s] [ 35%] [32mBuilding CXX object CMakeFiles/zed_camera_one_component.dir/src/tools/src/gnss_replay.cpp.o[0m
+[3.363s] [ 41%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/tools/src/sl_win_avg.cpp.o[0m
+[3.363s] [ 47%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/tools/src/sl_types.cpp.o[0m
+[3.364s] [ 52%] [32mBuilding CXX object CMakeFiles/zed_camera_one_component.dir/src/tools/src/sl_types.cpp.o[0m
+[3.364s] [ 58%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/zed_camera/src/zed_camera_component_main.cpp.o[0m
+[3.364s] [ 64%] [32mBuilding CXX object CMakeFiles/zed_camera_one_component.dir/src/zed_camera_one/src/zed_camera_one_component_sensors.cpp.o[0m
+[3.364s] [ 70%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/zed_camera/src/zed_camera_component_video_depth.cpp.o[0m
+[3.365s] [ 76%] [32mBuilding CXX object CMakeFiles/zed_camera_one_component.dir/src/zed_camera_one/src/zed_camera_one_component_main.cpp.o[0m
+[3.366s] [ 82%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/zed_camera/src/zed_camera_component_bodytrk.cpp.o[0m
+[3.367s] [ 88%] [32mBuilding CXX object CMakeFiles/zed_camera_component.dir/src/tools/src/gnss_replay.cpp.o[0m
+[29.788s] [ 94%] [32m[1mLinking CXX shared library libzed_camera_one_component.so[0m
+[30.358s] [ 94%] Built target zed_camera_one_component
+[72.842s] [100%] [32m[1mLinking CXX shared library libzed_camera_component.so[0m
+[73.594s] [100%] Built target zed_camera_component
+[73.608s] Invoked command in '/home/rosi/ws_dual_arm/build/zed_components' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_components -- -j20 -l20
+[73.623s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_components': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_components
+[73.635s] -- Install configuration: "Release"
+[73.636s] -- Execute custom install script
+[73.636s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/lib/libzed_camera_component.so
+[73.649s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/lib/libzed_camera_one_component.so
+[73.662s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//cost_traversability.hpp
+[73.675s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//zed_camera_component.hpp
+[73.687s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//zed_camera_one_component.hpp
+[73.698s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//gnss_replay.hpp
+[73.708s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//sl_logging.hpp
+[73.718s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//sl_tools.hpp
+[73.727s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//sl_type_adapter.hpp
+[73.737s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//sl_types.hpp
+[73.747s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//sl_win_avg.hpp
+[73.757s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//sl_version.hpp
+[73.767s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/include/zed_components//visibility_control.hpp
+[73.777s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/environment/library_path.sh
+[73.789s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/environment/library_path.dsv
+[73.800s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/ament_index/resource_index/package_run_dependencies/zed_components
+[73.810s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/ament_index/resource_index/parent_prefix_path/zed_components
+[73.820s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/environment/ament_prefix_path.sh
+[73.830s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/environment/ament_prefix_path.dsv
+[73.842s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/environment/path.sh
+[73.853s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/environment/path.dsv
+[73.865s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/local_setup.bash
+[73.876s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/local_setup.sh
+[73.887s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/local_setup.zsh
+[73.899s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/local_setup.dsv
+[73.909s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/package.dsv
+[73.920s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/ament_index/resource_index/packages/zed_components
+[73.931s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/ament_index/resource_index/rclcpp_components/zed_components
+[73.945s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/cmake/ament_cmake_export_include_directories-extras.cmake
+[73.957s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/cmake/ament_cmake_export_libraries-extras.cmake
+[73.969s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/cmake/ament_cmake_export_dependencies-extras.cmake
+[73.980s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/cmake/zed_componentsConfig.cmake
+[73.992s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/cmake/zed_componentsConfig-version.cmake
+[74.004s] -- Symlinking: /home/rosi/ws_dual_arm/install/zed_components/share/zed_components/package.xml
+[74.021s] Invoked command in '/home/rosi/ws_dual_arm/build/zed_components' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_components

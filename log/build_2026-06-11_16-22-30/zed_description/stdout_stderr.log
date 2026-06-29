@@ -1,0 +1,46 @@
+-- Found ament_cmake_auto: 1.3.14 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/rosi/ws_dual_arm/build/zed_description
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/urdf/zed_descr.urdf.xacro
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/urdf/zed_macro.urdf.xacro
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/virtual.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed2.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed2i.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedm.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedx.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdr.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdrmax.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdrmini.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxm.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxnano.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxone4k.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxonegs.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxonehdr.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxones.stl
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/rviz2/zed_description.rviz
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/launch/zed_viz.launch.py
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/package_run_dependencies/zed_description
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/parent_prefix_path/zed_description
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/ament_prefix_path.sh
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/ament_prefix_path.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/path.sh
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/path.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.bash
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.sh
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.zsh
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/package.dsv
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/packages/zed_description
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/cmake/zed_descriptionConfig.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/cmake/zed_descriptionConfig-version.cmake
+-- Symlinking: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/package.xml

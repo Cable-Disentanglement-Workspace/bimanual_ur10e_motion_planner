@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: aruco-moveit-planner
+Version: 0.1.0
+Summary: Plan-only MoveIt 2 trajectory to an ArUco marker for the left UR10e arm.
+Home-page: UNKNOWN
+Maintainer: rosi
+Maintainer-email: start27.11.25@gmail.com
+License: MIT
+Platform: UNKNOWN
+
+UNKNOWN
+

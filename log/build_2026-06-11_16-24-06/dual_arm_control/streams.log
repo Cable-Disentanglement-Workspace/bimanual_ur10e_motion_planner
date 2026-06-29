@@ -1,0 +1,25 @@
+[0.050s] Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_control -- -j20 -l20
+[0.161s] [35m[1mConsolidate compiler generated dependencies of target dual_arm_move_group[0m
+[0.242s] [ 50%] [32m[1mLinking CXX executable dual_arm_move_group[0m
+[0.647s] [100%] Built target dual_arm_move_group
+[0.659s] Invoked command in '/home/rosi/ws_dual_arm/build/dual_arm_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_control -- -j20 -l20
+[0.661s] Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/dual_arm_control
+[0.671s] -- Install configuration: "Release"
+[0.672s] -- Execute custom install script
+[0.672s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/lib/dual_arm_control/dual_arm_move_group
+[0.685s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/package_run_dependencies/dual_arm_control
+[0.696s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/parent_prefix_path/dual_arm_control
+[0.709s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/ament_prefix_path.sh
+[0.718s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/ament_prefix_path.dsv
+[0.730s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/path.sh
+[0.745s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/environment/path.dsv
+[0.756s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.bash
+[0.772s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.sh
+[0.784s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.zsh
+[0.794s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/local_setup.dsv
+[0.805s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/package.dsv
+[0.816s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/ament_index/resource_index/packages/dual_arm_control
+[0.827s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/cmake/dual_arm_controlConfig.cmake
+[0.839s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/cmake/dual_arm_controlConfig-version.cmake
+[0.852s] -- Symlinking: /home/rosi/ws_dual_arm/install/dual_arm_control/share/dual_arm_control/package.xml
+[0.867s] Invoked command in '/home/rosi/ws_dual_arm/build/dual_arm_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rosi/ws_dual_arm/install/zed_description:/home/rosi/ws_dual_arm/install/robotiq_description:/home/rosi/ws_dual_arm/install/dual_arm_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/dual_arm_control

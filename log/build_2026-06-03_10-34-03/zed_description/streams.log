@@ -1,0 +1,43 @@
+[0.055s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
+[0.219s] Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
+[0.220s] Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_description
+[0.231s] -- Install configuration: "Release"
+[0.233s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/urdf
+[0.234s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/urdf/zed_descr.urdf.xacro
+[0.234s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/urdf/zed_macro.urdf.xacro
+[0.234s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes
+[0.234s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxnano.stl
+[0.234s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdr.stl
+[0.235s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdrmini.stl
+[0.235s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedx.stl
+[0.235s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed.stl
+[0.236s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxm.stl
+[0.236s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed2i.stl
+[0.236s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxone4k.stl
+[0.237s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxonehdr.stl
+[0.239s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/virtual.stl
+[0.239s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxhdrmax.stl
+[0.239s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zed2.stl
+[0.239s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedm.stl
+[0.239s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxones.stl
+[0.239s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedxonegs.stl
+[0.240s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/rviz2
+[0.240s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/rviz2/zed_description.rviz
+[0.240s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/launch
+[0.240s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/launch/zed_viz.launch.py
+[0.240s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/package_run_dependencies/zed_description
+[0.241s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/parent_prefix_path/zed_description
+[0.242s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/ament_prefix_path.sh
+[0.242s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/ament_prefix_path.dsv
+[0.242s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/path.sh
+[0.242s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/environment/path.dsv
+[0.242s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.bash
+[0.243s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.sh
+[0.243s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.zsh
+[0.243s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/local_setup.dsv
+[0.244s] -- Installing: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/package.dsv
+[0.245s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/ament_index/resource_index/packages/zed_description
+[0.246s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/cmake/zed_descriptionConfig.cmake
+[0.246s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/cmake/zed_descriptionConfig-version.cmake
+[0.246s] -- Up-to-date: /home/rosi/ws_dual_arm/install/zed_description/share/zed_description/package.xml
+[0.249s] Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_description
