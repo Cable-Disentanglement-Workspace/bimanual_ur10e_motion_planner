@@ -1,0 +1,20 @@
+parameters:
+  name: zed_left_arm_calib
+  calibration_type: eye_on_base
+  robot_base_frame: world
+  robot_effector_frame: left_tool0
+  tracking_base_frame: zed_left_camera_frame
+  tracking_marker_frame: aruco_marker_frame
+  freehand_robot_movement: true
+  move_group_namespace: /
+  move_group: manipulator
+transform:
+  translation:
+    x: -0.011478697428923186
+    y: -0.33796631648435455
+    z: 1.394492295167716
+  rotation:
+    x: -0.7924886898308339
+    y: -0.010372363442270771
+    z: 0.023354714530511064
+    w: 0.609351005477162
