@@ -33,3 +33,41 @@ Calibration files are located at:
 
 > **Important:** Always use these files as the primary reference for hand-eye calibration.
 
+# How to run Easy Hand-eye
+
+### Terminal 1 — Robot
+```bash
+source ~/ws_dual_arm/install/setup.bash
+ros2 launch dual_arm_moveit_config dual_arm_real_v2.launch.py
+```
+
+### Terminal 2 — Camera
+```bash
+source ~/ws_dual_arm/install/setup.bash
+ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zedm
+```
+
+### Terminal 3 — ArUco
+```bash
+source ~/ws_dual_arm/install/setup.bash
+ros2 run aruco_ros single \
+  --ros-args \
+  -r /image:=/zed/zed_node/rgb/color/rect/image \
+  -r /camera_info:=/zed/zed_node/rgb/color/rect/camera_info \
+  -p marker_id:=24 \
+  -p marker_size:=0.10 \
+  -p reference_frame:=zed_left_camera_frame \
+  -p camera_frame:=zed_left_camera_frame \
+  -p marker_frame:=aruco_marker_frame
+```
+
+### Terminal 4 — easy_handeye2
+```bash
+source ~/ws_dual_arm/install/setup.bash
+ros2 launch dual_arm_pkg handeye_calibrate.launch.py
+```
+
+### Terminal 5 
+```bash
+ros2 topic echo /aruco_single/pose
+```
