@@ -19,20 +19,34 @@
        GROUP STATES (home positions from real robot)
   ============================================================ -->
   <group_state name="left_home" group="left_arm">
-    <joint name="left_elbow_joint"         value="-2.4564"/>
-    <joint name="left_shoulder_lift_joint" value="-1.4352"/>
-    <joint name="left_shoulder_pan_joint"  value="-0.5842"/>
-    <joint name="left_wrist_1_joint"       value="0.5894"/>
-    <joint name="left_wrist_2_joint"       value="-4.1043"/>
-    <joint name="left_wrist_3_joint"       value="-1.74"/>
+    <joint name="left_shoulder_pan_joint"  value="-0.9579"/>
+    <joint name="left_shoulder_lift_joint" value="-1.9195"/>
+    <joint name="left_elbow_joint"         value="2.5167"/>
+    <joint name="left_wrist_1_joint"       value="-3.4194"/>
+    <joint name="left_wrist_2_joint"       value="-2.0268"/>
+    <joint name="left_wrist_3_joint"       value="0.2502"/>
   </group_state>
   <group_state name="right_home" group="right_arm">
-    <joint name="right_elbow_joint"         value="2.5167"/>
-    <joint name="right_shoulder_lift_joint" value="-1.9195"/>
-    <joint name="right_shoulder_pan_joint"  value="-2.5287"/>
-    <joint name="right_wrist_1_joint"       value="-3.4194"/>
-    <joint name="right_wrist_2_joint"       value="-2.0268"/>
-    <joint name="right_wrist_3_joint"       value="0.2502"/>
+    <joint name="right_shoulder_pan_joint"  value="-2.155"/>
+    <joint name="right_shoulder_lift_joint" value="-1.4352"/>
+    <joint name="right_elbow_joint"         value="-2.4564"/>
+    <joint name="right_wrist_1_joint"       value="0.5894"/>
+    <joint name="right_wrist_2_joint"       value="-4.1043"/>
+    <joint name="right_wrist_3_joint"       value="-0.2312"/>
+  </group_state>
+  <group_state name="home" group="both_arms">
+    <joint name="left_shoulder_pan_joint"   value="-0.9579"/>
+    <joint name="left_shoulder_lift_joint"  value="-1.9195"/>
+    <joint name="left_elbow_joint"          value="2.5167"/>
+    <joint name="left_wrist_1_joint"        value="-3.4194"/>
+    <joint name="left_wrist_2_joint"        value="-2.0268"/>
+    <joint name="left_wrist_3_joint"        value="0.2502"/>
+    <joint name="right_shoulder_pan_joint"  value="-2.155"/>
+    <joint name="right_shoulder_lift_joint" value="-1.4352"/>
+    <joint name="right_elbow_joint"         value="-2.4564"/>
+    <joint name="right_wrist_1_joint"       value="0.5894"/>
+    <joint name="right_wrist_2_joint"       value="-4.1043"/>
+    <joint name="right_wrist_3_joint"       value="-0.2312"/>
   </group_state>
 
   <!-- ============================================================
@@ -291,4 +305,5 @@
   <disable_collisions link1="left_robotiq_140_base_link"  link2="left_flange"        reason="Never"/>
   <disable_collisions link1="right_robotiq_base_link"     link2="right_flange"       reason="Never"/>
   <disable_collisions link1="right_robotiq_140_base_link" link2="right_flange"       reason="Never"/>
+  <disable_collisions link1="cobot_frame_link"            link2="table_link"         reason="Adjacent"/>
 </robot>
