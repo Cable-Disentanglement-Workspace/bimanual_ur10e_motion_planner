@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_arm">
 
+  <!-- When true, both arms use mock_components/GenericSystem instead of the real
+       UR hardware interface, so the model can be loaded/planned offline (no robot). -->
+  <xacro:arg name="use_fake_hardware" default="false"/>
+
   <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
   <xacro:include filename="$(find dual_arm_pkg)/urdf/robotiq_2f140.xacro"/>
 
@@ -39,6 +43,7 @@
     physical_parameters_file="$(find ur_description)/config/ur10e/physical_parameters.yaml"
     visual_parameters_file="$(find ur_description)/config/ur10e/visual_parameters.yaml"
     robot_ip="192.168.1.10"
+    use_fake_hardware="$(arg use_fake_hardware)"
     headless_mode="true"
     reverse_port="50002"
     script_sender_port="50003"
@@ -46,9 +51,9 @@
     script_command_port="50001"
     use_tool_communication="false"
     generate_ros2_control_tag="true"
-    script_filename="/opt/ros/humble/share/ur_robot_driver/resources/ros_control.urscript"
-    output_recipe_filename="/opt/ros/humble/share/ur_robot_driver/resources/rtde_output_recipe.txt"
-    input_recipe_filename="/opt/ros/humble/share/ur_robot_driver/resources/rtde_input_recipe.txt">
+    script_filename="$(find ur_robot_driver)/resources/ros_control.urscript"
+    output_recipe_filename="$(find ur_robot_driver)/resources/rtde_output_recipe.txt"
+    input_recipe_filename="$(find ur_robot_driver)/resources/rtde_input_recipe.txt">
     <origin xyz="-0.60 -0.15 0.0" rpy="0 0 1.5708"/>
   </xacro:ur_robot>
 
@@ -72,6 +77,7 @@
     physical_parameters_file="$(find ur_description)/config/ur10e/physical_parameters.yaml"
     visual_parameters_file="$(find ur_description)/config/ur10e/visual_parameters.yaml"
     robot_ip="192.168.1.20"
+    use_fake_hardware="$(arg use_fake_hardware)"
     headless_mode="true"
     reverse_port="50005"
     script_sender_port="50006"
@@ -79,9 +85,9 @@
     script_command_port="50008"
     use_tool_communication="false"
     generate_ros2_control_tag="true"
-    script_filename="/opt/ros/humble/share/ur_robot_driver/resources/ros_control.urscript"
-    output_recipe_filename="/opt/ros/humble/share/ur_robot_driver/resources/rtde_output_recipe.txt"
-    input_recipe_filename="/opt/ros/humble/share/ur_robot_driver/resources/rtde_input_recipe.txt">
+    script_filename="$(find ur_robot_driver)/resources/ros_control.urscript"
+    output_recipe_filename="$(find ur_robot_driver)/resources/rtde_output_recipe.txt"
+    input_recipe_filename="$(find ur_robot_driver)/resources/rtde_input_recipe.txt">
     <origin xyz="0.60 -0.15 0.0" rpy="0 0 1.5708"/>
   </xacro:ur_robot>
 
