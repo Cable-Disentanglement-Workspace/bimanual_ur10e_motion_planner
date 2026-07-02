@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/src/dual_arm_moveit_config/launch/ur_control_namespaced.launch.py

@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/src/dual_arm_moveit_config/launch/move_group.launch.py

@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/build/zed_wrapper/ament_cmake_core/zed_wrapperConfig-version.cmake

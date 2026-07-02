@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/build/easy_handeye2_msgs/rosidl_generator_py/easy_handeye2_msgs/msg/_sample.py

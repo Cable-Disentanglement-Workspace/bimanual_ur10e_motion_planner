@@ -1,3 +1,0 @@
-/home/rosi/ws_dual_arm/install/robotiq_controllers/lib/librobotiq_controllers.so
-/home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/export_robotiq_controllersExport.cmake
-/home/rosi/ws_dual_arm/install/robotiq_controllers/share/robotiq_controllers/cmake/export_robotiq_controllersExport-release.cmake

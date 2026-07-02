@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/src/zed-ros2-wrapper/zed_components/src/zed_camera_one/include/zed_camera_one_component.hpp

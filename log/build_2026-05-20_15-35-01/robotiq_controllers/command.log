@@ -1,1 +1,0 @@
-Invoking command in '/home/rosi/ws_dual_arm/build/robotiq_controllers': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/ros2_robotiq_gripper/robotiq_controllers -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/robotiq_controllers

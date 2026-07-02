@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/src/dual_arm_pkg/scripts/joint_state_merger.py

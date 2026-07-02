@@ -1,3 +1,0 @@
-
-bool success
-easy_handeye2_msgs/TargetPoseList target_poses

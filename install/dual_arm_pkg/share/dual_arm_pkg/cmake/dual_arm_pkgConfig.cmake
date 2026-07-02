@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/build/dual_arm_pkg/ament_cmake_core/dual_arm_pkgConfig.cmake

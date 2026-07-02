@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/build/robotiq_controllers/ament_cmake_core/robotiq_controllersConfig.cmake

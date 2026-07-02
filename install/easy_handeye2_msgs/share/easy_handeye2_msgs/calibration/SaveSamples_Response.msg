@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/build/easy_handeye2_msgs/rosidl_cmake/srv/calibration/SaveSamples_Response.msg

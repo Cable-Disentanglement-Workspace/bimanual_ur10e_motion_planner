@@ -1,4 +1,0 @@
-[0.013s] Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_control -- -j20 -l20
-[0.056s] [ 50%] [32mBuilding CXX object CMakeFiles/dual_arm_move_group.dir/src/dual_arm_move_group.cpp.o[0m
-[4.305s] [100%] [32m[1mLinking CXX executable dual_arm_move_group[0m
-[4.599s] [100%] Built target dual_arm_move_group

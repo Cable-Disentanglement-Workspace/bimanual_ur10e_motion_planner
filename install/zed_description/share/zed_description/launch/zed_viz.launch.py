@@ -1,1 +1,0 @@
-/home/rosi/ws_dual_arm/src/zed-ros2-description/launch/zed_viz.launch.py

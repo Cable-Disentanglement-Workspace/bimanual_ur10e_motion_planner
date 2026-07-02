@@ -1,2 +1,0 @@
-easy_handeye2_msgs/HandeyeCalibrationParameters parameters
-easy_handeye2_msgs/Sample[] samples

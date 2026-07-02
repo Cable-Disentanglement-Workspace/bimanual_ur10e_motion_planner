@@ -1,6 +1,0 @@
-Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-description -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_description
-Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/zed-ros2-description -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/zed_description
-Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
-Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/zed_description -- -j20 -l20
-Invoking command in '/home/rosi/ws_dual_arm/build/zed_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_description
-Invoked command in '/home/rosi/ws_dual_arm/build/zed_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/zed_description

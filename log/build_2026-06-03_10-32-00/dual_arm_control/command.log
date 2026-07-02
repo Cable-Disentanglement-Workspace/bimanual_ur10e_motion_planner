@@ -1,1 +1,0 @@
-Invoking command in '/home/rosi/ws_dual_arm/build/dual_arm_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/dual_arm_control -- -j20 -l20

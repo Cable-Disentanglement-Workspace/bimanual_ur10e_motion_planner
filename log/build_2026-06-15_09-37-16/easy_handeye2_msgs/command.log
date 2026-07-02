@@ -1,6 +1,0 @@
-Invoking command in '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/easy_handeye2_msgs
-Invoked command in '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosi/ws_dual_arm/src/easy_handeye2/easy_handeye2_msgs -DCMAKE_INSTALL_PREFIX=/home/rosi/ws_dual_arm/install/easy_handeye2_msgs
-Invoking command in '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/easy_handeye2_msgs -- -j20 -l20
-Invoked command in '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosi/ws_dual_arm/build/easy_handeye2_msgs -- -j20 -l20
-Invoking command in '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/easy_handeye2_msgs
-Invoked command in '/home/rosi/ws_dual_arm/build/easy_handeye2_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosi/ws_dual_arm/build/easy_handeye2_msgs
