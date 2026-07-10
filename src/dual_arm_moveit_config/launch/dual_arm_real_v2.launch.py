@@ -81,14 +81,14 @@ def generate_launch_description():
         )]
     )
 
-    move_until_collision = TimerAction(
-        period=22.0,
-        actions=[Node(
-            package="dual_arm_pkg",
-            executable="move_until_collision",
-            output="screen",
-        )]
-    )
+    # move_until_collision = TimerAction(
+    #     period=22.0,
+    #     actions=[Node(
+    #         package="dual_arm_pkg",
+    #         executable="move_until_collision",
+    #         output="screen",
+    #     )]
+    # )
 
     return LaunchDescription([
         rsp_node,
@@ -103,5 +103,5 @@ def generate_launch_description():
         spawner("right_arm_controller",                  5.0),
         move_group,
         rviz,
-        move_until_collision,
+        # move_until_collision,
     ])
