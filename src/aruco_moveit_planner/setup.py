@@ -1,3 +1,5 @@
+import glob
+
 from setuptools import find_packages, setup
 
 PACKAGE = "aruco_moveit_planner"
@@ -14,6 +16,7 @@ setup(
         ("share/" + PACKAGE, ["package.xml"]),
         ("share/" + PACKAGE + "/launch", ["launch/plan_to_aruco.launch.py"]),
         ("share/" + PACKAGE + "/config", ["config/sample_aruco_pose.json"]),
+        ("share/" + PACKAGE + "/calibrations", glob.glob("../../calibrations/*.calib")),
     ],
     install_requires=["setuptools"],
     zip_safe=True,

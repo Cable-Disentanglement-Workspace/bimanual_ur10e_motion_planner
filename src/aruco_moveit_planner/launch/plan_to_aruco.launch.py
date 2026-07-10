@@ -47,12 +47,9 @@ Set ``use_fake_joints:=false`` when the physical UR10e robots are connected and
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.conditions import IfCondition
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
-
-_DEFAULT_CALIB = (
-    "/home/rosi/.ros2/easy_handeye2/calibrations/zed_left_arm_calib.calib"
-)
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description() -> LaunchDescription:
@@ -80,7 +77,11 @@ def generate_launch_description() -> LaunchDescription:
         ),
         DeclareLaunchArgument(
             "calib_path",
-            default_value=_DEFAULT_CALIB,
+            default_value=PathJoinSubstitution([
+                FindPackageShare("aruco_moveit_planner"),
+                "calibrations",
+                "zed_left_arm_calib.calib",
+            ]),
             description="Path to the easy_handeye2 .calib file.",
         ),
         DeclareLaunchArgument(

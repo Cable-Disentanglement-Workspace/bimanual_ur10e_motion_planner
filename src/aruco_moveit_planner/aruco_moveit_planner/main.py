@@ -34,8 +34,10 @@ Via launch file::
 """
 
 import argparse
+import os
 import sys
 
+from ament_index_python.packages import get_package_share_directory
 import rclpy
 
 from aruco_moveit_planner.frame_transformer import (
@@ -49,8 +51,10 @@ from aruco_moveit_planner.pose_reader import PoseTopicReader, read_from_json
 
 # ── Defaults ──────────────────────────────────────────────────────────────────
 
-_DEFAULT_CALIB = (
-    "/home/rosi/.ros2/easy_handeye2/calibrations/zed_left_arm_calib.calib"
+_DEFAULT_CALIB = os.path.join(
+    get_package_share_directory("aruco_moveit_planner"),
+    "calibrations",
+    "zed_left_arm_calib.calib",
 )
 _DEFAULT_TOPIC = "/aruco_single/pose"
 
