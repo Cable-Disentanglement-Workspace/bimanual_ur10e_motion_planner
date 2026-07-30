@@ -11,6 +11,10 @@ End-effector
 defined in the URDF and registered as the ``left_arm`` tip link in the SRDF.
 MoveIt solves IK to this frame directly.
 
+``right_tcp`` — a fixed link 0.244 m along ``+Z`` from ``right_tool0``,
+defined in the URDF and registered as the ``right_arm`` tip link in the SRDF.
+MoveIt solves IK to this frame directly.
+
 Start state
 -----------
 ``req.start_state`` is always populated explicitly with the SRDF home
@@ -20,7 +24,7 @@ because an empty ``start_state`` would leave ``DisplayTrajectory.trajectory_star
 empty, preventing RViz from animating the planned path.
 """
 
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseStamped, Pose
 from moveit_msgs.action import MoveGroup
 from moveit_msgs.msg import (
     BoundingVolume,
@@ -31,6 +35,8 @@ from moveit_msgs.msg import (
     PositionConstraint,
     RobotState,
     WorkspaceParameters,
+    PlanningScene,
+    CollisionObject,
 )
 from rclpy.action import ActionClient
 from rclpy.node import Node
@@ -42,6 +48,10 @@ from shape_msgs.msg import SolidPrimitive
 _PLANNING_GROUP: str = "left_arm"
 _EEF_LINK: str = "left_tcp"
 _PLANNING_FRAME: str = "left_base"
+
+_RIGHT_PLANNING_GROUP: str = "right_arm"
+_RIGHT_EEF_LINK: str = "right_tool0"
+_RIGHT_PLANNING_FRAME: str = "right_base"
 
 _PLANNING_TIME_SEC: float = 10.0
 _NUM_ATTEMPTS: int = 10
@@ -115,6 +125,10 @@ class MoveItPlanOnlyClient(Node):
             )
         self.get_logger().info("Connected to move_group action server.")
 
+        self._planning_scene_pub = self.create_publisher(
+            PlanningScene, "/planning_scene", 10
+        )
+
     # ── Public API ────────────────────────────────────────────────────────────
 
     def plan_to_pose(self, target_pose: PoseStamped) -> bool:
@@ -132,7 +146,7 @@ class MoveItPlanOnlyClient(Node):
             ``True`` if planning succeeded, ``False`` otherwise.
         """
         goal = MoveGroup.Goal()
-        goal.planning_options.plan_only = True
+        goal.planning_options.plan_only = False
         goal.request = self._build_request(target_pose)
 
         p = target_pose.pose.position
@@ -152,6 +166,56 @@ class MoveItPlanOnlyClient(Node):
             self.get_logger().error(
                 "[plan] move_group rejected the goal. "
                 "Check that the planning group and EEF link exist in the SRDF."
+            )
+            return False
+
+        self.get_logger().info("[plan] Goal accepted — waiting for plan result…")
+        result_future = goal_handle.get_result_async()
+        rclpy.spin_until_future_complete(self, result_future)
+
+        result = result_future.result().result
+        if result.error_code.val == 1:  # SUCCESS
+            self._stored_trajectory = result.planned_trajectory
+        return self._report_result(result.error_code.val)
+
+    def plan_to_pose2(self, target_pose: PoseStamped) -> bool:
+        """Request a plan to *target_pose* for the ``right_tcp`` end-effector.
+
+        The call is **synchronous** — it blocks until move_group returns a
+        result.  The trajectory is published to
+        ``/move_group/display_planned_path`` for RViz and is **not** executed
+        on the real robot (``plan_only = True``).
+
+        Args:
+            target_pose: Goal pose for ``right_tcp`` expressed in ``right_base``.
+
+        Returns:
+            ``True`` if planning succeeded, ``False`` otherwise.
+        """
+        goal = MoveGroup.Goal()
+        goal.planning_options.plan_only = False
+        goal.request = self._build_request(
+            target_pose,
+            group=_RIGHT_PLANNING_GROUP,
+            eef_link=_RIGHT_EEF_LINK,
+            planning_frame=_RIGHT_PLANNING_FRAME)
+
+        p = target_pose.pose.position
+        self.get_logger().info(
+            f"[plan] Requesting plan-only trajectory for '{_RIGHT_EEF_LINK}' "
+            f"→ pos=({p.x:.4f}, {p.y:.4f}, {p.z:.4f}) "
+            f"in frame '{target_pose.header.frame_id}'"
+        )
+
+        import rclpy
+
+        send_future = self._client.send_goal_async(goal)
+        rclpy.spin_until_future_complete(self, send_future)
+        goal_handle = send_future.result()
+
+        if not goal_handle.accepted:
+            self.get_logger().error(
+                "[plan] move_group rejected the goal."
             )
             return False
 
@@ -196,7 +260,7 @@ class MoveItPlanOnlyClient(Node):
         msg.trajectory = [self._stored_trajectory]
         self._display_pub.publish(msg)
 
-    def _build_request(self, target_pose: PoseStamped) -> MotionPlanRequest:
+    def _build_request(self, target_pose, group=_PLANNING_GROUP, eef_link=_EEF_LINK, planning_frame=_PLANNING_FRAME):
         """Assemble a complete ``MotionPlanRequest`` for *target_pose*.
 
         Args:
@@ -206,14 +270,15 @@ class MoveItPlanOnlyClient(Node):
             Fully populated ``MotionPlanRequest``.
         """
         req = MotionPlanRequest()
-        req.group_name = _PLANNING_GROUP
+        req.group_name = group
+        req.planner_id = "RRTstarkConfigDefault"
         req.num_planning_attempts = _NUM_ATTEMPTS
         req.allowed_planning_time = _PLANNING_TIME_SEC
         req.max_velocity_scaling_factor = _MAX_VEL_SCALE
         req.max_acceleration_scaling_factor = _MAX_ACCEL_SCALE
-        req.workspace_parameters = self._build_workspace()
-        req.start_state = self._build_home_start_state()
-        req.goal_constraints.append(self._build_goal_constraints(target_pose))
+        req.workspace_parameters = self._build_workspace(planning_frame)
+        # req.start_state = self._build_home_start_state()
+        req.goal_constraints.append(self._build_goal_constraints(target_pose, eef_link))
         return req
 
     def _build_home_start_state(self) -> RobotState:
@@ -235,19 +300,19 @@ class MoveItPlanOnlyClient(Node):
         state.joint_state = js
         return state
 
-    def _build_workspace(self) -> WorkspaceParameters:
+    def _build_workspace(self, frame=_PLANNING_FRAME):
         """Return a cubic workspace envelope centred at the origin."""
         ws = WorkspaceParameters()
-        ws.header.frame_id = _PLANNING_FRAME
+        ws.header.frame_id = frame
         ws.min_corner.x = ws.min_corner.y = ws.min_corner.z = -_WORKSPACE_HALF_M
         ws.max_corner.x = ws.max_corner.y = ws.max_corner.z = _WORKSPACE_HALF_M
         return ws
 
-    def _build_goal_constraints(self, target_pose: PoseStamped) -> Constraints:
+    def _build_goal_constraints(self, target_pose: PoseStamped, eef_link=_EEF_LINK) -> Constraints:
         """Build paired position + orientation constraints for *target_pose*.
 
         Args:
-            target_pose: The desired ``left_tcp`` pose.
+            target_pose: The desired ``left_tcp, right_tcp`` pose.
 
         Returns:
             ``Constraints`` message with one position and one orientation entry.
@@ -261,7 +326,7 @@ class MoveItPlanOnlyClient(Node):
         )
         pos_c = PositionConstraint()
         pos_c.header = target_pose.header
-        pos_c.link_name = _EEF_LINK
+        pos_c.link_name = eef_link
         pos_c.constraint_region = BoundingVolume(
             primitives=[sphere],
             primitive_poses=[target_pose.pose],
@@ -272,7 +337,7 @@ class MoveItPlanOnlyClient(Node):
         # Orientation constraint — tight per-axis tolerances.
         ori_c = OrientationConstraint()
         ori_c.header = target_pose.header
-        ori_c.link_name = _EEF_LINK
+        ori_c.link_name = eef_link
         ori_c.orientation = target_pose.pose.orientation
         ori_c.absolute_x_axis_tolerance = _ORIENTATION_TOL_RAD
         ori_c.absolute_y_axis_tolerance = _ORIENTATION_TOL_RAD
@@ -318,3 +383,58 @@ class MoveItPlanOnlyClient(Node):
             "Possible causes: IK unreachable, joint limits, collision."
         )
         return False
+
+    def _add_cylinder_obstacle(self, name, x, y, z, height, radius, frame="world"):
+        """Add a cylindrical collision object to the planning scene.
+
+        Args:
+            name: Unique name for the object.
+            x, y, z: Cylinder centre position in *frame*.
+            height: Cylinder height along its local Z axis.
+            radius: Cylinder radius.
+            frame: Reference frame for the cylinder pose.
+        """
+        obj = CollisionObject()
+        obj.header.frame_id = frame
+        obj.id = name
+
+        cylinder = SolidPrimitive(type=SolidPrimitive.CYLINDER, dimensions=[height, radius])
+
+        cylinder_pose = Pose()
+        cylinder_pose.position.x = x
+        cylinder_pose.position.y = y
+        cylinder_pose.position.z = z
+        cylinder_pose.orientation.w = 1.0  # no rotation
+
+        obj.primitives.append(cylinder)
+        obj.primitive_poses.append(cylinder_pose)
+        obj.operation = CollisionObject.ADD
+
+        scene = PlanningScene()
+        scene.world.collision_objects.append(obj)
+        scene.is_diff = True  # only update the diff, not the entire scene
+        self._planning_scene_pub.publish(scene)
+
+        self.get_logger().info(
+            f"[scene] Added cylinder '{name}' at ({x:.3f}, {y:.3f}, {z:.3f}) "
+            f"height={height:.3f} radius={radius:.3f} in frame '{frame}'."
+        )
+
+    def _remove_obstacle(self, name, frame="world"):
+        """Remove a collision object from the planning scene.
+
+        Args:
+            name: Name of the object to remove.
+            frame: Reference frame for the object.
+        """
+        obj = CollisionObject()
+        obj.header.frame_id = frame
+        obj.id = name
+        obj.operation = CollisionObject.REMOVE
+
+        scene = PlanningScene()
+        scene.world.collision_objects.append(obj)
+        scene.is_diff = True  # only update the diff, not the entire scene
+        self._planning_scene_pub.publish(scene)
+
+        self.get_logger().info(f"[scene] Removed collision object '{name}' from frame '{frame}'.")
