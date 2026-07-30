@@ -1,0 +1,547 @@
+<?xml version="1.0"?>
+<robot name="dual_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ============================================================
+       PROPERTIES
+  ============================================================ -->
+  <!-- Table -->
+  <xacro:property name="table_l"     value="1.50"/>
+  <xacro:property name="table_w"     value="1.00"/>
+  <xacro:property name="table_thick" value="0.05"/>
+  <xacro:property name="table_h"     value="0.80"/>
+  <xacro:property name="leg_r"       value="0.03"/>
+  <xacro:property name="leg_h"       value="${table_h - table_thick}"/>
+
+  <!-- ============================================================
+       MATERIALS
+  ============================================================ -->
+  <material name="LightGrey"> <color rgba="0.7 0.7 0.7 1.0"/> </material>
+  <material name="DarkGrey">  <color rgba="0.1 0.1 0.1 1.0"/> </material>
+  <material name="Blue">      <color rgba="0.1 0.3 0.7 1.0"/> </material>
+  <material name="White">     <color rgba="0.9 0.9 0.9 1.0"/> </material>
+
+
+  <!-- ============================================================
+       MACRO: UR10e ARM
+       Visual origins verified from:
+         ur_macro.xacro         → rpy values
+         physical_parameters.yaml → shoulder_offset=0.1762, elbow_offset=0.0393
+         visual_parameters.yaml  → wrist offsets: -0.135, -0.12, -0.1168
+  ============================================================ -->
+  <xacro:macro name="ur10e_arm" params="prefix parent x y yaw">
+
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/ur10e/base.dae"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/ur10e/base.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}base_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child  link="${prefix}base_link"/>
+      <origin xyz="${x} ${y} 0" rpy="0 0 ${yaw}"/>
+    </joint>
+
+    <link name="${prefix}shoulder_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/ur10e/shoulder.dae"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/ur10e/shoulder.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}shoulder_pan_joint" type="revolute">
+      <parent link="${prefix}base_link"/>
+      <child  link="${prefix}shoulder_link"/>
+      <origin xyz="0 0 0.1807" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-2*pi}" upper="${2*pi}" effort="330" velocity="2.0944"/>
+    </joint>
+
+    <link name="${prefix}upper_arm_link">
+      <visual>
+        <origin xyz="0 0 0.1762" rpy="${pi/2} 0 ${-pi/2}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/ur10e/upperarm.dae"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.1762" rpy="${pi/2} 0 ${-pi/2}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/ur10e/upperarm.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}shoulder_lift_joint" type="revolute">
+      <parent link="${prefix}shoulder_link"/>
+      <child  link="${prefix}upper_arm_link"/>
+      <origin xyz="0 0 0" rpy="1.570796327 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-2*pi}" upper="${2*pi}" effort="330" velocity="2.0944"/>
+    </joint>
+
+    <link name="${prefix}forearm_link">
+      <visual>
+        <origin xyz="0 0 0.0393" rpy="${pi/2} 0 ${-pi/2}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/ur10e/forearm.dae"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.0393" rpy="${pi/2} 0 ${-pi/2}"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/ur10e/forearm.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}elbow_joint" type="revolute">
+      <parent link="${prefix}upper_arm_link"/>
+      <child  link="${prefix}forearm_link"/>
+      <origin xyz="-0.6127 0 0" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-pi}" upper="${pi}" effort="150" velocity="3.1416"/>
+    </joint>
+
+    <link name="${prefix}wrist_1_link">
+      <visual>
+        <origin xyz="0 0 -0.135" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/ur10e/wrist1.dae"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.135" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/ur10e/wrist1.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}wrist_1_joint" type="revolute">
+      <parent link="${prefix}forearm_link"/>
+      <child  link="${prefix}wrist_1_link"/>
+      <origin xyz="-0.57155 0 0.17415" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-2*pi}" upper="${2*pi}" effort="56" velocity="3.1416"/>
+    </joint>
+
+    <link name="${prefix}wrist_2_link">
+      <visual>
+        <origin xyz="0 0 -0.12" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/ur10e/wrist2.dae"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.12" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/ur10e/wrist2.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}wrist_2_joint" type="revolute">
+      <parent link="${prefix}wrist_1_link"/>
+      <child  link="${prefix}wrist_2_link"/>
+      <origin xyz="0 -0.11985 0" rpy="1.570796327 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-2*pi}" upper="${2*pi}" effort="56" velocity="3.1416"/>
+    </joint>
+
+    <link name="${prefix}wrist_3_link">
+      <visual>
+        <origin xyz="0 0 -0.1168" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/ur10e/wrist3.dae"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.1168" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/ur10e/wrist3.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}wrist_3_joint" type="revolute">
+      <parent link="${prefix}wrist_2_link"/>
+      <child  link="${prefix}wrist_3_link"/>
+      <origin xyz="0 0.11655 0" rpy="1.570796327 ${pi} ${pi}"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-2*pi}" upper="${2*pi}" effort="56" velocity="3.1416"/>
+    </joint>
+
+    <link name="${prefix}tool0"/>
+    <joint name="${prefix}flange_to_tool0" type="fixed">
+      <parent link="${prefix}wrist_3_link"/>
+      <child  link="${prefix}tool0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+
+
+  <!-- ============================================================
+       MACRO: ROBOTIQ 2F-140 GRIPPER
+  ============================================================ -->
+  <xacro:macro name="robotiq_2f140" params="prefix parent yaw:=${pi/2}">
+
+    <link name="${prefix}robotiq_base_link"/>
+    <joint name="${prefix}robotiq_base_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child  link="${prefix}robotiq_base_link"/>
+      <origin xyz="0 0 0" rpy="0 0 ${yaw}"/>
+    </joint>
+
+    <link name="${prefix}robotiq_140_base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_base_link.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_base_link.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}robotiq_140_base_joint" type="fixed">
+      <parent link="${prefix}robotiq_base_link"/>
+      <child  link="${prefix}robotiq_140_base_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Left finger -->
+    <link name="${prefix}left_outer_knuckle">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_outer_knuckle.stl"/>
+        </geometry>
+        <material name="White"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_outer_knuckle.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}finger_joint" type="revolute">
+      <parent link="${prefix}robotiq_140_base_link"/>
+      <child  link="${prefix}left_outer_knuckle"/>
+      <origin xyz="0 -0.030601 0.054905" rpy="${pi/2 + 0.725} 0 0"/>
+      <axis xyz="-1 0 0"/>
+      <limit lower="0" upper="0.7" effort="1000" velocity="2.0"/>
+    </joint>
+
+    <link name="${prefix}left_outer_finger">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_outer_finger.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_outer_finger.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}left_outer_finger_joint" type="fixed">
+      <parent link="${prefix}left_outer_knuckle"/>
+      <child  link="${prefix}left_outer_finger"/>
+      <origin xyz="0 0.01821998610742 0.0260018192872234" rpy="0 0 0"/>
+    </joint>
+
+    <link name="${prefix}left_inner_finger">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_inner_finger.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_inner_finger.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}left_inner_finger_joint" type="revolute">
+      <parent link="${prefix}left_outer_finger"/>
+      <child  link="${prefix}left_inner_finger"/>
+      <origin xyz="0 0.0817554015893473 -0.0282203446692936" rpy="-0.725 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-0.8757" upper="0.8757" effort="1000" velocity="2.0"/>
+      <mimic joint="${prefix}finger_joint" multiplier="1" offset="0"/>
+    </joint>
+
+    <link name="${prefix}left_inner_finger_pad">
+      <visual>
+        <geometry><box size="0.027 0.065 0.0075"/></geometry>
+        <material name="White"/>
+      </visual>
+      <collision>
+        <geometry><box size="0.030 0.070 0.0075"/></geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}left_inner_finger_pad_joint" type="fixed">
+      <parent link="${prefix}left_inner_finger"/>
+      <child  link="${prefix}left_inner_finger_pad"/>
+      <origin xyz="0 0.0457554015893473 -0.0272203446692936" rpy="0 0 0"/>
+    </joint>
+
+    <link name="${prefix}left_inner_knuckle">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_inner_knuckle.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_inner_knuckle.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}left_inner_knuckle_joint" type="revolute">
+      <parent link="${prefix}robotiq_140_base_link"/>
+      <child  link="${prefix}left_inner_knuckle"/>
+      <origin xyz="0 -0.0127 0.06142" rpy="${pi/2 + 0.725} 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-0.8757" upper="0.8757" effort="1000" velocity="2.0"/>
+      <mimic joint="${prefix}finger_joint" multiplier="-1" offset="0"/>
+    </joint>
+
+    <!-- Right finger -->
+    <link name="${prefix}right_outer_knuckle">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_outer_knuckle.stl"/>
+        </geometry>
+        <material name="White"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_outer_knuckle.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}right_outer_knuckle_joint" type="revolute">
+      <parent link="${prefix}robotiq_140_base_link"/>
+      <child  link="${prefix}right_outer_knuckle"/>
+      <origin xyz="0 0.030601 0.054905" rpy="${pi/2 + 0.725} 0 ${pi}"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-0.725" upper="0.725" effort="1000" velocity="2.0"/>
+      <mimic joint="${prefix}finger_joint" multiplier="-1" offset="0"/>
+    </joint>
+
+    <link name="${prefix}right_outer_finger">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_outer_finger.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_outer_finger.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}right_outer_finger_joint" type="fixed">
+      <parent link="${prefix}right_outer_knuckle"/>
+      <child  link="${prefix}right_outer_finger"/>
+      <origin xyz="0 0.01821998610742 0.0260018192872234" rpy="0 0 0"/>
+    </joint>
+
+    <link name="${prefix}right_inner_finger">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_inner_finger.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_inner_finger.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}right_inner_finger_joint" type="revolute">
+      <parent link="${prefix}right_outer_finger"/>
+      <child  link="${prefix}right_inner_finger"/>
+      <origin xyz="0 0.0817554015893473 -0.0282203446692936" rpy="-0.725 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-0.8757" upper="0.8757" effort="1000" velocity="2.0"/>
+      <mimic joint="${prefix}finger_joint" multiplier="1" offset="0"/>
+    </joint>
+
+    <link name="${prefix}right_inner_finger_pad">
+      <visual>
+        <geometry><box size="0.027 0.065 0.0075"/></geometry>
+        <material name="White"/>
+      </visual>
+      <collision>
+        <geometry><box size="0.030 0.070 0.0075"/></geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}right_inner_finger_pad_joint" type="fixed">
+      <parent link="${prefix}right_inner_finger"/>
+      <child  link="${prefix}right_inner_finger_pad"/>
+      <origin xyz="0 0.0457554015893473 -0.0272203446692936" rpy="0 0 0"/>
+    </joint>
+
+    <link name="${prefix}right_inner_knuckle">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/visual/2f_140/robotiq_2f_140_inner_knuckle.stl"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://dual_arm_pkg/meshes/collision/2f_140/robotiq_2f_140_inner_knuckle.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}right_inner_knuckle_joint" type="revolute">
+      <parent link="${prefix}robotiq_140_base_link"/>
+      <child  link="${prefix}right_inner_knuckle"/>
+      <origin xyz="0 0.0127 0.06142" rpy="${pi/2 + 0.725} 0 ${pi}"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-0.8757" upper="0.8757" effort="1000" velocity="2.0"/>
+      <mimic joint="${prefix}finger_joint" multiplier="-1" offset="0"/>
+    </joint>
+
+  </xacro:macro>
+
+
+  <!-- ============================================================
+       WORLD
+  ============================================================ -->
+  <link name="world"/>
+
+
+  <!-- ============================================================
+       TABLE
+  ============================================================ -->
+  <link name="table_link">
+    <visual>
+      <geometry><box size="${table_l} ${table_w} ${table_thick}"/></geometry>
+      <material name="Blue"/>
+    </visual>
+    <collision>
+      <geometry><box size="${table_l} ${table_w} ${table_thick}"/></geometry>
+    </collision>
+  </link>
+  <joint name="world_to_table" type="fixed">
+    <parent link="world"/>
+    <child  link="table_link"/>
+    <origin xyz="0 0 ${table_h - table_thick/2}" rpy="0 0 0"/>
+  </joint>
+
+  <xacro:macro name="table_leg" params="name lx ly">
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 0 ${-leg_h/2}" rpy="0 0 0"/>
+        <geometry><cylinder radius="${leg_r}" length="${leg_h}"/></geometry>
+        <material name="Blue"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${-leg_h/2}" rpy="0 0 0"/>
+        <geometry><cylinder radius="${leg_r}" length="${leg_h}"/></geometry>
+      </collision>
+    </link>
+    <joint name="table_to_${name}" type="fixed">
+      <parent link="table_link"/>
+      <child  link="${name}"/>
+      <origin xyz="${lx} ${ly} ${-table_thick/2}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:table_leg name="leg_fl" lx=" ${table_l/2-0.06}" ly=" ${table_w/2-0.06}"/>
+  <xacro:table_leg name="leg_fr" lx=" ${table_l/2-0.06}" ly="-${table_w/2-0.06}"/>
+  <xacro:table_leg name="leg_rl" lx="-${table_l/2-0.06}" ly=" ${table_w/2-0.06}"/>
+  <xacro:table_leg name="leg_rr" lx="-${table_l/2-0.06}" ly="-${table_w/2-0.06}"/>
+
+  <link name="table_surface"/>
+  <joint name="table_to_surface" type="fixed">
+    <parent link="table_link"/>
+    <child  link="table_surface"/>
+    <origin xyz="0 0 ${table_thick/2}" rpy="0 0 0"/>
+  </joint>
+
+
+  <!-- ============================================================
+       ROBOT INSTANCES
+  ============================================================ -->
+<!-- LEFT arm — left end of table -->
+  <xacro:ur10e_arm    prefix="left_"  parent="table_surface" x="-0.60" y="0.15" yaw="0"/>
+  <xacro:robotiq_2f140 prefix="left_"  parent="left_tool0" yaw="${pi}"/>
+
+  <!-- Left TCP: fingertip gripping point 244 mm along +Z from left_tool0 -->
+  <link name="left_tcp"/>
+  <joint name="left_tool0_to_left_tcp" type="fixed">
+    <parent link="left_tool0"/>
+    <child  link="left_tcp"/>
+    <origin xyz="0 0 0.244" rpy="0 0 0"/>
+  </joint>
+
+  <!-- RIGHT arm — right end of table -->
+  <xacro:ur10e_arm    prefix="right_" parent="table_surface" x=" 0.60" y="0.15" yaw="${pi}"/>
+  <xacro:robotiq_2f140 prefix="right_" parent="right_tool0"/>
+
+  <!-- ============================================================
+       ZED MINI CAMERA
+  ============================================================ -->
+  <link name="zed_mini_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 ${pi} ${pi/2}"/>
+      <geometry>
+        <mesh filename="file:///home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedm.stl"/>
+      </geometry>
+      <material name="DarkGrey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 ${pi} ${pi/2}"/>
+      <geometry>
+        <mesh filename="file:///home/rosi/ws_dual_arm/install/zed_description/share/zed_description/meshes/zedm.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="table_to_zed_mini" type="fixed">
+    <parent link="table_surface"/>
+    <child  link="zed_mini_link"/>
+    <origin xyz="0 0.40 0.70" rpy="0 0 0"/>
+  </joint>
+
+</robot>

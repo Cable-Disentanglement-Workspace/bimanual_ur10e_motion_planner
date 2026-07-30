@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: dual_arm_moveit_config
+    relative_path: config/dual_arm_real_v2.urdf.xacro
+  srdf:
+    relative_path: config/dual_arm.srdf
+  package_settings:
+    author_name: dual_arm
+    author_email: user@example.com
+    generated_timestamp: 0

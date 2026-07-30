@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_arm">
+
+  <!-- When true, both arms use mock_components/GenericSystem instead of the real
+       UR hardware interface, so the model can be loaded/planned offline (no robot). -->
+  <xacro:arg name="use_fake_hardware" default="false"/>
+
+  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
+  <xacro:include filename="$(find dual_arm_pkg)/urdf/robotiq_2f140.xacro"/>
+
+  <!-- ===================== WORLD + TABLE ===================== -->
+  <link name="world"/>
+
+  <link name="table_link">
+    <visual>
+      <geometry><box size="1.50 1.00 0.05"/></geometry>
+      <material name="Blue"><color rgba="0.1 0.3 0.7 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="1.50 1.00 0.05"/></geometry>
+    </collision>
+  </link>
+  <joint name="world_to_table" type="fixed">
+    <parent link="world"/>
+    <child  link="table_link"/>
+    <origin xyz="0 0 0.775" rpy="0 0 0"/>
+  </joint>
+
+  <link name="table_surface"/>
+  <joint name="table_to_surface" type="fixed">
+    <parent link="table_link"/>
+    <child  link="table_surface"/>
+    <origin xyz="0 0 0.025" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ===================== LEFT ARM ===================== -->
+  <xacro:ur_robot
+    name="left_ur10e"
+    tf_prefix="left_"
+    parent="table_surface"
+    joint_limits_parameters_file="$(find ur_description)/config/ur10e/joint_limits.yaml"
+    kinematics_parameters_file="$(find dual_arm_moveit_config)/config/left_ur10e_calibration.yaml"
+    physical_parameters_file="$(find ur_description)/config/ur10e/physical_parameters.yaml"
+    visual_parameters_file="$(find ur_description)/config/ur10e/visual_parameters.yaml"
+    robot_ip="192.168.1.10"
+    use_fake_hardware="$(arg use_fake_hardware)"
+    initial_positions="${dict(shoulder_pan_joint=-0.9579,shoulder_lift_joint=-1.9195,elbow_joint=2.5167,wrist_1_joint=-3.4194,wrist_2_joint=-2.0268,wrist_3_joint=0.2502)}"
+    headless_mode="true"
+    reverse_port="50002"
+    script_sender_port="50003"
+    trajectory_port="50004"
+    script_command_port="50001"
+    use_tool_communication="false"
+    generate_ros2_control_tag="true"
+    script_filename="$(find ur_robot_driver)/resources/ros_control.urscript"
+    output_recipe_filename="$(find ur_robot_driver)/resources/rtde_output_recipe.txt"
+    input_recipe_filename="$(find ur_robot_driver)/resources/rtde_input_recipe.txt">
+    <origin xyz="-0.60 -0.15 0.0" rpy="0 0 1.5708"/>
+  </xacro:ur_robot>
+
+  <xacro:robotiq_2f140 prefix="left_" parent="left_tool0" yaw="${pi}"/>
+
+  <!-- Left TCP: fingertip gripping point 244 mm along +Z from left_tool0 -->
+  <link name="left_tcp"/>
+  <joint name="left_tool0_to_left_tcp" type="fixed">
+    <parent link="left_tool0"/>
+    <child  link="left_tcp"/>
+    <origin xyz="0 0 0.244" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ===================== RIGHT ARM ===================== -->
+  <xacro:ur_robot
+    name="right_ur10e"
+    tf_prefix="right_"
+    parent="table_surface"
+    joint_limits_parameters_file="$(find ur_description)/config/ur10e/joint_limits.yaml"
+    kinematics_parameters_file="$(find dual_arm_moveit_config)/config/right_ur10e_calibration.yaml"
+    physical_parameters_file="$(find ur_description)/config/ur10e/physical_parameters.yaml"
+    visual_parameters_file="$(find ur_description)/config/ur10e/visual_parameters.yaml"
+    robot_ip="192.168.1.20"
+    use_fake_hardware="$(arg use_fake_hardware)"
+    initial_positions="${dict(shoulder_pan_joint=-2.155,shoulder_lift_joint=-1.4352,elbow_joint=-2.4564,wrist_1_joint=0.5894,wrist_2_joint=-4.1043,wrist_3_joint=-0.2312)}"
+    headless_mode="true"
+    reverse_port="50005"
+    script_sender_port="50006"
+    trajectory_port="50007"
+    script_command_port="50008"
+    use_tool_communication="false"
+    generate_ros2_control_tag="true"
+    script_filename="$(find ur_robot_driver)/resources/ros_control.urscript"
+    output_recipe_filename="$(find ur_robot_driver)/resources/rtde_output_recipe.txt"
+    input_recipe_filename="$(find ur_robot_driver)/resources/rtde_input_recipe.txt">
+    <origin xyz="0.60 -0.15 0.0" rpy="0 0 1.5708"/>
+  </xacro:ur_robot>
+
+  <xacro:robotiq_2f140 prefix="right_" parent="right_tool0" yaw="0"/>
+
+<!-- ===================== COBOT FRAME ===================== -->
+<link name="cobot_frame_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dual_arm_pkg/meshes/visual/cobot_frame_simple.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Steel">
+        <color rgba="0.8 0.8 0.9 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dual_arm_pkg/meshes/visual/cobot_frame_simple.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+<joint name="table_to_cobot_frame" type="fixed">
+    <parent link="table_surface"/>
+    <child  link="cobot_frame_link"/>
+    <origin xyz="-0.09 0.24 0.60" rpy="1.5708 3.1416 4.7124"/>
+  </joint>
+
+</robot>
