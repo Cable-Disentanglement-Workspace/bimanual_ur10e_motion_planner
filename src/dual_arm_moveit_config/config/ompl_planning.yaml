@@ -18,27 +18,42 @@ planner_configs:
   PRMkConfigDefault:
     type: geometric::PRM
     max_nearest_neighbors: 10
+  RRTstarkConfigDefault:
+    type: geometric::RRTstar
+    optimization_objective: MechanicalWorkOptimizationObjective
+    range: 0.0
+    goal_bias: 0.05
+    delay_collision_checking: 1
+  PRMstarkConfigDefault:
+    type: geometric::PRMstar
+    optimization_objective: MechanicalWorkOptimizationObjective
 
 left_arm:
-  default_planner_config: RRTConnectkConfigDefault
+  default_planner_config: RRTstarkConfigDefault
   planner_configs:
     - RRTConnectkConfigDefault
     - RRTkConfigDefault
     - PRMkConfigDefault
+    - RRTstarkConfigDefault
+    - PRMstarkConfigDefault
   projection_evaluator: joints(left_shoulder_pan_joint,left_shoulder_lift_joint)
   longest_valid_segment_fraction: 0.005
 
 right_arm:
-  default_planner_config: RRTConnectkConfigDefault
+  default_planner_config: RRTstarkConfigDefault
   planner_configs:
     - RRTConnectkConfigDefault
     - RRTkConfigDefault
     - PRMkConfigDefault
+    - RRTstarkConfigDefault
+    - PRMstarkConfigDefault
   projection_evaluator: joints(right_shoulder_pan_joint,right_shoulder_lift_joint)
   longest_valid_segment_fraction: 0.005
 
 both_arms:
-  default_planner_config: RRTConnectkConfigDefault
+  default_planner_config: RRTstarkConfigDefault
   planner_configs:
     - RRTConnectkConfigDefault
     - RRTkConfigDefault
+    - RRTstarkConfigDefault
+    - PRMstarkConfigDefault

@@ -40,31 +40,31 @@ def main():
         # Right arm - use right_base
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
-    right_target.pose.position.x = -0.032   # small offset
-    right_target.pose.position.y = -0.789
-    right_target.pose.position.z = 0.875
-    right_target.pose.orientation.x = 0.155
-    right_target.pose.orientation.y = -0.699
-    right_target.pose.orientation.z = 0.038
-    right_target.pose.orientation.w = 0.697
+    right_target.pose.position.x = -0.158   # small offset
+    right_target.pose.position.y = -0.681
+    right_target.pose.position.z = 0.449
+    right_target.pose.orientation.x = 0.083
+    right_target.pose.orientation.y = -0.709
+    right_target.pose.orientation.z = -0.056
+    right_target.pose.orientation.w = 0.698
 
     # Right arm - use right_base
     right_home = PoseStamped()
     right_home.header.frame_id = "right_base"
-    right_home.pose.position.x = -0.243   # small offset
-    right_home.pose.position.y = 0.012
-    right_home.pose.position.z = 0.971
-    right_home.pose.orientation.x = -0.530
-    right_home.pose.orientation.y = 0.548
-    right_home.pose.orientation.z = -0.435
-    right_home.pose.orientation.w = -0.479
-
-    planner._add_cylinder_obstacle("wall", -0.3, -0.65, 0.5, 1.0, 0.13, frame="right_base")
+    right_home.pose.position.x = -0.337   # small offset
+    right_home.pose.position.y = -0.314
+    right_home.pose.position.z = 0.501
+    right_home.pose.orientation.x = -0.062
+    right_home.pose.orientation.y = 0.749
+    right_home.pose.orientation.z = -0.659
+    right_home.pose.orientation.w = -0.035
+    planner._remove_obstacle("wall")
+    # planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.1, frame="right_base")
     # Give time for planning scene to update
     time.sleep(1.0)
     if move_with_retry(planner, right_target, arm="right", execute=True):
         print("Target reached, now moving to home...")
-        planner._remove_obstacle("wall")
+        # 
         move_with_retry(planner, right_home, arm="right", execute=True)
 
     # Remove wall when done
