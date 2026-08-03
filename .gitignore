@@ -9,3 +9,5 @@ src/zed-ros2-description/
 src/zed-ros2-wrapper/
 
 .vscode/
+frames_*.gv
+frames_*.pdf
