@@ -40,13 +40,13 @@ def main():
         # Right arm - use right_base
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
-    right_target.pose.position.x = -0.158   # small offset
-    right_target.pose.position.y = -0.681
-    right_target.pose.position.z = 0.449
-    right_target.pose.orientation.x = 0.083
-    right_target.pose.orientation.y = -0.709
-    right_target.pose.orientation.z = -0.056
-    right_target.pose.orientation.w = 0.698
+    right_target.pose.position.x = -0.337 #-0.158   # small offset
+    right_target.pose.position.y = -0.364 #-0.681
+    right_target.pose.position.z = 0.501 #0.449
+    right_target.pose.orientation.x = -0.062 #0.083
+    right_target.pose.orientation.y = 0.749 #-0.709
+    right_target.pose.orientation.z = -0.659 #-0.056
+    right_target.pose.orientation.w = -0.035 #0.698
 
     # Right arm - use right_base
     right_home = PoseStamped()
@@ -61,6 +61,7 @@ def main():
     planner._remove_obstacle("wall")
     # planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.1, frame="right_base")
     # Give time for planning scene to update
+    
     time.sleep(1.0)
     if move_with_retry(planner, right_target, arm="right", execute=True):
         print("Target reached, now moving to home...")

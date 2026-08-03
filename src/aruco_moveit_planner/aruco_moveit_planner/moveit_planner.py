@@ -129,6 +129,11 @@ class MoveItPlanOnlyClient(Node):
             PlanningScene, "/planning_scene", 10
         )
 
+        self._current_joint_state = None
+        self.create_subscription(
+            JointState, "/joint_states", self._joint_state_cb, 10
+        )
+
     # ── Public API ────────────────────────────────────────────────────────────
 
     def plan_to_pose(self, target_pose: PoseStamped) -> bool:
@@ -207,6 +212,10 @@ class MoveItPlanOnlyClient(Node):
             f"in frame '{target_pose.header.frame_id}'"
         )
 
+        q = target_pose.pose.orientation
+        n = (q.x**2 + q.y**2 + q.z**2 + q.w**2) ** 0.5
+        self.get_logger().info(f"goal quat=({q.x:.3f},{q.y:.3f},{q.z:.3f},{q.w:.3f}) norm={n:.3f}")
+
         import rclpy
 
         send_future = self._client.send_goal_async(goal)
@@ -250,6 +259,8 @@ class MoveItPlanOnlyClient(Node):
         )
 
     # ── Private helpers ───────────────────────────────────────────────────────
+    def _joint_state_cb(self, msg: JointState) -> None:
+        self._current_joint_state = msg
 
     def _publish_display(self) -> None:
         """Emit one ``DisplayTrajectory`` message with the stored planned path."""
@@ -260,7 +271,8 @@ class MoveItPlanOnlyClient(Node):
         msg.trajectory = [self._stored_trajectory]
         self._display_pub.publish(msg)
 
-    def _build_request(self, target_pose, group=_PLANNING_GROUP, eef_link=_EEF_LINK, planning_frame=_PLANNING_FRAME):
+    def _build_request(self, target_pose, group=_PLANNING_GROUP, eef_link=_EEF_LINK, planning_frame=_PLANNING_FRAME,
+    pipeline_id="pilz_industrial_motion_planner", planner_id="PTP"):
         """Assemble a complete ``MotionPlanRequest`` for *target_pose*.
 
         Args:
@@ -271,13 +283,14 @@ class MoveItPlanOnlyClient(Node):
         """
         req = MotionPlanRequest()
         req.group_name = group
-        req.planner_id = "RRTstarkConfigDefault"   
+        req.planner_id = planner_id
+        req.pipeline_id = pipeline_id
         req.num_planning_attempts = _NUM_ATTEMPTS
         req.allowed_planning_time = _PLANNING_TIME_SEC
         req.max_velocity_scaling_factor = _MAX_VEL_SCALE
         req.max_acceleration_scaling_factor = _MAX_ACCEL_SCALE
         req.workspace_parameters = self._build_workspace(planning_frame)
-        # req.start_state = self._build_home_start_state()
+        req.start_state = self._build_home_start_state()
         req.goal_constraints.append(self._build_goal_constraints(target_pose, eef_link))
         return req
 
