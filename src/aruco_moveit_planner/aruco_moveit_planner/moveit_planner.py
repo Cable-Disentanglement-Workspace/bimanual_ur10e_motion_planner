@@ -55,8 +55,8 @@ _RIGHT_PLANNING_FRAME: str = "right_base"
 
 _PLANNING_TIME_SEC: float = 10.0
 _NUM_ATTEMPTS: int = 10
-_MAX_VEL_SCALE: float = 0.1
-_MAX_ACCEL_SCALE: float = 0.1
+_MAX_VEL_SCALE: float = 0.05
+_MAX_ACCEL_SCALE: float = 0.05
 
 # Tolerance sphere radius for position constraint (metres).
 _POSITION_TOL_M: float = 0.001

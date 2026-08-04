@@ -41,7 +41,7 @@ def main():
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
     right_target.pose.position.x = -0.337 #-0.158   # small offset
-    right_target.pose.position.y = -0.364 #-0.681
+    right_target.pose.position.y = -0.404 #-0.681
     right_target.pose.position.z = 0.501 #0.449
     right_target.pose.orientation.x = -0.062 #0.083
     right_target.pose.orientation.y = 0.749 #-0.709
@@ -58,14 +58,14 @@ def main():
     right_home.pose.orientation.y = 0.749
     right_home.pose.orientation.z = -0.659
     right_home.pose.orientation.w = -0.035
-    planner._remove_obstacle("wall")
     # planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.1, frame="right_base")
     # Give time for planning scene to update
     
-    time.sleep(1.0)
+    
     if move_with_retry(planner, right_target, arm="right", execute=True):
         print("Target reached, now moving to home...")
-        # 
+        #planner._remove_obstacle("wall")
+        time.sleep(1.0)
         move_with_retry(planner, right_home, arm="right", execute=True)
 
     # Remove wall when done
