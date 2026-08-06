@@ -37,6 +37,7 @@ from moveit_msgs.msg import (
     WorkspaceParameters,
     PlanningScene,
     CollisionObject,
+    JointConstraint,
 )
 from rclpy.action import ActionClient
 from rclpy.node import Node
@@ -55,13 +56,13 @@ _RIGHT_PLANNING_FRAME: str = "right_base"
 
 _PLANNING_TIME_SEC: float = 10.0
 _NUM_ATTEMPTS: int = 10
-_MAX_VEL_SCALE: float = 0.05
-_MAX_ACCEL_SCALE: float = 0.05
+_MAX_VEL_SCALE: float = 0.1
+_MAX_ACCEL_SCALE: float = 0.1
 
 # Tolerance sphere radius for position constraint (metres).
-_POSITION_TOL_M: float = 0.001
+_POSITION_TOL_M: float = 0.01
 # Per-axis tolerance for orientation constraint (radians).
-_ORIENTATION_TOL_RAD: float = 0.01
+_ORIENTATION_TOL_RAD: float = 0.1
 
 # Half-side of the axis-aligned planning workspace cube (metres).
 _WORKSPACE_HALF_M: float = 2.0
@@ -272,7 +273,7 @@ class MoveItPlanOnlyClient(Node):
         self._display_pub.publish(msg)
 
     def _build_request(self, target_pose, group=_PLANNING_GROUP, eef_link=_EEF_LINK, planning_frame=_PLANNING_FRAME,
-    pipeline_id="pilz_industrial_motion_planner", planner_id="PTP"):
+    pipeline_id="ompl", planner_id="RRTstarkConfigDefault") -> MotionPlanRequest:
         """Assemble a complete ``MotionPlanRequest`` for *target_pose*.
 
         Args:
@@ -292,6 +293,21 @@ class MoveItPlanOnlyClient(Node):
         req.workspace_parameters = self._build_workspace(planning_frame)
         req.start_state = self._build_home_start_state()
         req.goal_constraints.append(self._build_goal_constraints(target_pose, eef_link))
+
+        if self._current_joint_state is not None:
+            pc = Constraints()
+            for jname in ["right_shoulder_pan_joint", "right_wrist_1_joint","right_wrist_2_joint","right_wrist_3_joint"]:
+                idx = self._current_joint_state.name.index(jname)
+                angle = self._current_joint_state.position[idx]
+                jc = JointConstraint()
+                jc.joint_name = jname
+                jc.position = angle
+                jc.tolerance_above = 0.7854
+                jc.tolerance_below = 0.7854
+                jc.weight = 1.0
+                req.goal_constraints[0].joint_constraints.append(jc)
+                pc.joint_constraints.append(jc)
+                req.path_constraints = pc
         return req
 
     def _build_home_start_state(self) -> RobotState:
