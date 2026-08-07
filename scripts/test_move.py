@@ -10,26 +10,16 @@ from moveit_msgs.srv import GetPositionFK
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 
-
-   
-# ── Planners to compare: (pipeline_id, planner_id, label, color) ──────────────
-# Colors: RGBA. Add/remove rows to change what gets compared.
-PLANNERS = [
-    ("ompl", "RRTConnectkConfigDefault", "OMPL",     (1.0, 0.0, 0.0, 1.0)),  # red
-    ("pilz_industrial_motion_planner", "PTP", "PilzPTP", (0.0, 1.0, 0.0, 1.0)),  # green
-    ("pilz_industrial_motion_planner", "LIN", "PilzLIN", (0.0, 0.0, 1.0, 1.0)),  # blue
-]
- 
 # Where trajectories are saved (one YAML per planner label).
 SAVE_DIR = "/home/rosi/ZD/zed_Motion/src/scripts/trajectories"
  
 # EEF link + base frame used for FK when drawing the Cartesian path.
 EEF_LINK = "right_tcp"
 BASE_FRAME = "right_base"
-
 LABEL    = "OMPL" 
  
-def move_with_retry(planner, target, arm="left", max_retries=5, execute=False, constrain_joints=True):
+def move_with_retry(planner, target, arm="left", max_retries=5,
+                    execute=False, constrain_joints=True):
     for attempt in range(max_retries):
         if arm == "left":
             success = planner.plan_to_pose(target)
@@ -38,6 +28,18 @@ def move_with_retry(planner, target, arm="left", max_retries=5, execute=False, c
 
         if success:
             print(f"Plan succeeded on attempt {attempt + 1}")
+
+            if execute:
+                answer = input("Trajectory shown in RViz. Execute? [y/N] ").strip().lower()
+                if answer == "y":
+                    if arm == "left":
+                        planner.execute_stored_trajectory()   # or your left-arm executor
+                    else:
+                        planner.execute_stored_trajectory()
+                else:
+                    print("Discarded plan.")
+                    planner._stored_trajectory = None
+                    continue  
             return True
 
         print(f"Attempt {attempt + 1}/{max_retries} failed, retrying...")
@@ -243,16 +245,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# # Left arm - use left_base
-# left_target = PoseStamped()
-# left_target.header.frame_id = "left_base"
-# left_target.pose.position.x = -0.309
-# left_target.pose.position.y = 0.631
-# left_target.pose.position.z = 0.442
-# left_target.pose.orientation.x = -0.800
-# left_target.pose.orientation.y = -0.011
-# left_target.pose.orientation.z = 0.072
-# left_target.pose.orientation.w = 0.595
-
-# success = planner.plan_to_pose(left_target)   # uses left_arm config

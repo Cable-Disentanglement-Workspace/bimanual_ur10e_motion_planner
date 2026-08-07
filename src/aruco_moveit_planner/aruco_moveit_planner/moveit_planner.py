@@ -25,7 +25,7 @@ empty, preventing RViz from animating the planned path.
 """
 
 from geometry_msgs.msg import PoseStamped, Pose
-from moveit_msgs.action import MoveGroup
+from moveit_msgs.action import MoveGroup, ExecuteTrajectory
 from moveit_msgs.msg import (
     BoundingVolume,
     Constraints,
@@ -38,11 +38,15 @@ from moveit_msgs.msg import (
     PlanningScene,
     CollisionObject,
     JointConstraint,
+    MoveItErrorCodes,
 )
 from rclpy.action import ActionClient
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 from shape_msgs.msg import SolidPrimitive
+import rclpy
+
+
 
 # ── Planning constants ────────────────────────────────────────────────────────
 
@@ -113,6 +117,7 @@ class MoveItPlanOnlyClient(Node):
         self._display_pub = self.create_publisher(DisplayTrajectory, _DISPLAY_TOPIC, 1)
         self._stored_trajectory = None   # populated after a successful plan
         self._display_timer = None       # periodic republish timer
+        self._exec_client = ActionClient(self, ExecuteTrajectory, "execute_trajectory")
 
         self.get_logger().info(
             f"Waiting for '{_MOVE_ACTION}' action server "
@@ -184,60 +189,87 @@ class MoveItPlanOnlyClient(Node):
             self._stored_trajectory = result.planned_trajectory
         return self._report_result(result.error_code.val)
 
-    def plan_to_pose2(self, target_pose: PoseStamped, constrain_joints: bool = True) -> bool:
-        """Request a plan to *target_pose* for the ``right_tcp`` end-effector.
-
-        The call is **synchronous** — it blocks until move_group returns a
-        result.  The trajectory is published to
-        ``/move_group/display_planned_path`` for RViz and is **not** executed
-        on the real robot (``plan_only = True``).
-
-        Args:
-            target_pose: Goal pose for ``right_tcp`` expressed in ``right_base``.
-
-        Returns:
-            ``True`` if planning succeeded, ``False`` otherwise.
-        """
+    def plan_to_pose2(self, target_pose: PoseStamped,
+                  constrain_joints: bool = True,
+                  timeout_sec: float = 30.0) -> bool:
+        """Plan only. Stores the trajectory in self._stored_trajectory.
+        Nothing moves until execute_stored_trajectory() is called."""
         goal = MoveGroup.Goal()
-        goal.planning_options.plan_only = False
+        goal.planning_options.plan_only = True          # <-- the key line
         goal.request = self._build_request(
             target_pose,
             group=_RIGHT_PLANNING_GROUP,
             eef_link=_RIGHT_EEF_LINK,
             planning_frame=_RIGHT_PLANNING_FRAME,
-            constrain_joints=constrain_joints)
+            constrain_joints=constrain_joints,
+        )
 
         p = target_pose.pose.position
         self.get_logger().info(
-            f"[plan] Requesting plan-only trajectory for '{_RIGHT_EEF_LINK}' "
-            f"→ pos=({p.x:.4f}, {p.y:.4f}, {p.z:.4f}) "
-            f"in frame '{target_pose.header.frame_id}'"
+            f"[plan] Planning for '{_RIGHT_EEF_LINK}' → "
+            f"({p.x:.4f}, {p.y:.4f}, {p.z:.4f}) in '{target_pose.header.frame_id}'"
         )
 
-        q = target_pose.pose.orientation
-        n = (q.x**2 + q.y**2 + q.z**2 + q.w**2) ** 0.5
-        self.get_logger().info(f"goal quat=({q.x:.3f},{q.y:.3f},{q.z:.3f},{q.w:.3f}) norm={n:.3f}")
-
-        import rclpy
-
         send_future = self._client.send_goal_async(goal)
-        rclpy.spin_until_future_complete(self, send_future)
+        rclpy.spin_until_future_complete(self, send_future, timeout_sec=timeout_sec)
         goal_handle = send_future.result()
-
-        if not goal_handle.accepted:
-            self.get_logger().error(
-                "[plan] move_group rejected the goal."
-            )
+        if goal_handle is None or not goal_handle.accepted:
+            self.get_logger().error("[plan] Goal rejected or no response.")
             return False
 
-        self.get_logger().info("[plan] Goal accepted — waiting for plan result…")
         result_future = goal_handle.get_result_async()
-        rclpy.spin_until_future_complete(self, result_future)
+        rclpy.spin_until_future_complete(self, result_future, timeout_sec=timeout_sec)
+        if result_future.result() is None:
+            self.get_logger().error("[plan] No result (timeout?).")
+            return False
 
         result = result_future.result().result
-        if result.error_code.val == 1:  # SUCCESS
+        if result.error_code.val == MoveItErrorCodes.SUCCESS:
             self._stored_trajectory = result.planned_trajectory
-        return self._report_result(result.error_code.val)
+            self.get_logger().info(
+                "[plan] Success — trajectory stored. Check RViz, then call "
+                "execute_stored_trajectory() to run it."
+            )
+            return True
+
+        self.get_logger().error(f"[plan] Failed, error code {result.error_code.val}")
+        return False
+
+
+    def execute_stored_trajectory(self, timeout_sec: float = 60.0) -> bool:
+        """Execute the trajectory from the last successful plan."""
+        if  self._stored_trajectory is None:
+            self.get_logger().error("[exec] No stored trajectory — plan first.")
+            return False
+
+        if  not self._exec_client.wait_for_server(timeout_sec=3.0):
+            self.get_logger().error("[exec] /execute_trajectory server not available.")
+            return False
+
+        goal = ExecuteTrajectory.Goal()
+        goal.trajectory = self._stored_trajectory
+
+        self.get_logger().info("[exec] Executing stored trajectory…")
+        send_future = self._exec_client.send_goal_async(goal)
+        rclpy.spin_until_future_complete(self, send_future, timeout_sec=timeout_sec)
+        goal_handle = send_future.result()
+        if  goal_handle is None or not goal_handle.accepted:
+            self.get_logger().error("[exec] Execution goal rejected.")
+            return False
+
+        result_future = goal_handle.get_result_async()
+        rclpy.spin_until_future_complete(self, result_future, timeout_sec=timeout_sec)
+        if  result_future.result() is None:
+            self.get_logger().error("[exec] No execution result (timeout?).")
+            return False
+
+        ok = result_future.result().result.error_code.val == MoveItErrorCodes.SUCCESS
+        if ok:
+            self.get_logger().info("[exec] Motion complete.")
+            # self._stored_trajectory = None   # consume it — prevents double-execution
+        else:
+            self.get_logger().error("[exec] Execution failed.")
+        return ok
 
     def start_display_loop(self) -> None:
         """Repeatedly publish the last planned trajectory to ``/move_group/display_planned_path``.
