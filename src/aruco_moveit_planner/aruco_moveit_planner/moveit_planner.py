@@ -56,8 +56,8 @@ _RIGHT_PLANNING_FRAME: str = "right_base"
 
 _PLANNING_TIME_SEC: float = 10.0
 _NUM_ATTEMPTS: int = 10
-_MAX_VEL_SCALE: float = 0.02
-_MAX_ACCEL_SCALE: float = 0.02
+_MAX_VEL_SCALE: float = 0.1
+_MAX_ACCEL_SCALE: float = 0.1
 
 # Tolerance sphere radius for position constraint (metres).
 _POSITION_TOL_M: float = 0.01
@@ -184,7 +184,7 @@ class MoveItPlanOnlyClient(Node):
             self._stored_trajectory = result.planned_trajectory
         return self._report_result(result.error_code.val)
 
-    def plan_to_pose2(self, target_pose: PoseStamped) -> bool:
+    def plan_to_pose2(self, target_pose: PoseStamped, constrain_joints: bool = True) -> bool:
         """Request a plan to *target_pose* for the ``right_tcp`` end-effector.
 
         The call is **synchronous** — it blocks until move_group returns a
@@ -204,7 +204,8 @@ class MoveItPlanOnlyClient(Node):
             target_pose,
             group=_RIGHT_PLANNING_GROUP,
             eef_link=_RIGHT_EEF_LINK,
-            planning_frame=_RIGHT_PLANNING_FRAME)
+            planning_frame=_RIGHT_PLANNING_FRAME,
+            constrain_joints=constrain_joints)
 
         p = target_pose.pose.position
         self.get_logger().info(
@@ -273,7 +274,7 @@ class MoveItPlanOnlyClient(Node):
         self._display_pub.publish(msg)
 
     def _build_request(self, target_pose, group=_PLANNING_GROUP, eef_link=_EEF_LINK, planning_frame=_PLANNING_FRAME,
-    pipeline_id="ompl", planner_id="RRTstarkConfigDefault") -> MotionPlanRequest:
+    pipeline_id="ompl", planner_id="RRTstarkConfigDefault", constrain_joints: bool = True) -> MotionPlanRequest:
         """Assemble a complete ``MotionPlanRequest`` for *target_pose*.
 
         Args:
@@ -291,23 +292,39 @@ class MoveItPlanOnlyClient(Node):
         req.max_velocity_scaling_factor = _MAX_VEL_SCALE
         req.max_acceleration_scaling_factor = _MAX_ACCEL_SCALE
         req.workspace_parameters = self._build_workspace(planning_frame)
-        req.start_state = self._build_home_start_state()
         req.goal_constraints.append(self._build_goal_constraints(target_pose, eef_link))
 
-        if self._current_joint_state is not None:
+        if self._current_joint_state is None:
+            import rclpy
+            self.get_logger().info("[plan] Waiting for /joint_states…")
+            deadline = self.get_clock().now() + rclpy.duration.Duration(seconds=3.0)
+            while self._current_joint_state is None and self.get_clock().now() < deadline:
+                rclpy.spin_once(self, timeout_sec=0.1)
+            if self._current_joint_state is None:
+                self.get_logger().warn("[plan] No joint states received — joint constraints skipped.")
+
+        if constrain_joints and self._current_joint_state is not None and group == _RIGHT_PLANNING_GROUP:
+            watch_joints = {
+                "right_shoulder_pan_joint": 0.7854,
+                "right_wrist_1_joint":      0.7854,
+                "right_wrist_2_joint":      0.7854,
+                "right_wrist_3_joint":      0.7854,
+            }
             pc = Constraints()
-            for jname in ["right_shoulder_pan_joint", "right_wrist_1_joint","right_wrist_2_joint","right_wrist_3_joint"]:
+            for jname, tol in watch_joints.items():
+                if jname not in self._current_joint_state.name:
+                    continue
                 idx = self._current_joint_state.name.index(jname)
                 angle = self._current_joint_state.position[idx]
                 jc = JointConstraint()
                 jc.joint_name = jname
                 jc.position = angle
-                jc.tolerance_above = 0.7854
-                jc.tolerance_below = 0.7854
+                jc.tolerance_above = tol
+                jc.tolerance_below = tol
                 jc.weight = 1.0
                 req.goal_constraints[0].joint_constraints.append(jc)
                 pc.joint_constraints.append(jc)
-                req.path_constraints = pc
+            req.path_constraints = pc
         return req
 
     def _build_home_start_state(self) -> RobotState:

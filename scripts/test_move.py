@@ -29,19 +29,19 @@ BASE_FRAME = "right_base"
 
 LABEL    = "OMPL" 
  
-def move_with_retry(planner, target, arm="left", max_retries=5, execute=False):
+def move_with_retry(planner, target, arm="left", max_retries=5, execute=False, constrain_joints=True):
     for attempt in range(max_retries):
         if arm == "left":
             success = planner.plan_to_pose(target)
         else:
-            success = planner.plan_to_pose2(target)
-        
+            success = planner.plan_to_pose2(target, constrain_joints=constrain_joints)
+
         if success:
             print(f"Plan succeeded on attempt {attempt + 1}")
             return True
-        
+
         print(f"Attempt {attempt + 1}/{max_retries} failed, retrying...")
-    
+
     print(f"Failed after {max_retries} attempts!")
     return False
 
@@ -196,8 +196,8 @@ def main():
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
     right_target.pose.position.x = -0.172 #-0.158   # small offset
-    right_target.pose.position.y = -0.307 #-0.681
-    right_target.pose.position.z = 0.50 #0.449
+    right_target.pose.position.y = -0.599 #-0.681
+    right_target.pose.position.z = 0.441 #0.449
     right_target.pose.orientation.x = -0.062 #0.083
     right_target.pose.orientation.y = 0.749 #-0.709
     right_target.pose.orientation.z = -0.659 #-0.056
@@ -210,15 +210,15 @@ def main():
     right_home.pose.position.y = -0.467
     right_home.pose.position.z = 0.480
     right_home.pose.orientation.x = -0.062
-    right_home.pose.orientation.y = -0.659
+    right_home.pose.orientation.y = 0.749
     right_home.pose.orientation.z = -0.659
     right_home.pose.orientation.w = -0.035
     
-    # planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.05, frame="right_base")
+    planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.05, frame="right_base")
     # Give time for planning scene to update
     # planner._remove_obstacle("wall")
 
-    # time.sleep(1.0)
+    time.sleep(1.0)
 
     ok = move_with_retry(planner, right_target, arm="right", execute=True)
     traj= planner._stored_trajectory
@@ -230,7 +230,7 @@ def main():
         print("Target reached, now moving to home...")
         planner._remove_obstacle("wall")
         time.sleep(1.0)
-        move_with_retry(planner, right_home, arm="right", execute=True)
+        move_with_retry(planner, right_home, arm="right", execute=True, constrain_joints=False)
  
     # ###########Load the path###############
     # planner._marker_pub = planner.create_publisher(MarkerArray, "/trajectory_comparison", 1)
