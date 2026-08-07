@@ -8,7 +8,7 @@
     <chain base_link="left_base_link" tip_link="left_tcp"/>
   </group>
   <group name="right_arm">
-    <chain base_link="right_base_link" tip_link="right_tool0"/>
+    <chain base_link="right_base_link" tip_link="right_tcp"/>
   </group>
   <group name="both_arms">
     <group name="left_arm"/>

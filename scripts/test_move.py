@@ -24,7 +24,7 @@ PLANNERS = [
 SAVE_DIR = "/home/rosi/ZD/zed_Motion/src/scripts/trajectories"
  
 # EEF link + base frame used for FK when drawing the Cartesian path.
-EEF_LINK = "right_tool0"
+EEF_LINK = "right_tcp"
 BASE_FRAME = "right_base"
 
 LABEL    = "OMPL" 
@@ -196,8 +196,8 @@ def main():
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
     right_target.pose.position.x = -0.172 #-0.158   # small offset
-    right_target.pose.position.y = -0.599 #-0.681
-    right_target.pose.position.z = 0.441 #0.449
+    right_target.pose.position.y = -0.307 #-0.681
+    right_target.pose.position.z = 0.50 #0.449
     right_target.pose.orientation.x = -0.062 #0.083
     right_target.pose.orientation.y = 0.749 #-0.709
     right_target.pose.orientation.z = -0.659 #-0.056
@@ -206,15 +206,15 @@ def main():
     # Right arm - use right_base  0.544, -0.519, 0.469, 0.464
     right_home = PoseStamped()
     right_home.header.frame_id = "right_base"
-    right_home.pose.position.x = -0.337   # small offset
-    right_home.pose.position.y = -0.314
-    right_home.pose.position.z = 0.501
+    right_home.pose.position.x = -0.332   # small offset
+    right_home.pose.position.y = -0.467
+    right_home.pose.position.z = 0.480
     right_home.pose.orientation.x = -0.062
     right_home.pose.orientation.y = -0.659
     right_home.pose.orientation.z = -0.659
     right_home.pose.orientation.w = -0.035
     
-    planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.05, frame="right_base")
+    # planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.05, frame="right_base")
     # Give time for planning scene to update
     # planner._remove_obstacle("wall")
 
@@ -223,7 +223,7 @@ def main():
     ok = move_with_retry(planner, right_target, arm="right", execute=True)
     traj= planner._stored_trajectory
     m = trajectory_metrics(traj)
-    save_trajectory(traj, f"{SAVE_DIR}/RRTstarkConfigDefault_constraints_5.yaml", LABEL)
+    # save_trajectory(traj, f"{SAVE_DIR}/RRTstarkConfigDefault_constraints_5.yaml", LABEL)
 
     # keep node spinning so markers persist
     if ok:

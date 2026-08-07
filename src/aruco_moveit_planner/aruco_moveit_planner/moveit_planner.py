@@ -51,13 +51,13 @@ _EEF_LINK: str = "left_tcp"
 _PLANNING_FRAME: str = "left_base"
 
 _RIGHT_PLANNING_GROUP: str = "right_arm"
-_RIGHT_EEF_LINK: str = "right_tool0"
+_RIGHT_EEF_LINK: str = "right_tcp"
 _RIGHT_PLANNING_FRAME: str = "right_base"
 
 _PLANNING_TIME_SEC: float = 10.0
 _NUM_ATTEMPTS: int = 10
-_MAX_VEL_SCALE: float = 0.1
-_MAX_ACCEL_SCALE: float = 0.1
+_MAX_VEL_SCALE: float = 0.02
+_MAX_ACCEL_SCALE: float = 0.02
 
 # Tolerance sphere radius for position constraint (metres).
 _POSITION_TOL_M: float = 0.01
