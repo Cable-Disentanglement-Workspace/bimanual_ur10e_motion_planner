@@ -197,13 +197,13 @@ def main():
     # Right arm - staight line on x and y axis   
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
-    right_target.pose.position.x = -0.172 #-0.158   # small offset
-    right_target.pose.position.y = -0.599 #-0.681
+    right_target.pose.position.x = -0.237 #-0.158   # small offset
+    right_target.pose.position.y = -0.623 #-0.681
     right_target.pose.position.z = 0.441 #0.449
-    right_target.pose.orientation.x = -0.062 #0.083
-    right_target.pose.orientation.y = 0.749 #-0.709
-    right_target.pose.orientation.z = -0.659 #-0.056
-    right_target.pose.orientation.w = -0.035 #0.698
+    right_target.pose.orientation.x = 0.315 #0.083
+    right_target.pose.orientation.y = 0.603 #-0.709
+    right_target.pose.orientation.z = -0.582 #-0.056
+    right_target.pose.orientation.w = -0.446 #0.698
 
     # Right arm - use right_base  0.544, -0.519, 0.469, 0.464
     right_home = PoseStamped()
@@ -216,7 +216,7 @@ def main():
     right_home.pose.orientation.z = -0.659
     right_home.pose.orientation.w = -0.035
     
-    planner._add_cylinder_obstacle("wall", -0.3, -0.6, 0.5, 1.0, 0.05, frame="right_base")
+    planner._add_box_obstacle("wall", -0.4, -0.6, 0.5, 0.3, 0.05, 0.8, frame="right_base")
     # Give time for planning scene to update
     # planner._remove_obstacle("wall")
 

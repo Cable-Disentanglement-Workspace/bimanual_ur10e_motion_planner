@@ -337,10 +337,10 @@ class MoveItPlanOnlyClient(Node):
 
         if constrain_joints and self._current_joint_state is not None and group == _RIGHT_PLANNING_GROUP:
             watch_joints = {
-                "right_shoulder_pan_joint": 0.7854,
-                "right_wrist_1_joint":      0.7854,
-                "right_wrist_2_joint":      0.7854,
-                "right_wrist_3_joint":      0.7854,
+                "right_shoulder_pan_joint": 1.7854,
+                "right_wrist_1_joint":      1.0000,
+                # "right_wrist_2_joint":      0.7854,
+                # "right_wrist_3_joint":      0.7854,
             }
             pc = Constraints()
             for jname, tol in watch_joints.items():
@@ -496,6 +496,44 @@ class MoveItPlanOnlyClient(Node):
         self.get_logger().info(
             f"[scene] Added cylinder '{name}' at ({x:.3f}, {y:.3f}, {z:.3f}) "
             f"height={height:.3f} radius={radius:.3f} in frame '{frame}'."
+        )
+
+    def _add_box_obstacle(self, name, x, y, z, length, width, height, frame="world"):
+        """Add a box collision object to the planning scene.
+
+        Args:
+            name: Unique name for the object.
+            x, y, z: Box centre position in *frame*.
+            length: Box dimension along local X axis.
+            width:  Box dimension along local Y axis.
+            height: Box dimension along local Z axis.
+            frame: Reference frame for the box pose.
+        """
+        obj = CollisionObject()
+        obj.header.frame_id = frame
+        obj.id = name
+
+        box = SolidPrimitive(type=SolidPrimitive.BOX, dimensions=[length, width, height])
+
+        box_pose = Pose()
+        box_pose.position.x = x
+        box_pose.position.y = y
+        box_pose.position.z = z
+        box_pose.orientation.w = 1.0  # no rotation
+
+        obj.primitives.append(box)
+        obj.primitive_poses.append(box_pose)
+        obj.operation = CollisionObject.ADD
+
+        scene = PlanningScene()
+        scene.world.collision_objects.append(obj)
+        scene.is_diff = True  # only update the diff, not the entire scene
+
+        self._planning_scene_pub.publish(scene)
+
+        self.get_logger().info(
+            f"[scene] Added box '{name}' at ({x:.3f}, {y:.3f}, {z:.3f}) "
+            f"size=({length:.3f}, {width:.3f}, {height:.3f}) in frame '{frame}'."
         )
 
     def _remove_obstacle(self, name, frame="world"):
