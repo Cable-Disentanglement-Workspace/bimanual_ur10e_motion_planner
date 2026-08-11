@@ -198,7 +198,7 @@ def main():
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
     right_target.pose.position.x = -0.237 #-0.158   # small offset
-    right_target.pose.position.y = -0.623 #-0.681
+    right_target.pose.position.y = -0.723 #-0.681
     right_target.pose.position.z = 0.441 #0.449
     right_target.pose.orientation.x = 0.315 #0.083
     right_target.pose.orientation.y = 0.603 #-0.709
@@ -216,7 +216,7 @@ def main():
     right_home.pose.orientation.z = -0.659
     right_home.pose.orientation.w = -0.035
     
-    planner._add_box_obstacle("wall", -0.4, -0.6, 0.5, 0.3, 0.05, 0.8, frame="right_base")
+    planner._add_box_obstacle("wall", -0.4, -0.6, 0.5, 0.35, 0.01, 0.8, frame="right_base")
     # Give time for planning scene to update
     # planner._remove_obstacle("wall")
 

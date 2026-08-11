@@ -340,7 +340,7 @@ class MoveItPlanOnlyClient(Node):
                 "right_shoulder_pan_joint": 1.7854,
                 "right_wrist_1_joint":      1.0000,
                 # "right_wrist_2_joint":      0.7854,
-                # "right_wrist_3_joint":      0.7854,
+                "right_wrist_3_joint":      1.7854,
             }
             pc = Constraints()
             for jname, tol in watch_joints.items():
