@@ -231,8 +231,8 @@ def main():
     if ok:
         print("Target reached, now moving to home...")
         planner._remove_obstacle("wall")
-        time.sleep(1.0)
-        move_with_retry(planner, right_home, arm="right", execute=True, constrain_joints=False)
+        # time.sleep(1.0)
+        # move_with_retry(planner, right_home, arm="right", execute=True, constrain_joints=False)
  
     # ###########Load the path###############
     # planner._marker_pub = planner.create_publisher(MarkerArray, "/trajectory_comparison", 1)
