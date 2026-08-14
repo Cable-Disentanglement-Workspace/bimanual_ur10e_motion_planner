@@ -19,7 +19,8 @@ BASE_FRAME = "right_base"
 LABEL    = "OMPL" 
  
 def move_with_retry(planner, target, arm="left", max_retries=5,
-                    execute=False, constrain_joints=True):
+                    execute=False, constrain_joints=True,
+                    pipeline_id="ompl", planner_id="RRTstarkConfigDefault"):
     for attempt in range(max_retries):
         if arm == "left":
             success = planner.plan_to_pose(target)
@@ -197,45 +198,35 @@ def main():
     # Right arm - staight line on x and y axis   
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
-    right_target.pose.position.x = -0.317 #-0.158   # small offset
-    right_target.pose.position.y = -0.708 #-0.681
-    right_target.pose.position.z = 0.367 #0.449
-    right_target.pose.orientation.x = 0.315 #0.083
-    right_target.pose.orientation.y = 0.603 #-0.709
-    right_target.pose.orientation.z = -0.582 #-0.056
-    right_target.pose.orientation.w = -0.446 #0.698
+    right_target.pose.position.x = -0.369 #-0.158   # small offset
+    right_target.pose.position.y = -0.704 #-0.681
+    right_target.pose.position.z = 0.331  #0.449                            
+    right_target.pose.orientation.x =  0.090
+    right_target.pose.orientation.y =  0.674
+    right_target.pose.orientation.z = -0.699
+    right_target.pose.orientation.w = -0.220
 
+    #0.007, -0.673, 0.728, 0.129
     # Right arm - staight line on x and y axis   
-    right_target2 = PoseStamped()
-    right_target2.header.frame_id = "right_base"
-    right_target2.pose.position.x = right_target.pose.position.x + 0.1 #-0.158   # small offset
-    right_target2.pose.position.y = right_target.pose.position.y + 0.02#-0.681
-    right_target2.pose.position.z = right_target.pose.position.z #0.449
-    right_target2.pose.orientation.x = 0.315 #0.083
-    right_target2.pose.orientation.y = 0.603 #-0.709
-    right_target2.pose.orientation.z = -0.582 #-0.056
-    right_target2.pose.orientation.w = -0.446 #0.698
+    right_trainsit = PoseStamped()
+    right_trainsit.header.frame_id = "right_base"
+    right_trainsit.pose.position.x = right_target.pose.position.x + 0.2 #-0.158   # small offset
+    right_trainsit.pose.position.y = right_target.pose.position.y + 0.15#-0.681
+    right_trainsit.pose.position.z = right_target.pose.position.z #0.449
+    right_trainsit.pose.orientation.x =  0.090
+    right_trainsit.pose.orientation.y =  0.674
+    right_trainsit.pose.orientation.z = -0.699
+    right_trainsit.pose.orientation.w = -0.220
 
-    # Right arm - use right_base  0.544, -0.519, 0.469, 0.464
-    right_home = PoseStamped()
-    right_home.header.frame_id = "right_base"
-    right_home.pose.position.x = -0.332   # small offset
-    right_home.pose.position.y = -0.467
-    right_home.pose.position.z = 0.480
-    right_home.pose.orientation.x = -0.062
-    right_home.pose.orientation.y = 0.749
-    right_home.pose.orientation.z = -0.659
-    right_home.pose.orientation.w = -0.035
-    
-    
-    planner._add_box_obstacle("wall1", -0.4, -0.611, 0.5, 0.25, 0.01, 0.8, frame="right_base")
+
+    planner._add_box_obstacle("wall1", -0.4, right_target.pose.position.y + 0.1, 0.5, 0.2, 0.01, 0.8, frame="right_base")
     # planner._add_box_obstacle("wall2", -0.25, -0.581, 0.6, 0.5, 0.01, 0.3, frame="right_base")
-    planner._add_box_obstacle("box", -0.112, 0.212, 1.28, 0.05, 0.05, 0.05, frame="world")
+    # planner._add_box_obstacle("box", 0.112, 0.212, 1.28, 0.05, 0.05, 0.05, frame="world")
     # Give time for planning scene to update
     # planner._remove_obstacle("wall1", "wall2")
     time.sleep(1.0)
 
-    ok = move_with_retry(planner, right_target2, arm="right", execute=True)
+    ok = move_with_retry(planner, right_trainsit, arm="right", execute=True)
     
     traj= planner._stored_trajectory
     m = trajectory_metrics(traj)
@@ -244,10 +235,12 @@ def main():
     # keep node spinning so markers persist
     if ok:
         # print("Target reached, now moving to home...")
-        ok = move_with_retry(planner, right_target, arm="right", execute=True)
         planner._remove_obstacle("wall1")
-        planner._remove_obstacle("wall2")
-        planner._remove_obstacle("box")
+        # planner._remove_obstacle("box")
+
+        ok = move_with_retry(planner, right_target, arm="right", execute=True)
+
+        # planner._remove_obstacle("wall2")
     
         # time.sleep(1.0)
         # move_with_retry(planner, right_home, arm="right", execute=True, constrain_joints=False)

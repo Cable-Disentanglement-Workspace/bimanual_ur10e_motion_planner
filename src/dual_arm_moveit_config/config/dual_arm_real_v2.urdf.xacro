@@ -68,12 +68,12 @@
     <origin xyz="0 0 0.244" rpy="0 0 0"/>
   </joint>
 
-  <!-- Right TCP: fingertip gripping point 155 mm along +Z from right_tool0 -->
+  <!-- Right TCP: fingertip gripping point 150 mm along +Z from right_tool0 -->
   <link name="right_tcp"/>
   <joint name="right_tool0_to_right_tcp" type="fixed">
     <parent link="right_tool0"/>
     <child  link="right_tcp"/>
-    <origin xyz="0 0 0.155" rpy="0 0 0"/>
+    <origin xyz="-0.020 0 0.150" rpy="0 0 0"/>
   </joint>
 
   <!-- ===================== RIGHT ARM ===================== -->

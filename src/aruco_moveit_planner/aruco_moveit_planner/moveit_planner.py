@@ -64,7 +64,7 @@ _MAX_VEL_SCALE: float = 0.02
 _MAX_ACCEL_SCALE: float = 0.02
 
 # Tolerance sphere radius for position constraint (metres).
-_POSITION_TOL_M: float = 0.01
+_POSITION_TOL_M: float = 0.005
 # Per-axis tolerance for orientation constraint (radians).
 _ORIENTATION_TOL_RAD: float = 0.1
 
