@@ -1,5 +1,6 @@
 import rclpy
 import time
+import tf2_ros
 import glob
 import yaml
 from aruco_moveit_planner.moveit_planner import MoveItPlanOnlyClient
@@ -47,6 +48,20 @@ def move_with_retry(planner, target, arm="left", max_retries=5,
 
     print(f"Failed after {max_retries} attempts!")
     return False
+
+def print_tcp_pose(planner):
+    tf_buf = tf2_ros.Buffer()
+    tf2_ros.TransformListener(tf_buf, planner)
+    deadline = planner.get_clock().now() + rclpy.duration.Duration(seconds=2.0)
+    while planner.get_clock().now() < deadline:
+        try:
+            t = tf_buf.lookup_transform("right_base", "right_tcp", rclpy.time.Time())
+            p, r = t.transform.translation, t.transform.rotation
+            print(f"right_tcp pos=({p.x:.4f},{p.y:.4f},{p.z:.4f}) quat=({r.x:.4f},{r.y:.4f},{r.z:.4f},{r.w:.4f})")
+            return
+        except Exception:
+            rclpy.spin_once(planner, timeout_sec=0.1)
+    print("right_tcp: TF unavailable")
 
 def plan_with(planner, target, pipeline_id, planner_id, arm="right"):
     """Run one plan with a specific pipeline/planner. Returns RobotTrajectory or None."""
@@ -198,9 +213,9 @@ def main():
     # Right arm - staight line on x and y axis   
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
-    right_target.pose.position.x = -0.369 #-0.158   # small offset
-    right_target.pose.position.y = -0.704 #-0.681
-    right_target.pose.position.z = 0.331  #0.449                            
+    right_target.pose.position.x = -0.334 #-0.158   # small offset
+    right_target.pose.position.y = -0.674 #-0.681
+    right_target.pose.position.z = 0.308  #0.449  
     right_target.pose.orientation.x =  0.090
     right_target.pose.orientation.y =  0.674
     right_target.pose.orientation.z = -0.699
@@ -230,7 +245,7 @@ def main():
     
     traj= planner._stored_trajectory
     m = trajectory_metrics(traj)
-    # save_trajectory(traj, f"{SAVE_DIR}/RRTstarkConfigDefault_constraints_5.yaml", LABEL)
+    # save_trajectory(traj, f"{SAVE_DIR}/RRTstarkConfigDefault_constraints.yaml", LABEL)
 
     # keep node spinning so markers persist
     if ok:
@@ -250,7 +265,7 @@ def main():
     # planner._fk_client = planner.create_client(GetPositionFK, "/compute_fk")
     # planner._fk_client.wait_for_service(timeout_sec=5.0)
     # compare_and_show(planner)
-
+    print_tcp_pose(planner)
     planner.destroy_node()
     rclpy.shutdown()
 
