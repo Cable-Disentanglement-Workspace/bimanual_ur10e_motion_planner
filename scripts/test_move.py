@@ -1,3 +1,4 @@
+import argparse
 import rclpy
 import time
 import tf2_ros
@@ -199,6 +200,16 @@ def visualize(planner, named_trajs):
     print(f"[viz] Published {len(named_trajs)} trajectories to /trajectory_comparison")
  
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--x",  type=float, default=-0.317)
+    parser.add_argument("--y",  type=float, default=-0.708)
+    parser.add_argument("--z",  type=float, default=0.367)
+    parser.add_argument("--rx", type=float, default=0.315)
+    parser.add_argument("--ry", type=float, default=0.603)
+    parser.add_argument("--rz", type=float, default=-0.582)
+    parser.add_argument("--rw", type=float, default=-0.446)
+    cli_args, _ = parser.parse_known_args()
+
     rclpy.init()
 
     # Create the planner
@@ -210,18 +221,17 @@ def main():
     planner._fk_client = planner.create_client(GetPositionFK, "/compute_fk")
     planner._fk_client.wait_for_service(timeout_sec=5.0)
 
-    # Right arm - staight line on x and y axis   
+    # Right arm - staight line on x and y axis
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
-    right_target.pose.position.x = -0.334 #-0.158   # small offset
-    right_target.pose.position.y = -0.674 #-0.681
-    right_target.pose.position.z = 0.308  #0.449  
-    right_target.pose.orientation.x =  0.090
-    right_target.pose.orientation.y =  0.674
-    right_target.pose.orientation.z = -0.699
-    right_target.pose.orientation.w = -0.220
+    right_target.pose.position.x = cli_args.x
+    right_target.pose.position.y = cli_args.y
+    right_target.pose.position.z = cli_args.z
+    right_target.pose.orientation.x = cli_args.rx
+    right_target.pose.orientation.y = cli_args.ry
+    right_target.pose.orientation.z = cli_args.rz
+    right_target.pose.orientation.w = cli_args.rw
 
-    #0.007, -0.673, 0.728, 0.129
     # Right arm - staight line on x and y axis   
     right_trainsit = PoseStamped()
     right_trainsit.header.frame_id = "right_base"
