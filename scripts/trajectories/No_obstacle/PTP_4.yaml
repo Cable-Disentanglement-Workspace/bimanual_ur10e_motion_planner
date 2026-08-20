@@ -1,0 +1,2412 @@
+label: OMPL
+metrics:
+  duration_sec: 7.7746
+  joint_path_len_rad: 1.7899
+  num_points: 79
+trajectory: !!python/object/apply:collections.OrderedDict
+- - - joint_trajectory
+    - !!python/object/apply:collections.OrderedDict
+      - - - header
+          - !!python/object/apply:collections.OrderedDict
+            - - - stamp
+                - !!python/object/apply:collections.OrderedDict
+                  - - - sec
+                      - 0
+                    - - nanosec
+                      - 0
+              - - frame_id
+                - world
+        - - joint_names
+          - - right_shoulder_pan_joint
+            - right_shoulder_lift_joint
+            - right_elbow_joint
+            - right_wrist_1_joint
+            - right_wrist_2_joint
+            - right_wrist_3_joint
+        - - points
+          - - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.1543120617240437
+                    - -1.434491790845176
+                    - -2.45665359659097
+                    - 0.5887794260652894
+                    - -4.105142324658184
+                    - -1.6838293866870326
+                - - velocities
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 0
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.153369632941821
+                    - -1.4350109088122476
+                    - -2.456368228019197
+                    - 0.589063877408981
+                    - -4.106073388385821
+                    - -1.6813293866870327
+                - - velocities
+                  - - 0.01884857564445246
+                    - -0.010382359341431582
+                    - 0.005707371435463237
+                    - 0.0056890268738317784
+                    - -0.018621274552743844
+                    - 0.05
+                - - accelerations
+                  - - 0.1884857564445246
+                    - -0.10382359341431581
+                    - 0.05707371435463236
+                    - 0.05689026873831778
+                    - -0.18621274552743844
+                    - 0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 100000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.150542346595153
+                    - -1.4365682627134624
+                    - -2.4555121223038774
+                    - 0.5899172314400558
+                    - -4.1088665795687325
+                    - -1.6738293866870326
+                - - velocities
+                  - - 0.03769715128890492
+                    - -0.020764718682863163
+                    - 0.011414742870926474
+                    - 0.011378053747663557
+                    - -0.03724254910548769
+                    - 0.1
+                - - accelerations
+                  - - 0.1884857564445246
+                    - -0.10382359341431581
+                    - 0.05707371435463236
+                    - 0.05689026873831778
+                    - -0.18621274552743844
+                    - 0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 200000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.14583020268404
+                    - -1.4391638525488202
+                    - -2.4540852794450116
+                    - 0.5913394881585138
+                    - -4.113521898206918
+                    - -1.6613293866870327
+                - - velocities
+                  - - 0.05654572693335738
+                    - -0.03114707802429475
+                    - 0.017122114306389713
+                    - 0.017067080621495336
+                    - -0.05586382365823154
+                    - 0.15000000000000002
+                - - accelerations
+                  - - 0.1884857564445246
+                    - -0.10382359341431581
+                    - 0.05707371435463236
+                    - 0.05689026873831778
+                    - -0.18621274552743844
+                    - 0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 300000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.139233201208482
+                    - -1.4427976783183212
+                    - -2.4520876994425995
+                    - 0.5933306475643548
+                    - -4.120039344300379
+                    - -1.6438293866870326
+                - - velocities
+                  - - 0.07539430257780984
+                    - -0.04152943736572633
+                    - 0.022829485741852947
+                    - 0.022756107495327114
+                    - -0.07448509821097538
+                    - 0.2
+                - - accelerations
+                  - - 0.1884857564445246
+                    - -0.10382359341431581
+                    - 0.05707371435463236
+                    - 0.05689026873831778
+                    - -0.18621274552743844
+                    - 0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 400000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.1313715031311444
+                    - -1.447128136810912
+                    - -2.449707167784016
+                    - 0.5957035277479611
+                    - -4.127806235608793
+                    - -1.6229745002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 500000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.123476211765196
+                    - -1.4514770994918507
+                    - -2.447316464037129
+                    - 0.5980865473248718
+                    - -4.135606315093446
+                    - -1.6020305002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 600000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.115580920399248
+                    - -1.4558260621727896
+                    - -2.4449257602902423
+                    - 0.6004695669017823
+                    - -4.143406394578099
+                    - -1.5810865002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 700000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.1076856290332997
+                    - -1.4601750248537284
+                    - -2.4425350565433552
+                    - 0.602852586478693
+                    - -4.151206474062752
+                    - -1.5601425002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 799999999
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0997903376673515
+                    - -1.4645239875346674
+                    - -2.4401443527964686
+                    - 0.6052356060556037
+                    - -4.159006553547406
+                    - -1.5391985002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 899999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.091895046301403
+                    - -1.4688729502156062
+                    - -2.4377536490495815
+                    - 0.6076186256325143
+                    - -4.166806633032059
+                    - -1.5182545002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 0
+                      - - nanosec
+                        - 999999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.083999754935455
+                    - -1.4732219128965451
+                    - -2.435362945302695
+                    - 0.610001645209425
+                    - -4.174606712516712
+                    - -1.4973105002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 99999999
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0761044635695067
+                    - -1.477570875577484
+                    - -2.432972241555808
+                    - 0.6123846647863357
+                    - -4.182406792001365
+                    - -1.4763665002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 200000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0682091722035585
+                    - -1.4819198382584229
+                    - -2.430581537808921
+                    - 0.6147676843632464
+                    - -4.190206871486019
+                    - -1.4554225002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 300000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0603138808376102
+                    - -1.4862688009393616
+                    - -2.4281908340620344
+                    - 0.6171507039401569
+                    - -4.198006950970672
+                    - -1.4344785002870326
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 400000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.052418589471662
+                    - -1.4906177636203006
+                    - -2.4258001303151473
+                    - 0.6195337235170676
+                    - -4.2058070304553254
+                    - -1.4135345002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 500000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0445232981057138
+                    - -1.4949667263012394
+                    - -2.4234094265682606
+                    - 0.6219167430939783
+                    - -4.213607109939979
+                    - -1.3925905002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 600000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0366280067397655
+                    - -1.4993156889821782
+                    - -2.421018722821374
+                    - 0.6242997626708889
+                    - -4.2214071894246326
+                    - -1.3716465002870326
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 700000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0287327153738173
+                    - -1.5036646516631171
+                    - -2.418628019074487
+                    - 0.6266827822477996
+                    - -4.229207268909286
+                    - -1.3507025002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 800000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.020837424007869
+                    - -1.508013614344056
+                    - -2.4162373153276
+                    - 0.6290658018247103
+                    - -4.237007348393939
+                    - -1.3297585002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 1
+                      - - nanosec
+                        - 900000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.012942132641921
+                    - -1.5123625770249949
+                    - -2.413846611580713
+                    - 0.631448821401621
+                    - -4.244807427878592
+                    - -1.3088145002870326
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 0
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -2.0050468412759725
+                    - -1.5167115397059336
+                    - -2.4114559078338265
+                    - 0.6338318409785315
+                    - -4.252607507363246
+                    - -1.2878705002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 100000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9971515499100243
+                    - -1.5210605023868726
+                    - -2.4090652040869394
+                    - 0.6362148605554422
+                    - -4.260407586847899
+                    - -1.2669265002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 200000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.989256258544076
+                    - -1.5254094650678114
+                    - -2.4066745003400527
+                    - 0.6385978801323529
+                    - -4.268207666332552
+                    - -1.2459825002870326
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 300000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9813609671781278
+                    - -1.5297584277487504
+                    - -2.404283796593166
+                    - 0.6409808997092635
+                    - -4.276007745817206
+                    - -1.2250385002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 400000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9734656758121796
+                    - -1.5341073904296891
+                    - -2.401893092846279
+                    - 0.6433639192861742
+                    - -4.283807825301859
+                    - -1.2040945002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 500000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9655703844462313
+                    - -1.538456353110628
+                    - -2.3995023890993923
+                    - 0.6457469388630849
+                    - -4.291607904786512
+                    - -1.1831505002870326
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 600000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.957675093080283
+                    - -1.5428053157915669
+                    - -2.397111685352505
+                    - 0.6481299584399955
+                    - -4.299407984271165
+                    - -1.1622065002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 700000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9497798017143348
+                    - -1.5471542784725056
+                    - -2.3947209816056185
+                    - 0.6505129780169061
+                    - -4.307208063755819
+                    - -1.1412625002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 800000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9418845103483866
+                    - -1.5515032411534446
+                    - -2.392330277858732
+                    - 0.6528959975938168
+                    - -4.3150081432404725
+                    - -1.1203185002870324
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 2
+                      - - nanosec
+                        - 900000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9339892189824381
+                    - -1.5558522038343834
+                    - -2.3899395741118448
+                    - 0.6552790171707275
+                    - -4.322808222725126
+                    - -1.0993745002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 0
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.92609392761649
+                    - -1.5602011665153224
+                    - -2.387548870364958
+                    - 0.6576620367476381
+                    - -4.330608302209779
+                    - -1.0784305002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 100000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9181986362505417
+                    - -1.5645501291962611
+                    - -2.385158166618071
+                    - 0.6600450563245488
+                    - -4.338408381694433
+                    - -1.0574865002870326
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 200000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9103033448845934
+                    - -1.5688990918772001
+                    - -2.3827674628711843
+                    - 0.6624280759014595
+                    - -4.346208461179086
+                    - -1.0365425002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 300000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.9024080535186452
+                    - -1.5732480545581389
+                    - -2.3803767591242977
+                    - 0.6648110954783701
+                    - -4.354008540663739
+                    - -1.0155985002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 400000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.894512762152697
+                    - -1.5775970172390779
+                    - -2.3779860553774106
+                    - 0.6671941150552807
+                    - -4.361808620148392
+                    - -0.9946545002870324
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 500000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8866174707867487
+                    - -1.5819459799200166
+                    - -2.375595351630524
+                    - 0.6695771346321914
+                    - -4.369608699633046
+                    - -0.9737105002870324
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 600000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8787221794208004
+                    - -1.5862949426009556
+                    - -2.373204647883637
+                    - 0.671960154209102
+                    - -4.377408779117699
+                    - -0.9527665002870324
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 700000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8708268880548522
+                    - -1.5906439052818944
+                    - -2.37081394413675
+                    - 0.6743431737860127
+                    - -4.385208858602352
+                    - -0.9318225002870324
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 800000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.862931596688904
+                    - -1.5949928679628331
+                    - -2.368423240389863
+                    - 0.6767261933629234
+                    - -4.393008938087005
+                    - -0.9108785002870323
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 3
+                      - - nanosec
+                        - 900000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8550363053229557
+                    - -1.5993418306437721
+                    - -2.3660325366429764
+                    - 0.6791092129398341
+                    - -4.400809017571659
+                    - -0.8899345002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 0
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8471410139570075
+                    - -1.6036907933247109
+                    - -2.3636418328960898
+                    - 0.6814922325167447
+                    - -4.4086090970563125
+                    - -0.8689905002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 100000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8392457225910592
+                    - -1.6080397560056499
+                    - -2.3612511291492027
+                    - 0.6838752520936553
+                    - -4.416409176540966
+                    - -0.8480465002870325
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 200000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8313504312251112
+                    - -1.6123887186865886
+                    - -2.358860425402316
+                    - 0.686258271670566
+                    - -4.424209256025619
+                    - -0.8271025002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 300000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.823455139859163
+                    - -1.6167376813675274
+                    - -2.3564697216554293
+                    - 0.6886412912474766
+                    - -4.432009335510273
+                    - -0.8061585002870327
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 400000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8155598484932147
+                    - -1.6210866440484664
+                    - -2.3540790179085422
+                    - 0.6910243108243873
+                    - -4.439809414994926
+                    - -0.7852145002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 500000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.8076645571272665
+                    - -1.6254356067294051
+                    - -2.3516883141616556
+                    - 0.6934073304012979
+                    - -4.447609494479579
+                    - -0.7642705002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 600000000
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7997692657613182
+                    - -1.629784569410344
+                    - -2.3492976104147685
+                    - 0.6957903499782085
+                    - -4.455409573964232
+                    - -0.7433265002870328
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 699999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.79187397439537
+                    - -1.6341335320912829
+                    - -2.346906906667882
+                    - 0.6981733695551192
+                    - -4.463209653448886
+                    - -0.722382500287033
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 799999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7839786830294218
+                    - -1.6384824947722216
+                    - -2.344516202920995
+                    - 0.7005563891320299
+                    - -4.471009732933539
+                    - -0.701438500287033
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 899999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7760833916634735
+                    - -1.6428314574531606
+                    - -2.342125499174108
+                    - 0.7029394087089404
+                    - -4.478809812418192
+                    - -0.6804945002870331
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 4
+                      - - nanosec
+                        - 999999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7681881002975253
+                    - -1.6471804201340994
+                    - -2.3397347954272214
+                    - 0.7053224282858511
+                    - -4.486609891902845
+                    - -0.6595505002870332
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 99999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.760292808931577
+                    - -1.6515293828150381
+                    - -2.3373440916803343
+                    - 0.7077054478627618
+                    - -4.494409971387499
+                    - -0.6386065002870334
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 199999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7523975175656288
+                    - -1.6558783454959771
+                    - -2.3349533879334476
+                    - 0.7100884674396725
+                    - -4.5022100508721525
+                    - -0.6176625002870333
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 299999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7445022261996805
+                    - -1.6602273081769159
+                    - -2.332562684186561
+                    - 0.7124714870165831
+                    - -4.510010130356806
+                    - -0.5967185002870334
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 399999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7366069348337325
+                    - -1.6645762708578546
+                    - -2.330171980439674
+                    - 0.7148545065934937
+                    - -4.517810209841459
+                    - -0.5757745002870336
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 499999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7287116434677843
+                    - -1.6689252335387936
+                    - -2.3277812766927872
+                    - 0.7172375261704044
+                    - -4.525610289326112
+                    - -0.5548305002870335
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 599999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.720816352101836
+                    - -1.6732741962197324
+                    - -2.3253905729459
+                    - 0.719620545747315
+                    - -4.533410368810766
+                    - -0.5338865002870337
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 699999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7129210607358878
+                    - -1.6776231589006714
+                    - -2.3229998691990135
+                    - 0.7220035653242257
+                    - -4.541210448295419
+                    - -0.5129425002870338
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 799999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.7050257693699395
+                    - -1.6819721215816101
+                    - -2.320609165452127
+                    - 0.7243865849011364
+                    - -4.549010527780072
+                    - -0.49199850028703374
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 899999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6971304780039913
+                    - -1.686321084262549
+                    - -2.3182184617052397
+                    - 0.726769604478047
+                    - -4.556810607264725
+                    - -0.4710545002870339
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 5
+                      - - nanosec
+                        - 999999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.689235186638043
+                    - -1.6906700469434879
+                    - -2.315827757958353
+                    - 0.7291526240549576
+                    - -4.564610686749379
+                    - -0.45011050028703403
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 99999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.681339895272095
+                    - -1.6950190096244266
+                    - -2.313437054211466
+                    - 0.7315356436318683
+                    - -4.572410766234032
+                    - -0.42916650028703396
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 199999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6734446039061468
+                    - -1.6993679723053656
+                    - -2.3110463504645793
+                    - 0.7339186632087789
+                    - -4.580210845718685
+                    - -0.4082225002870341
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 299999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6655493125401986
+                    - -1.7037169349863044
+                    - -2.3086556467176926
+                    - 0.7363016827856895
+                    - -4.5880109252033385
+                    - -0.38727850028703426
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 399999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6576540211742503
+                    - -1.7080658976672431
+                    - -2.3062649429708055
+                    - 0.7386847023626002
+                    - -4.595811004687992
+                    - -0.3663345002870342
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 499999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.649758729808302
+                    - -1.7124148603481821
+                    - -2.303874239223919
+                    - 0.7410677219395109
+                    - -4.603611084172646
+                    - -0.34539050028703433
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 599999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6418634384423538
+                    - -1.716763823029121
+                    - -2.3014835354770318
+                    - 0.7434507415164215
+                    - -4.611411163657299
+                    - -0.3244465002870345
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 699999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6339681470764056
+                    - -1.7211127857100599
+                    - -2.299092831730145
+                    - 0.7458337610933321
+                    - -4.619211243141952
+                    - -0.3035025002870344
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 799999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6260728557104573
+                    - -1.7254617483909986
+                    - -2.2967021279832585
+                    - 0.7482167806702428
+                    - -4.627011322626605
+                    - -0.28255850028703455
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 899999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.618177564344509
+                    - -1.7298107110719374
+                    - -2.2943114242363714
+                    - 0.7505998002471534
+                    - -4.634811402111259
+                    - -0.2616145002870347
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 6
+                      - - nanosec
+                        - 999999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6102822729785609
+                    - -1.7341596737528762
+                    - -2.2919207204894847
+                    - 0.7529828198240641
+                    - -4.642611481595912
+                    - -0.24067050028703463
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 99999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.6023869816126126
+                    - -1.7385086364338151
+                    - -2.2895300167425976
+                    - 0.7553658394009748
+                    - -4.650411561080565
+                    - -0.21972650028703478
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 199999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.5944916902466644
+                    - -1.742857599114754
+                    - -2.287139312995711
+                    - 0.7577488589778854
+                    - -4.658211640565218
+                    - -0.19878250028703492
+                - - velocities
+                  - - 0.07895291365948245
+                    - -0.0434896268093886
+                    - 0.0239070374688684
+                    - 0.02383019576910655
+                    - -0.07800079484653341
+                    - 0.20944
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 299999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.586780995204253
+                    - -1.747104880618281
+                    - -2.284804505238204
+                    - 0.7600761622256037
+                    - -4.665829349833318
+                    - -0.17832818270924808
+                - - velocities
+                  - - 0.07061099809065512
+                    - -0.03889465015623556
+                    - 0.02138109537474608
+                    - 0.021312372526358647
+                    - -0.06975947714523213
+                    - 0.18731123089249838
+                - - accelerations
+                  - - -0.1884857564445246
+                    - 0.10382359341431581
+                    - -0.05707371435463236
+                    - -0.05689026873831778
+                    - 0.18621274552743844
+                    - -0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 399999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.5806623241774103
+                    - -1.7504752276668327
+                    - -2.282951764272503
+                    - 0.761922948134548
+                    - -4.671874233820204
+                    - -0.1620970596199983
+                - - velocities
+                  - - 0.05176242244620273
+                    - -0.02851229081480402
+                    - 0.015673723939282867
+                    - 0.01562334565252689
+                    - -0.05113820259248836
+                    - 0.13731123089249855
+                - - accelerations
+                  - - -0.1884857564445246
+                    - 0.10382359341431581
+                    - -0.05707371435463236
+                    - -0.05689026873831778
+                    - 0.18621274552743844
+                    - -0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 499999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.5764285107150127
+                    - -1.7528073387812417
+                    - -2.2816697604503475
+                    - 0.763200831356109
+                    - -4.676056990351816
+                    - -0.15086593653074848
+                - - velocities
+                  - - 0.032913846801750336
+                    - -0.018129931473372475
+                    - 0.00996635250381965
+                    - 0.009934318778695132
+                    - -0.032516928039744576
+                    - 0.08731123089249873
+                - - accelerations
+                  - - -0.1884857564445246
+                    - 0.10382359341431581
+                    - -0.05707371435463236
+                    - -0.05689026873831778
+                    - 0.18621274552743844
+                    - -0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 599999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.5740795548170603
+                    - -1.7541012139615073
+                    - -2.2809584937717386
+                    - 0.763909811890287
+                    - -4.678377619428153
+                    - -0.1446348134414986
+                - - velocities
+                  - - 0.014065271157297943
+                    - -0.007747572131940932
+                    - 0.004258981068356434
+                    - 0.0042452919048633735
+                    - -0.013895653487000795
+                    - 0.03731123089249891
+                - - accelerations
+                  - - -0.1884857564445246
+                    - 0.10382359341431581
+                    - -0.05707371435463236
+                    - -0.05689026873831778
+                    - 0.18621274552743844
+                    - -0.5
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 699999998
+            - !!python/object/apply:collections.OrderedDict
+              - - - positions
+                  - - -1.5735547622373447
+                    - -1.7543902854141784
+                    - -2.2807995859457306
+                    - 0.7640682089567554
+                    - -4.678896083363808
+                    - -0.14324268549078523
+                - - velocities
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - accelerations
+                  - - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                - - effort
+                  - []
+                - - time_from_start
+                  - !!python/object/apply:collections.OrderedDict
+                    - - - sec
+                        - 7
+                      - - nanosec
+                        - 774622460
+  - - multi_dof_joint_trajectory
+    - !!python/object/apply:collections.OrderedDict
+      - - - header
+          - !!python/object/apply:collections.OrderedDict
+            - - - stamp
+                - !!python/object/apply:collections.OrderedDict
+                  - - - sec
+                      - 0
+                    - - nanosec
+                      - 0
+              - - frame_id
+                - ''
+        - - joint_names
+          - []
+        - - points
+          - []
