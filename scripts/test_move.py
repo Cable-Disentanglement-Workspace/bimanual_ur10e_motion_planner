@@ -227,15 +227,15 @@ def main():
     right_target.pose.position.x = cli_args.x
     right_target.pose.position.y = cli_args.y
     right_target.pose.position.z = cli_args.z
-    right_target.pose.orientation.x = cli_args.rx
-    right_target.pose.orientation.y = cli_args.ry
-    right_target.pose.orientation.z = cli_args.rz
-    right_target.pose.orientation.w = cli_args.rw
+    right_target.pose.orientation.x = 0.090
+    right_target.pose.orientation.y = 0.674
+    right_target.pose.orientation.z = -0.699
+    right_target.pose.orientation.w = -0.220
 
     # Right arm - staight line on x and y axis   
     right_trainsit = PoseStamped()
     right_trainsit.header.frame_id = "right_base"
-    right_trainsit.pose.position.x = right_target.pose.position.x + 0.2 #-0.158   # small offset
+    right_trainsit.pose.position.x = right_target.pose.position.x + 0.15 #-0.158   # small offset
     right_trainsit.pose.position.y = right_target.pose.position.y + 0.15#-0.681
     right_trainsit.pose.position.z = right_target.pose.position.z #0.449
     right_trainsit.pose.orientation.x =  0.090
@@ -244,7 +244,7 @@ def main():
     right_trainsit.pose.orientation.w = -0.220
 
 
-    planner._add_box_obstacle("wall1", -0.4, right_target.pose.position.y + 0.1, 0.5, 0.2, 0.01, 0.8, frame="right_base")
+    planner._add_box_obstacle("wall1", -0.4, -0.52, 0.5, 0.25, 0.01, 0.8, frame="right_base")
     # planner._add_box_obstacle("wall2", -0.25, -0.581, 0.6, 0.5, 0.01, 0.3, frame="right_base")
     # planner._add_box_obstacle("box", 0.112, 0.212, 1.28, 0.05, 0.05, 0.05, frame="world")
     # Give time for planning scene to update
