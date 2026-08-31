@@ -1,0 +1,11 @@
+-0323,-0.749,0.345; -0.3198,-0.7498,0.3456; Successful gripping, Failed, cable tangled
+-0.3192, -0.7731, 0.3511; -0.3164,-0.7736,0.3520; Successful gripping, Failed, cable tangled and dropping.
+-0.3180, -0.7571, 0.3626; -0.3205,-0.7552,0.3622; Successful gripping but not firmly, Failed, cable dropping
+-0.3159, -0.7611, 0.3510; -0.3167,-0.7616,0.3508; success
+-0.3192, -0.7746, 0.3594; -0.3179,-0.7756,0.3607; Successful gripping, Failed, cable tangled and dropping
+-0.3010, -0.7405, 0.3594; -0.3048,-0.7382,0.3615; success
+-0.3261, -0.7816, 0.3465; -0.3226,-0.7810,0.3485; Successful gripping but not firmly, Failed, cable dropping
+-0.3225, -0.7681, 0.3519; -0.3210,-0.7674,0.3501; Successful gripping but not firmly, Failed, cable dropping
+-0.3208, -0.7592, 0.3534; -0.3192,-0.7619,0.3521; Successful gripping, Failed, cable tangled and dropping
+-0.3163, -0.7368, 0.3520; -0.3188,-0.7393,0.3535; success
+
