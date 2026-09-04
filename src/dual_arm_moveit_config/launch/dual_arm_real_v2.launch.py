@@ -90,10 +90,28 @@ def generate_launch_description():
     #     )]
     # )
 
+    right_urscript_interface = Node(
+        package="ur_robot_driver",
+        executable="urscript_interface",
+        name="right_urscript_interface",
+        parameters=[{"robot_ip": "192.168.1.20"}],
+        output="screen",
+    )
+
+    left_urscript_interface = Node(
+        package="ur_robot_driver",
+        executable="urscript_interface",
+        name="left_urscript_interface",
+        parameters=[{"robot_ip": "192.168.1.10"}],
+        output="screen",
+    )
+
     return LaunchDescription([
         rsp_node,
         gripper_state_publisher,
         ros2_control_node,
+        right_urscript_interface,
+        left_urscript_interface,
         spawner("joint_state_broadcaster",               3.0),
         spawner("left_io_and_status_controller",         3.0),
         spawner("right_io_and_status_controller",        3.0),

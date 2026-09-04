@@ -1,9 +1,11 @@
 import argparse
 import rclpy
 import time
+import math
 import tf2_ros
 import glob
 import yaml
+from std_msgs.msg import String
 from aruco_moveit_planner.moveit_planner import MoveItPlanOnlyClient
 from geometry_msgs.msg import PoseStamped, Point
 from rosidl_runtime_py import message_to_ordereddict, set_message_fields
@@ -11,6 +13,7 @@ from moveit_msgs.msg import RobotTrajectory
 from moveit_msgs.srv import GetPositionFK
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
+from scipy.spatial.transform import Rotation as R
 
 # Where trajectories are saved (one YAML per planner label).
 SAVE_DIR = "/home/rosi/ZD/zed_Motion/src/scripts/trajectories"
@@ -198,7 +201,55 @@ def visualize(planner, named_trajs):
  
     planner._marker_pub.publish(array)
     print(f"[viz] Published {len(named_trajs)} trajectories to /trajectory_comparison")
- 
+
+def orientation_from_joints(planner, joint_names, joint_positions,
+                            base='right_base', eef='right_tcp'):
+    """Compute TCP orientation from joint angles. No motion — pure calculation."""
+    req = GetPositionFK.Request()
+    req.header.frame_id = base
+    req.fk_link_names = [eef]
+    req.robot_state.joint_state.name = joint_names
+    req.robot_state.joint_state.position = list(joint_positions)
+
+    fut = planner._fk_client.call_async(req)
+    rclpy.spin_until_future_complete(planner, fut)
+    res = fut.result()
+
+    if res and res.error_code.val == 1 and res.pose_stamped:
+        q = res.pose_stamped[0].pose.orientation
+        return R.from_quat([q.x, q.y, q.z, q.w])
+    return None
+
+def current_orientation(planner, base='right_base', eef='right_tcp'):
+    """Read current TCP orientation from TF. No motion."""
+    buf = tf2_ros.Buffer()
+    tf2_ros.TransformListener(buf, planner)
+    deadline = planner.get_clock().now() + rclpy.duration.Duration(seconds=2.0)
+    while planner.get_clock().now() < deadline:
+        try:
+            t = buf.lookup_transform(base, eef, rclpy.time.Time())
+            q = t.transform.rotation
+            return R.from_quat([q.x, q.y, q.z, q.w])
+        except Exception:
+            rclpy.spin_once(planner, timeout_sec=0.1)
+    return None
+
+def rotate_to_match(planner, r_cur, r_tgt, accel=0.5, vel=0.2):
+    """Rotate TCP in place so its orientation matches r_tgt. r_cur, r_tgt are scipy Rotations."""
+    r_rel = r_cur.inv() * r_tgt              # relative rotation in tool frame
+    rotvec = r_rel.as_rotvec()               # [rx, ry, rz] for pose_trans
+
+    script = String()
+    script.data = (
+        "def rot_match():\n"
+        f"  rot = p[0, 0, 0, {rotvec[0]}, {rotvec[1]}, {rotvec[2]}]\n"
+        "  target = pose_trans(get_actual_tcp_pose(), rot)\n"
+        f"  movel(target, a={accel}, v={vel})\n"
+        "end\n"
+    )
+    planner._urscript_pub.publish(script)
+    planner.get_logger().info(f"Rotating to match, rotvec={rotvec}")
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--x",  type=float, default=-0.317)
@@ -220,13 +271,25 @@ def main():
     planner._marker_pub = planner.create_publisher(_MA, "/trajectory_comparison", 1)
     planner._fk_client = planner.create_client(GetPositionFK, "/compute_fk")
     planner._fk_client.wait_for_service(timeout_sec=5.0)
+    # attach the publisher + FK client to `planner`
+    planner._urscript_pub = planner.create_publisher(
+        String, '/right_urscript_interface/script_command', 10)
 
+    time.sleep(1.0)
+
+    # --- example: reorient to match a target joint configuration ---
+    joint_names = [
+    'right_shoulder_pan_joint', 'right_shoulder_lift_joint', 'right_elbow_joint',
+    'right_wrist_1_joint', 'right_wrist_2_joint', 'right_wrist_3_joint',
+    ]
+
+    
     # Right arm - staight line on x and y axis
     right_target = PoseStamped()
     right_target.header.frame_id = "right_base"
-    right_target.pose.position.x = cli_args.x
-    right_target.pose.position.y = cli_args.y
-    right_target.pose.position.z = cli_args.z
+    right_target.pose.position.x = -0.27
+    right_target.pose.position.y = -0.59
+    right_target.pose.position.z = 0.33
     right_target.pose.orientation.x = 0.090
     right_target.pose.orientation.y = 0.674
     right_target.pose.orientation.z = -0.699
@@ -243,6 +306,11 @@ def main():
     right_trainsit.pose.orientation.z = -0.699
     right_trainsit.pose.orientation.w = -0.220
 
+    target_joint_angles = [-2.006246, -1.900777, -2.201122, 0.582374, -4.237320, -0.100220]
+    r_tgt = orientation_from_joints(planner, joint_names, target_joint_angles)
+    r_cur = current_orientation(planner)
+    # print(f"Current orientation (quaternion): {r_cur.as_quat()}")
+    # print(f"Target orientation (quaternion): {r_tgt.as_quat()}")
 
     planner._add_box_obstacle("wall1", -0.4, -0.52, 0.5, 0.25, 0.01, 0.8, frame="right_base")
     # planner._add_box_obstacle("wall2", -0.25, -0.581, 0.6, 0.5, 0.01, 0.3, frame="right_base")
@@ -253,8 +321,8 @@ def main():
 
     ok = move_with_retry(planner, right_trainsit, arm="right", execute=True)
     
-    traj= planner._stored_trajectory
-    m = trajectory_metrics(traj)
+    # traj= planner._stored_trajectory
+    # m = trajectory_metrics(traj)
     # save_trajectory(traj, f"{SAVE_DIR}/RRTstarkConfigDefault_constraints.yaml", LABEL)
 
     # keep node spinning so markers persist
@@ -267,7 +335,13 @@ def main():
 
         # planner._remove_obstacle("wall2")
     
-        # time.sleep(1.0)
+        time.sleep(1.0)
+
+        if r_tgt is not None and r_cur is not None:
+            rotate_to_match(planner, r_cur, r_tgt)
+            rclpy.spin_once(planner, timeout_sec=1.0)   # let script go out
+        else:
+            planner.get_logger().error("Could not get current or target orientation.")
         # move_with_retry(planner, right_home, arm="right", execute=True, constrain_joints=False)
  
     # ###########Load the path###############
