@@ -14,6 +14,7 @@ from std_msgs.msg import ColorRGBA, String
 from scipy.spatial.transform import Rotation as R
 
 from std_msgs.msg import ColorRGBA, String
+from sensor_msgs.msg import JointState
 from scipy.spatial.transform import Rotation as R
 
 
@@ -124,6 +125,57 @@ def rotate_to_match(planner, r_cur, r_tgt, accel=0.05, vel=0.02):
     planner.get_logger().info(f"Rotating to match, rotvec={rotvec}")
 
 
+def rotate_to_match_qnear(planner, target_joints, accel=0.1, vel=0.1):
+    """Keep current TCP x,y,z and move joints close to target_joints.
+
+    Gets FK of target_joints to obtain its orientation, builds a hybrid pose
+    (current position + target orientation), then solves IK seeded with
+    target_joints so the result is as close as possible to the target
+    configuration while keeping the same Cartesian position.
+
+    target_joints: list/tuple of 6 joint angles in radians.
+    """
+    q = target_joints
+    script = String()
+    script.data = (
+        "def rot_match_qnear():\n"
+        "  cur_pose = get_actual_tcp_pose()\n"
+        f"  qnear    = [{q[0]}, {q[1]}, {q[2]}, {q[3]}, {q[4]}, {q[5]}]\n"
+        "  tgt_pose = get_forward_kin(qnear)\n"
+        "  hybrid   = p[cur_pose[0], cur_pose[1], cur_pose[2],\n"
+        "               tgt_pose[3], tgt_pose[4], tgt_pose[5]]\n"
+        "  q_target = get_inverse_kin(hybrid, qnear=qnear)\n"
+        "  textmsg(\"q_cur   =\", get_actual_joint_positions())\n"
+        "  textmsg(\"q_target=\", q_target)\n"
+        f"  movej(q_target, a={accel}, v={vel})\n"
+        "end\n"
+    )
+    # read current joint positions from /joint_states before publishing
+    cur_joints = [None]
+    def _js_cb(msg):
+        right_names = [
+            'right_shoulder_pan_joint', 'right_shoulder_lift_joint', 'right_elbow_joint',
+            'right_wrist_1_joint', 'right_wrist_2_joint', 'right_wrist_3_joint',
+        ]
+        idx = [msg.name.index(n) for n in right_names if n in msg.name]
+        if len(idx) == 6:
+            cur_joints[0] = [round(msg.position[i], 6) for i in idx]
+
+    sub = planner.create_subscription(JointState, '/joint_states', _js_cb, 10)
+    deadline = planner.get_clock().now() + rclpy.duration.Duration(seconds=2.0)
+    while cur_joints[0] is None and planner.get_clock().now() < deadline:
+        rclpy.spin_once(planner, timeout_sec=0.1)
+    planner.destroy_subscription(sub)
+
+    fmt = lambda j: [round(v, 4) for v in j]
+    planner.get_logger().info(
+        f"rotate_to_match_qnear:\n"
+        f"  cur_joints   = {fmt(cur_joints[0]) if cur_joints[0] else 'unavailable'}\n"
+        f"  target_joints= {fmt(list(q))}"
+    )
+    planner._urscript_pub.publish(script)
+
+
 def main(args):
     rclpy.init()
 
@@ -183,11 +235,11 @@ def main(args):
         ok = move_with_retry(planner, right_target, arm="right",
                              execute=True, auto_execute=args.auto_execute)
         time.sleep(1.0)
-        if r_tgt is not None and r_cur is not None:
-            rotate_to_match(planner, r_cur, r_tgt)
+        if target_joint_angles is not None:
+            rotate_to_match_qnear(planner, target_joint_angles)
             rclpy.spin_once(planner, timeout_sec=1.0)   # let script go out
         else:
-            planner.get_logger().error("Could not get current or target orientation.")
+            planner.get_logger().error("No target joint angles provided (--r2-joints).")
 
     print_tcp_pose(planner)
     planner.destroy_node()
