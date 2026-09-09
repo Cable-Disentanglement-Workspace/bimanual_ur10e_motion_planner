@@ -13,6 +13,9 @@ from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA, String
 from scipy.spatial.transform import Rotation as R
 
+from std_msgs.msg import ColorRGBA, String
+from scipy.spatial.transform import Rotation as R
+
 
 SAVE_DIR = "/home/rosi/ZD/zed_Motion/src/scripts/trajectories"
 EEF_LINK = "right_tcp"
@@ -104,7 +107,7 @@ def current_orientation(planner, base='right_base', eef='right_tcp'):
     return None
 
 
-def rotate_to_match(planner, r_cur, r_tgt, accel=0.5, vel=0.2):
+def rotate_to_match(planner, r_cur, r_tgt, accel=0.05, vel=0.02):
     """Rotate TCP in place so its orientation matches r_tgt. r_cur, r_tgt are scipy Rotations."""
     r_rel = r_cur.inv() * r_tgt              # relative rotation in tool frame
     rotvec = r_rel.as_rotvec()               # [rx, ry, rz] for pose_trans
@@ -153,7 +156,7 @@ def main(args):
     right_trainsit.header.frame_id = "right_base"
     right_trainsit.pose.position.x = right_target.pose.position.x + 0.15
     right_trainsit.pose.position.y = right_target.pose.position.y + 0.15
-    right_trainsit.pose.position.z = right_target.pose.position.z
+    right_trainsit.pose.position.z = right_target.pose.position.z + 0.05
     right_trainsit.pose.orientation.x = 0.090
     right_trainsit.pose.orientation.y = 0.674
     right_trainsit.pose.orientation.z = -0.699
@@ -164,7 +167,7 @@ def main(args):
     'right_wrist_1_joint', 'right_wrist_2_joint', 'right_wrist_3_joint',
     ]
 
-    target_joint_angles = robot1_joints
+    target_joint_angles = robot2_joints
     r_tgt = orientation_from_joints(planner, joint_names, target_joint_angles)
     r_cur = current_orientation(planner)
 
