@@ -336,14 +336,15 @@ class MoveItPlanOnlyClient(Node):
                 self.get_logger().warn("[plan] No joint states received — joint constraints skipped.")
 
         if constrain_joints and self._current_joint_state is not None and group == _RIGHT_PLANNING_GROUP:
+            # Each entry: (tolerance_below, tolerance_above)
             watch_joints = {
-                "right_shoulder_pan_joint": 1.7854,
-                "right_wrist_1_joint":      1.0000,
-                # "right_wrist_2_joint":      0.7854,
-                "right_wrist_3_joint":      1.7854,
+                "right_shoulder_pan_joint": (1.7854, 1.7854),
+                "right_wrist_1_joint":      (1.0000, 1.0000),
+                "right_wrist_2_joint":      (3.1416, 1.0000), # right up to 180°; left up to 15°
+                "right_wrist_3_joint":      (1.7854, 1.7854),
             }
             pc = Constraints()
-            for jname, tol in watch_joints.items():
+            for jname, (tol_below, tol_above) in watch_joints.items():
                 if jname not in self._current_joint_state.name:
                     continue
                 idx = self._current_joint_state.name.index(jname)
@@ -351,8 +352,8 @@ class MoveItPlanOnlyClient(Node):
                 jc = JointConstraint()
                 jc.joint_name = jname
                 jc.position = angle
-                jc.tolerance_above = tol
-                jc.tolerance_below = tol
+                jc.tolerance_above = tol_above
+                jc.tolerance_below = tol_below
                 jc.weight = 1.0
                 req.goal_constraints[0].joint_constraints.append(jc)
                 pc.joint_constraints.append(jc)

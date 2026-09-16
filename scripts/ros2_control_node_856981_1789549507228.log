@@ -1,0 +1,101 @@
+[WARN] [1789549507.260705846] [controller_manager]: [Deprecated] Passing the robot description parameter directly to the control_manager node is deprecated. Use '~/robot_description' topic from 'robot_state_publisher' instead.
+[INFO] [1789549507.261575505] [resource_manager]: Loading hardware 'left_ur10e' 
+[INFO] [1789549507.264746361] [resource_manager]: Initialize hardware 'left_ur10e' 
+[INFO] [1789549507.264806030] [resource_manager]: Successful initialization of hardware 'left_ur10e'
+[INFO] [1789549507.264908614] [resource_manager]: Loading hardware 'right_ur10e' 
+[INFO] [1789549507.264919769] [resource_manager]: Initialize hardware 'right_ur10e' 
+[INFO] [1789549507.264980879] [resource_manager]: Successful initialization of hardware 'right_ur10e'
+[INFO] [1789549507.265178812] [resource_manager]: 'configure' hardware 'right_ur10e' 
+[INFO] [1789549507.265190881] [URPositionHardwareInterface]: Starting ...please wait...
+[INFO] [1789549507.265202677] [URPositionHardwareInterface]: Initializing driver...
+[INFO] [1789549507.612513983] [UR_Client_Library:right_]: Negotiated RTDE protocol version to 2.
+[INFO] [1789549507.613158910] [UR_Client_Library:right_]: Received URControl version 5.5.0.0
+[INFO] [1789549507.613210012] [UR_Client_Library:right_]: Setting up RTDE communication with frequency 500.000000
+[INFO] [1789549507.616514762] [UR_Client_Library:right_]: Starting primary client pipeline
+[INFO] [1789549507.971982739] [URPositionHardwareInterface]: Calibration checksum: 'calib_6972397560846105400'.
+[INFO] [1789549507.972082495] [URPositionHardwareInterface]: Calibration checked successfully.
+[INFO] [1789549507.972223126] [URPositionHardwareInterface]: System successfully started!
+[INFO] [1789549507.972263155] [resource_manager]: Successful 'configure' of hardware 'right_ur10e'
+[INFO] [1789549507.972346551] [resource_manager]: 'activate' hardware 'right_ur10e' 
+[INFO] [1789549507.972358045] [URPositionHardwareInterface]: Activating HW interface
+[INFO] [1789549507.972369185] [resource_manager]: Successful 'activate' of hardware 'right_ur10e'
+[INFO] [1789549507.972382589] [resource_manager]: 'configure' hardware 'left_ur10e' 
+[INFO] [1789549507.972392053] [URPositionHardwareInterface]: Starting ...please wait...
+[INFO] [1789549507.972411912] [URPositionHardwareInterface]: Initializing driver...
+[INFO] [1789549507.987674385] [UR_Client_Library:right_]: Robot connected to reverse interface. Ready to receive control commands.
+[INFO] [1789549508.304452788] [UR_Client_Library:right_]: Negotiated RTDE protocol version to 2.
+[INFO] [1789549508.304780640] [UR_Client_Library:right_]: Received URControl version 5.11.0.0
+[INFO] [1789549508.304804609] [UR_Client_Library:right_]: Setting up RTDE communication with frequency 500.000000
+[INFO] [1789549508.314653009] [UR_Client_Library:right_]: Starting primary client pipeline
+[INFO] [1789549508.618875612] [URPositionHardwareInterface]: Calibration checksum: 'calib_14405667343136254952'.
+[INFO] [1789549508.618925168] [URPositionHardwareInterface]: Calibration checked successfully.
+[INFO] [1789549508.618999404] [URPositionHardwareInterface]: System successfully started!
+[INFO] [1789549508.619014051] [resource_manager]: Successful 'configure' of hardware 'left_ur10e'
+[INFO] [1789549508.619066113] [resource_manager]: 'activate' hardware 'left_ur10e' 
+[INFO] [1789549508.619071091] [URPositionHardwareInterface]: Activating HW interface
+[INFO] [1789549508.619075811] [resource_manager]: Successful 'activate' of hardware 'left_ur10e'
+[INFO] [1789549508.624681176] [controller_manager]: update rate is 125 Hz
+[INFO] [1789549508.624743108] [controller_manager]: Spawning controller_manager RT thread with scheduler priority: 50
+[WARN] [1789549508.625014992] [controller_manager]: No real-time kernel detected on this system. See [https://control.ros.org/master/doc/ros2_control/controller_manager/doc/userdoc.html] for details on how to enable realtime scheduling.
+[INFO] [1789549508.634002921] [UR_Client_Library:right_]: Robot connected to reverse interface. Ready to receive control commands.
+[INFO] [1789549510.560354334] [controller_manager]: Loading controller 'joint_state_broadcaster'
+[INFO] [1789549510.571287042] [controller_manager]: Loading controller 'right_speed_scaling_state_broadcaster'
+[INFO] [1789549510.582453329] [right_speed_scaling_state_broadcaster]: Loading UR SpeedScalingStateBroadcaster with tf_prefix: right_
+[INFO] [1789549510.586875293] [controller_manager]: Loading controller 'left_io_and_status_controller'
+[INFO] [1789549510.603064358] [controller_manager]: Loading controller 'right_io_and_status_controller'
+[INFO] [1789549510.609527362] [controller_manager]: Configuring controller 'joint_state_broadcaster'
+[INFO] [1789549510.609671043] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[INFO] [1789549510.618527478] [controller_manager]: Configuring controller 'right_speed_scaling_state_broadcaster'
+[INFO] [1789549510.618601244] [right_speed_scaling_state_broadcaster]: Publisher rate set to : 100.0 Hz
+[INFO] [1789549510.625676075] [controller_manager]: Configuring controller 'left_io_and_status_controller'
+[INFO] [1789549510.633787351] [controller_manager]: Loading controller 'left_speed_scaling_state_broadcaster'
+[INFO] [1789549510.641229096] [left_speed_scaling_state_broadcaster]: Loading UR SpeedScalingStateBroadcaster with tf_prefix: left_
+[INFO] [1789549510.650030268] [controller_manager]: Configuring controller 'right_io_and_status_controller'
+[INFO] [1789549510.673866756] [controller_manager]: Configuring controller 'left_speed_scaling_state_broadcaster'
+[INFO] [1789549510.674003763] [left_speed_scaling_state_broadcaster]: Publisher rate set to : 100.0 Hz
+[INFO] [1789549512.525429313] [controller_manager]: Loading controller 'left_arm_controller'
+[WARN] [1789549512.549128655] [left_arm_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[INFO] [1789549512.568580724] [controller_manager]: Configuring controller 'left_arm_controller'
+[INFO] [1789549512.568772005] [left_arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[INFO] [1789549512.568796409] [left_arm_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[INFO] [1789549512.568824970] [left_arm_controller]: Using 'splines' interpolation method.
+[INFO] [1789549512.569212001] [left_arm_controller]: Controller state will be published at 100.00 Hz.
+[INFO] [1789549512.571560926] [left_arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[INFO] [1789549512.622359200] [controller_manager]: Loading controller 'right_arm_controller'
+[WARN] [1789549512.637818700] [right_arm_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[INFO] [1789549512.668519972] [controller_manager]: Configuring controller 'right_arm_controller'
+[INFO] [1789549512.668763784] [right_arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[INFO] [1789549512.668792007] [right_arm_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[INFO] [1789549512.668814415] [right_arm_controller]: Using 'splines' interpolation method.
+[INFO] [1789549512.669234257] [right_arm_controller]: Controller state will be published at 100.00 Hz.
+[INFO] [1789549512.672910826] [right_arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[ERROR] [1789549513.394416078] [UR_Client_Library:right_]: Logging an ErrorCodeMessage from the UR Controller Box: C283A26
+[ERROR] [1789549513.394493045] [UR_Client_Library:right_]: Logging an ErrorCodeMessage from the UR Controller Box: C283A26
+[INFO] [1789549513.395961530] [UR_Client_Library:right_]: Logging an ErrorCodeMessage from the UR Controller Box: C100A4
+[INFO] [1789549513.396029812] [UR_Client_Library:right_]: Logging an ErrorCodeMessage from the UR Controller Box: C100A3
+[INFO] [1789549558.482876185] [rclcpp]: signal_handler(signum=2)
+[INFO] [1789549558.483075856] [controller_manager]: Shutdown request received....
+[INFO] [1789549558.483223744] [controller_manager]: Shutting down all controllers in the controller manager.
+[INFO] [1789549558.483340357] [controller_manager]: Deactivating controller 'joint_state_broadcaster'
+[INFO] [1789549558.483493124] [controller_manager]: Shutting down controller 'joint_state_broadcaster'
+[INFO] [1789549558.483596342] [controller_manager]: Deactivating controller 'right_speed_scaling_state_broadcaster'
+[INFO] [1789549558.483673227] [controller_manager]: Shutting down controller 'right_speed_scaling_state_broadcaster'
+[INFO] [1789549558.483751180] [controller_manager]: Deactivating controller 'left_io_and_status_controller'
+[INFO] [1789549558.494064016] [controller_manager]: Shutting down controller 'left_io_and_status_controller'
+[INFO] [1789549558.494130304] [controller_manager]: Deactivating controller 'right_io_and_status_controller'
+[INFO] [1789549558.503914818] [controller_manager]: Shutting down controller 'right_io_and_status_controller'
+[INFO] [1789549558.503983652] [controller_manager]: Deactivating controller 'left_speed_scaling_state_broadcaster'
+[INFO] [1789549558.504007704] [controller_manager]: Shutting down controller 'left_speed_scaling_state_broadcaster'
+[INFO] [1789549558.504028055] [controller_manager]: Deactivating controller 'left_arm_controller'
+[INFO] [1789549558.504059374] [controller_manager]: Shutting down controller 'left_arm_controller'
+[INFO] [1789549558.504077717] [controller_manager]: Deactivating controller 'right_arm_controller'
+[INFO] [1789549558.504102557] [controller_manager]: Shutting down controller 'right_arm_controller'
+[INFO] [1789549558.504135125] [resource_manager]: 'deactivate' hardware 'right_ur10e' 
+[INFO] [1789549558.504142761] [resource_manager]: Successful 'deactivate' of hardware 'right_ur10e'
+[INFO] [1789549558.504146530] [resource_manager]: 'shutdown' hardware 'right_ur10e' 
+[INFO] [1789549558.504152156] [resource_manager]: Successful 'shutdown' of hardware 'right_ur10e'
+[INFO] [1789549558.504157564] [resource_manager]: 'deactivate' hardware 'left_ur10e' 
+[INFO] [1789549558.504164183] [resource_manager]: Successful 'deactivate' of hardware 'left_ur10e'
+[INFO] [1789549558.504169252] [resource_manager]: 'shutdown' hardware 'left_ur10e' 
+[INFO] [1789549558.504174820] [resource_manager]: Successful 'shutdown' of hardware 'left_ur10e'
+[INFO] [1789549558.504179814] [controller_manager]: Shutting down the controller manager.

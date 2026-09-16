@@ -142,7 +142,7 @@ def rotate_to_match_qnear(planner, target_joints, accel=0.1, vel=0.1):
         "  cur_pose = get_actual_tcp_pose()\n"
         f"  qnear    = [{q[0]}, {q[1]}, {q[2]}, {q[3]}, {q[4]}, {q[5]}]\n"
         "  tgt_pose = get_forward_kin(qnear)\n"
-        "  hybrid   = p[cur_pose[0], cur_pose[1], cur_pose[2],\n"
+        f"  hybrid   = p[{args.x}, {args.y}, {args.z},\n"
         "               tgt_pose[3], tgt_pose[4], tgt_pose[5]]\n"
         "  q_target = get_inverse_kin(hybrid, qnear=qnear)\n"
         "  textmsg(\"q_cur   =\", get_actual_joint_positions())\n"
