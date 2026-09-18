@@ -111,8 +111,19 @@ class MoveItPlanOnlyClient(Node):
         node_name: Optional override for the ROS 2 node name.
     """
 
-    def __init__(self, node_name: str = "aruco_moveit_planner") -> None:
+    def __init__(
+        self,
+        node_name: str = "aruco_moveit_planner",
+        velocity_scaling: float = _MAX_VEL_SCALE,
+        acceleration_scaling: float = _MAX_ACCEL_SCALE,
+    ) -> None:
         super().__init__(node_name)
+        self._velocity_scaling = float(velocity_scaling)
+        self._acceleration_scaling = float(acceleration_scaling)
+        if not 0.0 < self._velocity_scaling <= 1.0:
+            raise ValueError("velocity_scaling must be in the range (0, 1]")
+        if not 0.0 < self._acceleration_scaling <= 1.0:
+            raise ValueError("acceleration_scaling must be in the range (0, 1]")
         self._client: ActionClient = ActionClient(self, MoveGroup, _MOVE_ACTION)
         self._display_pub = self.create_publisher(DisplayTrajectory, _DISPLAY_TOPIC, 1)
         self._stored_trajectory = None   # populated after a successful plan
@@ -321,8 +332,8 @@ class MoveItPlanOnlyClient(Node):
         req.pipeline_id = pipeline_id
         req.num_planning_attempts = _NUM_ATTEMPTS
         req.allowed_planning_time = _PLANNING_TIME_SEC
-        req.max_velocity_scaling_factor = _MAX_VEL_SCALE
-        req.max_acceleration_scaling_factor = _MAX_ACCEL_SCALE
+        req.max_velocity_scaling_factor = self._velocity_scaling
+        req.max_acceleration_scaling_factor = self._acceleration_scaling
         req.workspace_parameters = self._build_workspace(planning_frame)
         req.goal_constraints.append(self._build_goal_constraints(target_pose, eef_link))
 

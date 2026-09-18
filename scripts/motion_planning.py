@@ -1,9 +1,19 @@
 import argparse
 import rclpy
+import sys
 import time
 import tf2_ros
 import glob
 import yaml
+from motion_completion import (
+    BASE_MOVEIT_VELOCITY_SCALE,
+    BASE_URSCRIPT_VELOCITY,
+    COMPLETION_TOKEN,
+    URScriptCompletionServer,
+    local_ip_for_peer,
+    scaled_motion_values,
+    validated_motion_values,
+)
 from aruco_moveit_planner.moveit_planner import MoveItPlanOnlyClient
 from geometry_msgs.msg import PoseStamped, Point
 from rosidl_runtime_py import message_to_ordereddict, set_message_fields
@@ -14,7 +24,6 @@ from std_msgs.msg import ColorRGBA, String
 from scipy.spatial.transform import Rotation as R
 
 from std_msgs.msg import ColorRGBA, String
-from sensor_msgs.msg import JointState
 from scipy.spatial.transform import Rotation as R
 
 
@@ -26,7 +35,8 @@ LABEL = "OMPL"
 
 def move_with_retry(planner, target, arm="left", max_retries=5,
                     execute=False, auto_execute=False, constrain_joints=True,
-                    pipeline_id="ompl", planner_id="RRTstarkConfigDefault"):
+                    pipeline_id="ompl", planner_id="RRTstarkConfigDefault",
+                    execution_timeout=120.0):
     for attempt in range(max_retries):
         if arm == "left":
             success = planner.plan_to_pose(target)
@@ -38,7 +48,11 @@ def move_with_retry(planner, target, arm="left", max_retries=5,
 
             if execute:
                 if auto_execute:
-                    planner.execute_stored_trajectory()
+                    if not planner.execute_stored_trajectory(
+                        timeout_sec=float(execution_timeout)
+                    ):
+                        print("Trajectory execution failed; stopping without retry.")
+                        return False
                 else:
                     print("Plan stored, not executing (no --auto-execute).")
             return True
@@ -125,7 +139,15 @@ def rotate_to_match(planner, r_cur, r_tgt, accel=0.05, vel=0.02):
     planner.get_logger().info(f"Rotating to match, rotvec={rotvec}")
 
 
-def rotate_to_match_qnear(planner, target_joints, accel=0.1, vel=0.1):
+def rotate_to_match_qnear(
+    planner,
+    target_joints,
+    target_position,
+    robot_ip,
+    accel=0.1,
+    vel=0.1,
+    motion_timeout=180.0,
+):
     """Keep current TCP x,y,z and move joints close to target_joints.
 
     Gets FK of target_joints to obtain its orientation, builds a hybrid pose
@@ -136,50 +158,108 @@ def rotate_to_match_qnear(planner, target_joints, accel=0.1, vel=0.1):
     target_joints: list/tuple of 6 joint angles in radians.
     """
     q = target_joints
-    script = String()
-    script.data = (
-        "def rot_match_qnear():\n"
-        "  cur_pose = get_actual_tcp_pose()\n"
-        f"  qnear    = [{q[0]}, {q[1]}, {q[2]}, {q[3]}, {q[4]}, {q[5]}]\n"
-        "  tgt_pose = get_forward_kin(qnear)\n"
-        f"  hybrid   = p[{args.x}, {args.y}, {args.z},\n"
-        "               tgt_pose[3], tgt_pose[4], tgt_pose[5]]\n"
-        "  q_target = get_inverse_kin(hybrid, qnear=qnear)\n"
-        "  textmsg(\"q_cur   =\", get_actual_joint_positions())\n"
-        "  textmsg(\"q_target=\", q_target)\n"
-        f"  movej(q_target, a={accel}, v={vel})\n"
-        "end\n"
-    )
-    # read current joint positions from /joint_states before publishing
-    cur_joints = [None]
-    def _js_cb(msg):
-        right_names = [
-            'right_shoulder_pan_joint', 'right_shoulder_lift_joint', 'right_elbow_joint',
-            'right_wrist_1_joint', 'right_wrist_2_joint', 'right_wrist_3_joint',
-        ]
-        idx = [msg.name.index(n) for n in right_names if n in msg.name]
-        if len(idx) == 6:
-            cur_joints[0] = [round(msg.position[i], 6) for i in idx]
-
-    sub = planner.create_subscription(JointState, '/joint_states', _js_cb, 10)
-    deadline = planner.get_clock().now() + rclpy.duration.Duration(seconds=2.0)
-    while cur_joints[0] is None and planner.get_clock().now() < deadline:
-        rclpy.spin_once(planner, timeout_sec=0.1)
-    planner.destroy_subscription(sub)
-
-    fmt = lambda j: [round(v, 4) for v in j]
+    target_x, target_y, target_z = target_position
+    fmt = lambda joints: [round(value, 4) for value in joints]
     planner.get_logger().info(
-        f"rotate_to_match_qnear:\n"
-        f"  cur_joints   = {fmt(cur_joints[0]) if cur_joints[0] else 'unavailable'}\n"
-        f"  target_joints= {fmt(list(q))}"
+        f"rotate_to_match_qnear target_joints={fmt(list(q))}"
     )
-    planner._urscript_pub.publish(script)
+
+    try:
+        callback_ip = local_ip_for_peer(robot_ip)
+        with URScriptCompletionServer(callback_ip) as completion:
+            script = String()
+            script.data = (
+                "def rot_match_qnear():\n"
+                f"  ack_open = socket_open(\"{completion.host}\", "
+                f"{completion.port}, \"motion_ack\")\n"
+                "  if ack_open:\n"
+                "    cur_pose = get_actual_tcp_pose()\n"
+                f"    qnear = [{q[0]}, {q[1]}, {q[2]}, {q[3]}, {q[4]}, {q[5]}]\n"
+                "    tgt_pose = get_forward_kin(qnear)\n"
+                f"    hybrid = p[{target_x}, {target_y}, {target_z}, "
+                "tgt_pose[3], tgt_pose[4], tgt_pose[5]]\n"
+                "    q_target = get_inverse_kin(hybrid, qnear=qnear)\n"
+                "    textmsg(\"q_cur   =\", get_actual_joint_positions())\n"
+                "    textmsg(\"q_target=\", q_target)\n"
+                f"    movej(q_target, a={accel}, v={vel})\n"
+                f"    socket_send_string(\"{COMPLETION_TOKEN.decode('ascii')}\", "
+                "\"motion_ack\")\n"
+                "    socket_close(\"motion_ack\")\n"
+                "  else:\n"
+                "    textmsg(\"Motion acknowledgement socket failed; move cancelled\")\n"
+                "  end\n"
+                "end\n"
+            )
+            planner.get_logger().info(
+                "Starting final URScript alignment; waiting for robot-side "
+                f"completion acknowledgement on {completion.host}:{completion.port}..."
+            )
+            planner._urscript_pub.publish(script)
+            completed = completion.wait(motion_timeout)
+    except OSError as exc:
+        planner.get_logger().error(
+            f"Could not create URScript completion channel: {exc}"
+        )
+        return False
+
+    if not completed:
+        planner.get_logger().error(
+            "Final URScript alignment did not acknowledge completion within "
+            f"{float(motion_timeout):.1f} seconds."
+        )
+        return False
+
+    planner.get_logger().info(
+        "Final URScript alignment complete; robot-side movej returned."
+    )
+    return True
 
 
 def main(args):
+    direct_values = (
+        args.moveit_velocity_scaling,
+        args.moveit_acceleration_scaling,
+        args.urscript_velocity,
+        args.urscript_acceleration,
+    )
+    if all(value is None for value in direct_values):
+        dynamics = scaled_motion_values(
+            args.speed_multiplier, args.acceleration_multiplier
+        )
+    elif any(value is None for value in direct_values):
+        raise ValueError(
+            "Explicit motion settings require all four of "
+            "--moveit-velocity-scaling, --moveit-acceleration-scaling, "
+            "--urscript-velocity, and --urscript-acceleration"
+        )
+    else:
+        dynamics = validated_motion_values(*direct_values)
     rclpy.init()
-
-    planner = MoveItPlanOnlyClient()
+    moveit_velocity = dynamics["moveit_velocity"]
+    moveit_acceleration = dynamics["moveit_acceleration"]
+    urscript_velocity = dynamics["urscript_velocity"]
+    urscript_acceleration = dynamics["urscript_acceleration"]
+    execution_timeout = max(
+        120.0,
+        120.0 * BASE_MOVEIT_VELOCITY_SCALE / moveit_velocity,
+    )
+    urscript_timeout = max(
+        180.0,
+        180.0 * BASE_URSCRIPT_VELOCITY / urscript_velocity,
+    )
+    planner = MoveItPlanOnlyClient(
+        velocity_scaling=moveit_velocity,
+        acceleration_scaling=moveit_acceleration,
+    )
+    planner.get_logger().info(
+        "Motion dynamics: "
+        f"MoveIt velocity scaling={moveit_velocity:.3f}, "
+        f"MoveIt acceleration scaling={moveit_acceleration:.3f}, "
+        f"URScript v={urscript_velocity:.3f} rad/s, "
+        f"URScript a={urscript_acceleration:.3f} rad/s², "
+        f"execution timeout={execution_timeout:.0f}s, "
+        f"URScript timeout={urscript_timeout:.0f}s"
+    )
 
     from visualization_msgs.msg import MarkerArray as _MA
     planner._marker_pub = planner.create_publisher(_MA, "/trajectory_comparison", 1)
@@ -193,11 +273,13 @@ def main(args):
     right_target.pose.position.x = args.x
     right_target.pose.position.y = args.y
     right_target.pose.position.z = args.z
-    right_target.pose.orientation.x = 0.090
-    right_target.pose.orientation.y = 0.674
-    right_target.pose.orientation.z = -0.699
-    right_target.pose.orientation.w = -0.220
+    right_target.pose.orientation.x = args.rx
+    right_target.pose.orientation.y = args.ry
+    right_target.pose.orientation.z = args.rz
+    right_target.pose.orientation.w = args.rw
 
+    robot1_joints = None
+    robot2_joints = None
     if args.r1_joints is not None:
         robot1_joints = args.r1_joints    # [j0, j1, j2, j3, j4, j5]
 
@@ -209,10 +291,10 @@ def main(args):
     right_trainsit.pose.position.x = right_target.pose.position.x + 0.15
     right_trainsit.pose.position.y = right_target.pose.position.y + 0.15
     right_trainsit.pose.position.z = right_target.pose.position.z + 0.05
-    right_trainsit.pose.orientation.x = 0.090
-    right_trainsit.pose.orientation.y = 0.674
-    right_trainsit.pose.orientation.z = -0.699
-    right_trainsit.pose.orientation.w = -0.220
+    right_trainsit.pose.orientation.x = args.rx
+    right_trainsit.pose.orientation.y = args.ry
+    right_trainsit.pose.orientation.z = args.rz
+    right_trainsit.pose.orientation.w = args.rw
 
     joint_names = [
     'right_shoulder_pan_joint', 'right_shoulder_lift_joint', 'right_elbow_joint',
@@ -220,30 +302,50 @@ def main(args):
     ]
 
     target_joint_angles = robot2_joints
-    r_tgt = orientation_from_joints(planner, joint_names, target_joint_angles)
-    r_cur = current_orientation(planner)
+    if target_joint_angles is None:
+        planner.get_logger().error(
+            "Robot2 checkpoint start joints are required (--r2-joints)."
+        )
+        planner.destroy_node()
+        rclpy.shutdown()
+        return False
 
     planner._add_box_obstacle("wall1", -0.4, right_target.pose.position.y + 0.1,
                               0.5, 0.2, 0.01, 0.8, frame="right_base")
     time.sleep(1.0)
 
     ok = move_with_retry(planner, right_trainsit, arm="right",
-                         execute=True, auto_execute=args.auto_execute)
+                         execute=True, auto_execute=args.auto_execute,
+                         execution_timeout=execution_timeout)
 
     if ok:
         planner._remove_obstacle("wall1")
         ok = move_with_retry(planner, right_target, arm="right",
-                             execute=True, auto_execute=args.auto_execute)
+                             execute=True, auto_execute=args.auto_execute,
+                             execution_timeout=execution_timeout)
         time.sleep(1.0)
         if target_joint_angles is not None:
-            rotate_to_match_qnear(planner, target_joint_angles)
-            rclpy.spin_once(planner, timeout_sec=1.0)   # let script go out
+            ok = rotate_to_match_qnear(
+                planner,
+                target_joint_angles,
+                (args.x, args.y, args.z),
+                args.right_robot_ip,
+                accel=urscript_acceleration,
+                vel=urscript_velocity,
+                motion_timeout=urscript_timeout,
+            )
         else:
             planner.get_logger().error("No target joint angles provided (--r2-joints).")
+
+    if not ok:
+        planner.get_logger().error(
+            "Motion planning or execution did not complete successfully."
+        )
 
     print_tcp_pose(planner)
     planner.destroy_node()
     rclpy.shutdown()
+    return bool(ok)
 
 
 if __name__ == "__main__":
@@ -259,6 +361,20 @@ if __name__ == "__main__":
                     help="Robot1 median joint angles (rad)")
     parser.add_argument("--r2-joints", type=float, nargs=6, default=None,
                     help="Robot2 median joint angles (rad)")
+    parser.add_argument("--right-robot-ip", default="192.168.1.20",
+                    help="Robot executing the final URScript alignment")
+    parser.add_argument("--speed-multiplier", type=float, default=1.0,
+                    help="Legacy linked velocity multiplier")
+    parser.add_argument("--acceleration-multiplier", type=float, default=1.0,
+                    help="Legacy linked acceleration multiplier")
+    parser.add_argument("--moveit-velocity-scaling", type=float, default=None,
+                    help="Explicit MoveIt velocity scaling in the range (0, 1]")
+    parser.add_argument("--moveit-acceleration-scaling", type=float, default=None,
+                    help="Explicit MoveIt acceleration scaling in the range (0, 1]")
+    parser.add_argument("--urscript-velocity", type=float, default=None,
+                    help="Explicit final movej joint velocity in rad/s")
+    parser.add_argument("--urscript-acceleration", type=float, default=None,
+                    help="Explicit final movej joint acceleration in rad/s²")
     parser.add_argument("--auto-execute", action="store_true")
     args = parser.parse_args()
-    main(args)
+    sys.exit(0 if main(args) else 1)
