@@ -38,11 +38,14 @@ def move_with_retry(planner, target, arm="left", max_retries=5,
                     pipeline_id="ompl", planner_id="RRTstarkConfigDefault",
                     execution_timeout=120.0):
     for attempt in range(max_retries):
+        t0 = time.perf_counter()
         if arm == "left":
             success = planner.plan_to_pose(target)
         else:
             success = planner.plan_to_pose2(target, constrain_joints=constrain_joints,
                                             pipeline_id=pipeline_id, planner_id=planner_id)
+        print(f"[{planner_id}] planning time: {time.perf_counter() - t0:.2f} s "
+              f"({'success' if success else 'failed'})")
 
         if success:
             print(f"Plan succeeded on attempt {attempt + 1}")

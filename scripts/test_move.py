@@ -26,11 +26,14 @@ def move_with_retry(planner, target, arm="left", max_retries=5,
                     execute=False, constrain_joints=True,
                     pipeline_id="ompl", planner_id="RRTstarkConfigDefault"):
     for attempt in range(max_retries):
+        t0 = time.perf_counter()
         if arm == "left":
             success = planner.plan_to_pose(target)
         else:
             success = planner.plan_to_pose2(target, constrain_joints=constrain_joints,
                                             pipeline_id=pipeline_id, planner_id=planner_id)
+        print(f"[{planner_id}] planning time: {time.perf_counter() - t0:.2f} s "
+              f"({'success' if success else 'failed'})")
 
         if success:
             print(f"Plan succeeded on attempt {attempt + 1}")
@@ -268,7 +271,8 @@ def main():
     # planner._remove_obstacle("wall1", "wall2")
     time.sleep(1.0)
 
-    ok = move_with_retry(planner, right_trainsit, arm="right", execute=True)
+    ok = move_with_retry(planner, right_trainsit, arm="right", execute=True,
+                         planner_id="RRTConnectkConfigDefault")
     
     traj= planner._stored_trajectory
     # m = trajectory_metrics(traj)
