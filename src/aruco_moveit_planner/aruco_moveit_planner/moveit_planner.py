@@ -58,10 +58,10 @@ _RIGHT_PLANNING_GROUP: str = "right_arm"
 _RIGHT_EEF_LINK: str = "right_tcp"
 _RIGHT_PLANNING_FRAME: str = "right_base"
 
-_PLANNING_TIME_SEC: float = 10.0
+_PLANNING_TIME_SEC: float = 5.0
 _NUM_ATTEMPTS: int = 10
-_MAX_VEL_SCALE: float = 0.02
-_MAX_ACCEL_SCALE: float = 0.02
+_MAX_VEL_SCALE: float = 0.1
+_MAX_ACCEL_SCALE: float = 0.1
 
 # Tolerance sphere radius for position constraint (metres).
 _POSITION_TOL_M: float = 0.005
@@ -202,7 +202,9 @@ class MoveItPlanOnlyClient(Node):
 
     def plan_to_pose2(self, target_pose: PoseStamped,
                   constrain_joints: bool = True,
-                  timeout_sec: float = 30.0) -> bool:
+                  timeout_sec: float = 30.0,
+                  pipeline_id: str = "ompl",
+                  planner_id: str = "RRTstarkConfigDefault") -> bool:
         """Plan only. Stores the trajectory in self._stored_trajectory.
         Nothing moves until execute_stored_trajectory() is called."""
         goal = MoveGroup.Goal()
@@ -212,6 +214,8 @@ class MoveItPlanOnlyClient(Node):
             group=_RIGHT_PLANNING_GROUP,
             eef_link=_RIGHT_EEF_LINK,
             planning_frame=_RIGHT_PLANNING_FRAME,
+            pipeline_id=pipeline_id,
+            planner_id=planner_id,
             constrain_joints=constrain_joints,
         )
 

@@ -41,7 +41,8 @@ def move_with_retry(planner, target, arm="left", max_retries=5,
         if arm == "left":
             success = planner.plan_to_pose(target)
         else:
-            success = planner.plan_to_pose2(target, constrain_joints=constrain_joints)
+            success = planner.plan_to_pose2(target, constrain_joints=constrain_joints,
+                                            pipeline_id=pipeline_id, planner_id=planner_id)
 
         if success:
             print(f"Plan succeeded on attempt {attempt + 1}")
@@ -320,9 +321,14 @@ def main(args):
 
     if ok:
         planner._remove_obstacle("wall1")
+        # Pilz LIN: straight line in Cartesian space. Joint constraints off —
+        # Pilz rejects goals that mix joint and pose constraints.
         ok = move_with_retry(planner, right_target, arm="right",
                              execute=True, auto_execute=args.auto_execute,
-                             execution_timeout=execution_timeout)
+                             execution_timeout=execution_timeout,
+                             constrain_joints=False,
+                             pipeline_id="pilz_industrial_motion_planner",
+                             planner_id="LIN")
         time.sleep(1.0)
         if target_joint_angles is not None:
             ok = rotate_to_match_qnear(
