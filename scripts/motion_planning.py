@@ -320,7 +320,8 @@ def main(args):
 
     ok = move_with_retry(planner, right_trainsit, arm="right",
                          execute=True, auto_execute=args.auto_execute,
-                         execution_timeout=execution_timeout)
+                         execution_timeout=execution_timeout,
+                         planner_id="RRTConnectkConfigDefault")
 
     if ok:
         planner._remove_obstacle("wall1")
